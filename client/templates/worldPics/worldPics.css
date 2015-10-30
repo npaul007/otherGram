@@ -1,0 +1,17 @@
+#worldPicContainer{
+	margin-top: 20px;
+	width: 40%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 20px;
+	background: white;
+}
+
+.fa-thumbs-o-up{
+	font-size: 1.6em;
+}
+
+#likesDiv{
+	margin: 10px;
+}

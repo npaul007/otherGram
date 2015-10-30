@@ -1,0 +1,16 @@
+#loginForm{
+	width: 300px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 20px;
+	background: white;
+}
+
+#loginButton, #registerButton{
+	margin-top: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}

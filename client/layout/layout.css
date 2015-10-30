@@ -1,0 +1,29 @@
+.center-text{
+	text-align: center;
+}
+
+body{
+	font-family: sans-serif;
+	background: #FFFF99;
+}
+
+.shadow{
+	box-shadow: 2px 2px 2px gray;
+}
+
+input{
+	width: 100%;
+}
+
+.icons{
+	font-size: 4em;
+	text-align: center;
+}
+
+i:hover{
+	color: red;
+}
+
+.inline{
+	display: inline;
+}
