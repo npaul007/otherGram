@@ -7,5 +7,8 @@ Template.layout.events({
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
+	},
+	'click .fa-instagram':function(){
+		Router.go('/photoCrop');
 	}
 });
