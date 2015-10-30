@@ -1,12 +1,18 @@
-Template.photoCrop.rendered=function(){
-	$('.cropper-example-1 > img').cropper({
-	  aspectRatio: 16 / 9,
-	  autoCropArea: 0.65,
-	  strict: false,
-	  guides: false,
-	  highlight: false,
-	  dragCrop: false,
-	  cropBoxMovable: false,
-	  cropBoxResizable: false
+Template.photoCrop.rendered=function(event,template){
+	function readURL(input) {
+
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+
+	        reader.onload = function (e) {
+	            $('#displayPic').attr('src', e.target.result);
+	        }
+
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$("#imgInp").change(function(){
+	    readURL(this);
 	});
 }
