@@ -27,3 +27,7 @@ i:hover{
 .inline{
 	display: inline;
 }
+
+.inline-block{
+	display: inline-block;
+}

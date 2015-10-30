@@ -1,6 +1,6 @@
 #worldPicContainer{
 	margin-top: 20px;
-	width: 40%;
+	width: 60%;
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
@@ -14,4 +14,10 @@
 
 #likesDiv{
 	margin: 10px;
+}
+
+#postedPic{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
