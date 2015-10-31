@@ -31,3 +31,9 @@ i:hover{
 .inline-block{
 	display: inline-block;
 }
+
+.center{
+	display: inline-block;
+	margin-right: auto;
+	margin-left: auto;
+}

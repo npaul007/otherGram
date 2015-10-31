@@ -1,11 +1,16 @@
 #yourPicContainer{
-	width: 325px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 20px;
 	background: white;
+	position: relative;
+	text-align: center;
 }
 
 #postedYourPic{
-
+	width: 300px;
+	height: 200px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }

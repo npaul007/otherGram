@@ -1,12 +1,18 @@
 <template name="layout">
+	 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
 		<h1 class="center-text">Welcome to fakeAGram</h1>
-		<div class="icons">
-			<i class="fa fa-globe"></i>
-			<i class="fa fa-instagram"></i>
-			<i class="fa fa-home"></i>
-			<i class="fa fa-sign-out"></i>
-		</div>
+		{{#if currentUser}}
+			<h3 class="center-text">{{username}}</h3>
+		{{/if}}
+			<div class="icons">
+				{{#if currentUser}}
+				<i class="fa fa-globe"></i>
+				<i class="fa fa-instagram"></i>
+				<i class="fa fa-home"></i>
+				<i class="fa fa-sign-out"></i>
+				{{/if}}
+			</div>
 		{{>yield}}
 	</div>
 </template>
