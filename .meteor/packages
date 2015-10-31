@@ -24,3 +24,5 @@ jonblum:jquery-cropper
 bootstrap
 fortawesome:fontawesome
 accounts-password
+cfs:filesystem
+cfs:gridfs

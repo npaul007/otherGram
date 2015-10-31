@@ -3,10 +3,11 @@
 		<div class="col-md-12">
 			<h2 class="center-text">Upload a Picture</h2>
 			<div id="uploadDiv">
-				<input type='file' id="imgInp" />
-				<p></p>
-    		 	<img id="displayPic" src="#" alt="your image" />
+				<input type='file' id="uploaded" />
 			</div>
+			{{#each images}}
+				<img src="{{this.url}}">
+			{{/each}}
 		</div>
 	</div>
 </template>

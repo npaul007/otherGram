@@ -1,18 +1,34 @@
-Template.photoCrop.rendered=function(event,template){
-	function readURL(input) {
+Images = new FS.Collection("images",{
+	stores:[new FS.Store.FileSystem("images",{})]
+});
 
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
+Posts = new Meteor.Collection('posts');
 
-	        reader.onload = function (e) {
-	            $('#displayPic').attr('src', e.target.result);
-	        }
 
-	        reader.readAsDataURL(input.files[0]);
-	    }
+Template.photoCrop.events({
+
+});
+
+Template.photoCrop.helpers({
+	images:function(){
+		return Images.find();
 	}
+});
 
-	$("#imgInp").change(function(){
-	    readURL(this);
+function uploadPic(file){
+	FS.Utility.eachFile(event,function(file){
+		Images.insert(file,function(error){
+				console.log(error);
+			}
+		);
+	});
+}
+
+function uploadPost(username,comment,imageId){
+	Posts.insert({
+		username:username,
+		commnet:comment,
+		likes:0,
+		imageId:imageId
 	});
 }
