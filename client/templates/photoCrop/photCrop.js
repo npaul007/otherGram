@@ -8,7 +8,7 @@ Template.photoCrop.events({
 		var file = $('#uploaded').get(0).files[0]; // Stores temporaly the FSFile
 		var fsFile = new FS.File(file); // take the FS.File object
 		var textareaText = $('#text').val()
-		fsFile.metadata = {post:textareaText,likes:0};
+		fsFile.metadata = {post:textareaText,likes:0,userId:Meteor.userId()};
 		Images.insert(fsFile);
 	}
 });

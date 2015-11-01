@@ -1,4 +1,4 @@
-#worldPicContainer{
+.worldPicContainer{
 	width: 70%;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -14,11 +14,11 @@
 	font-size: 1.6em;
 }
 
-#likesDiv{
+.likesDiv{
 	margin: 10px;
 }
 
-#postedPic{
+.postedPic{
 	display: block;
 	margin-right: auto;
 	margin-left: auto;

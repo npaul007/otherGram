@@ -1,5 +1,6 @@
-Template.worldPics.rendered=function(){
-	Template.worldPics.helpers({
-	 	images: Images.find() 
-	});
-}
+
+Template.worldPics.helpers({
+ 	'images': function(){
+ 		return Images.find() ;
+ 	}
+});
