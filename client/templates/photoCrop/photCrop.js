@@ -8,8 +8,14 @@ Template.photoCrop.events({
 		var file = $('#uploaded').get(0).files[0]; // Stores temporaly the FSFile
 		var fsFile = new FS.File(file); // take the FS.File object
 		var textareaText = $('#text').val()
-		fsFile.metadata = {post:textareaText,likes:0,userId:Meteor.userId()};
+		fsFile.metadata = {
+			post:textareaText,
+			likes:0,
+			userId:Meteor.userId(),
+			username:Meteor.user().username
+		};
 		Images.insert(fsFile);
+		Router.go('/worldPics');
 	}
 });
 

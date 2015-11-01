@@ -4,7 +4,7 @@
 			<h2 class="center-text">World</h2>
 			{{#each images}}
 				<div class="worldPicContainer shadow">
-					<h4>Username</h4>
+					<h4>{{this.metadata.username}}</h4>
 					<img src="{{this.url}}" alt="thumbnail" class="postedPic">
 					<div class="likesDiv">
 						<i class="fa fa-thumbs-o-up"></i>
