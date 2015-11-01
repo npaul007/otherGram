@@ -4,3 +4,13 @@
 	margin-right: auto;
 	text-align: center;
 }
+
+#text{
+	width: 40%;
+	height: 100px;
+}
+
+#displayPic{
+	width: 50%;
+	height: 50%;
+} 

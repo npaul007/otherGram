@@ -3,15 +3,30 @@ Images = new FS.Collection("images",{
 });
 
 Template.photoCrop.events({
-	'change #uploaded':function(event,template){
+	'click #submitPic':function(event,template){
 		event.preventDefault();
 		var file = $('#uploaded').get(0).files[0]; // Stores temporaly the FSFile
 		var fsFile = new FS.File(file); // take the FS.File object
-		fsFile.metadata = {nameValueMetadata:"Cool Stuff"};
+		var textareaText = $('#text').val()
+		fsFile.metadata = {post:textareaText,likes:0};
 		Images.insert(fsFile);
 	}
 });
 
+Template.photoCrop.rendered=function(){
+	function readURL(input) {
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
 
+	        reader.onload = function (e) {
+	            $('#displayPic').attr('src', e.target.result);
+	        }
 
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
 
+	$("#uploaded").change(function(){
+	    readURL(this);
+	});
+}
