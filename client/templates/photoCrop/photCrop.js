@@ -2,33 +2,16 @@ Images = new FS.Collection("images",{
 	stores:[new FS.Store.FileSystem("images",{})]
 });
 
-Posts = new Meteor.Collection('posts');
-
-
 Template.photoCrop.events({
-
-});
-
-Template.photoCrop.helpers({
-	images:function(){
-		return Images.find();
+	'change #uploaded':function(event,template){
+		event.preventDefault();
+		var file = $('#uploaded').get(0).files[0]; // Stores temporaly the FSFile
+		var fsFile = new FS.File(file); // take the FS.File object
+		fsFile.metadata = {nameValueMetadata:"Cool Stuff"};
+		Images.insert(fsFile);
 	}
 });
 
-function uploadPic(file){
-	FS.Utility.eachFile(event,function(file){
-		Images.insert(file,function(error){
-				console.log(error);
-			}
-		);
-	});
-}
 
-function uploadPost(username,comment,imageId){
-	Posts.insert({
-		username:username,
-		commnet:comment,
-		likes:0,
-		imageId:imageId
-	});
-}
+
+

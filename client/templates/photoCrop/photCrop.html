@@ -4,10 +4,11 @@
 			<h2 class="center-text">Upload a Picture</h2>
 			<div id="uploadDiv">
 				<input type='file' id="uploaded" />
+				<p></p>
+				<textarea id="text" placeholder="your comment"></textarea>
+				<p></p>
+				<button id="submitPic">Upload</button>
 			</div>
-			{{#each images}}
-				<img src="{{this.url}}">
-			{{/each}}
 		</div>
 	</div>
 </template>
