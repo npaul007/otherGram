@@ -1,5 +1,5 @@
 .worldPicContainer{
-	width: 70%;
+	width: 65%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 20px;
@@ -22,4 +22,6 @@
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
+	width: 100%;
+	height: 100%;
 }
