@@ -20,7 +20,7 @@ Template.photoCrop.events({
 
 		Images.insert(fsFile);
 		
-		Router.go('/worldPics');
+		Router.go('/world');
 	}
 });
 

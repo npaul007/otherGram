@@ -11,7 +11,7 @@ Template.login.events({
 			if(error){
 				alert("incorrect password");
 			}else{
-				Router.go('/worldPics');
+				Router.go('/world');
 			}
 		});
 	}

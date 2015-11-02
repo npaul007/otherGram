@@ -28,3 +28,4 @@ cfs:filesystem
 cfs:gridfs
 cfs:autoform
 aldeed:collection2
+sacha:spin

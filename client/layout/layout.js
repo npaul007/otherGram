@@ -3,7 +3,7 @@ Template.layout.events({
 		Router.go('/');
 	},
 	'click .fa-globe':function(){
-		Router.go('/worldPics');
+		Router.go('/world');
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
