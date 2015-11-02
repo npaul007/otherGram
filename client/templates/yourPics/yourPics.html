@@ -2,15 +2,17 @@
 	<div class="container">
 		<h2 class="center-text">My Pictures</h2>
 		<div class="col-md-12 center">
+			{{#each myImages}}
 			<div id="yourPicContainer" class="shadow inline-block">
-				<h4>Username</h4>
-				<img src="20150101_140518 copy.jpg" id="postedYourPic">
+				<h4>{{metadata.username}}</h4>
+				<img src="{{this.url}}" id="postedYourPic">
 				<div id="likesDiv">
 					<i class="fa fa-thumbs-o-up"></i>
-					<p class="inline">20</p>
+					<p class="inline">{{metadata.likes}}</p>
 				</div>
 				<h4>Me and the bro</h4>
 			</div>
+			{{/each}}
 		</div>
 	</div>
 </template>
