@@ -1,6 +1,6 @@
 Template.yourPics.helpers({
 	'myImages':function(){
-		return Images.find({"metadata.userId":Meteor.userId()});
+		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}});
 	}
 });
 

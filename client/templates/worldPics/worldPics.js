@@ -1,7 +1,7 @@
 
 Template.worldPics.helpers({
  	'images': function(){
- 		return Images.find() ;
+ 		return Images.find({},{sort:{"copies.images.updatedAt":-1}});
  	}
 });
 
