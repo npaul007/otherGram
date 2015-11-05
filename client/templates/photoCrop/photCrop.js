@@ -1,5 +1,40 @@
 Images = new FS.Collection("images",{
-	stores:[new FS.Store.FileSystem("images",{})]
+	stores:[new FS.Store.FileSystem("images",{})],
+	filter: {
+        allow: {
+            contentTypes: ['image/*']
+        }
+    }
+});
+
+Images.deny({
+ insert: function(){
+	 return false;
+ },
+ update: function(){
+	 return false;
+ },
+ remove: function(){
+	 return false;
+ },
+ download: function(){
+	 return false;
+ }
+});
+
+Images.allow({
+ insert: function(){
+	 return true;
+ },
+ update: function(){
+	 return true;
+ },
+ remove: function(){
+	 return true;
+ },
+ download: function(){
+	 return true;
+ }
 });
 
 Template.photoCrop.events({
@@ -27,9 +62,16 @@ Template.photoCrop.events({
 		}
 
 		else{
-			Images.insert(fsFile);
+			Images.insert(fsFile,function(error,fileObject){
+				if(error){
+					alert('error');
+					return;
+				}
+			});
+
 			Router.go('/world');
 		}
+
 
 	}
 });
@@ -55,7 +97,6 @@ Template.photoCrop.rendered=function(){
 	    $("#displayPic")
 		    .on('load', function() { alert("image loaded correctly"); corrupted = false;})
 		    .on('error', function() { alert("File is corrupted"); corrupted = true;})
-		    .attr("src", $(originalImage).attr("src"))
 		;
 	});
 }
