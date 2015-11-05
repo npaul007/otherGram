@@ -8,6 +8,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	word-wrap:break-word;
 }
 
 .fa-thumbs-o-up{

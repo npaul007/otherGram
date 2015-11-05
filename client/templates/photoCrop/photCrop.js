@@ -17,10 +17,14 @@ Template.photoCrop.events({
 			userId:Meteor.userId(),
 			username:Meteor.user().username
 		};
-
-		Images.insert(fsFile);
 		
-		Router.go('/world');
+		if ($('#uploaded').get(0).files.length === 0) {
+		    alert("No files selected.");
+		}else{
+			Images.insert(fsFile);
+			Router.go('/world');
+		}
+
 	}
 });
 

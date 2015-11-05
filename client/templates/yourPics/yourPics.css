@@ -5,6 +5,8 @@
 	background: white;
 	position: relative;
 	text-align: center;
+	word-wrap:break-word;
+	width: 350px;
 }
 
 #postedYourPic{
