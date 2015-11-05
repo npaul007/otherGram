@@ -25,7 +25,7 @@ Template.photoCrop.events({
 		else if(corrupted){
 			alert('file is either corrupted or not an image');
 		}
-		
+
 		else{
 			Images.insert(fsFile);
 			Router.go('/world');
@@ -53,7 +53,7 @@ Template.photoCrop.rendered=function(){
 	$("#uploaded").change(function(){
 	    readURL(this);
 	    $("#displayPic")
-		    .on('load', function() { alert("image loaded correctly"); })
+		    .on('load', function() { alert("image loaded correctly"); corrupted = false;})
 		    .on('error', function() { alert("File is corrupted"); corrupted = true;})
 		    .attr("src", $(originalImage).attr("src"))
 		;
