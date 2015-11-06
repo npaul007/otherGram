@@ -1,5 +1,5 @@
 Images = new FS.Collection("images",{
-	stores:[new FS.Store.FileSystem("images",{})],
+	stores:[new FS.Store.FileSystem("images",{path:"pictures"})],
 	filter: {
         allow: {
             contentTypes: ['image/*']
