@@ -1,16 +1,39 @@
 #loginForm{
-	width: 270px;
-	display: block;
-	margin-right: auto;
+	border-radius: 10px;
+	width: 300px;
+	padding: 30px;
+	background: #ffbb99;
+	text-align: center;
 	margin-left: auto;
-	padding: 20px;
-	background: white;
+	margin-right: auto;
+}
+
+#loginUsername , #loginPassword{
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #loginButton, #registerButton{
 	margin-top: 10px;
+	padding: 5px;
+
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
-	padding: 10px;
+	margin-left: auto;
+
+	width: 22%;
+
+	color: white;
+	background: #660033;
+	border: 2px solid #660033;
+}
+
+#loginButton:hover{
+	color: #660033;
+	background: white;
+}
+
+#registerButton:hover{
+	color: #660033;
+	background: white;
 }

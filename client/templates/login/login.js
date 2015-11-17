@@ -4,8 +4,8 @@ Template.login.events({
 	},
 	'click #loginButton':function(event,template){
 
-		var username = template.find('#usernameLogin').value;
-		var password = template.find('#passwordLogin').value;
+		var username = template.find('#loginUsername').value;
+		var password = template.find('#loginPassword').value;
 
 		Meteor.loginWithPassword(username,password,function(error){
 			if(error){
