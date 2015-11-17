@@ -3,11 +3,8 @@
 	<div id="main">
 		{{>navbar}}
 		{{>yield}}
+		{{>footer}}
 	</div>
-	<footer>
-		<h4 class="center-text">Nathanael Paulemon</h4>
-		<a href="https://github.com/npaul007/fakeAGram" class="center-text" id="githubLink"><p class="center-text">Github</p></a>
-	</footer>
 </template>
 
 
@@ -16,19 +13,28 @@
 </template>
 
 <template name="navbar">
-	<div class="navbar navbar-default">
+	<div class="navbar navbar-default" id="navbar-top">
 		<h1 class="navbar-brand center-text" id="navHeader">fakeAGram</h1>
 		{{#if currentUser}}
 		<div id="navSearchContainer">
 		<input type="text" class="form-control inline" id="navSearchBar" placeholder="Search">
 		<button class="btn btn-default form-control" id="navSearchButton">Search</button>
 		</div>
-		<div class="icons">
-			<i class="fa fa-globe"></i>
-			<i class="fa fa-instagram"></i>
-			<i class="fa fa-home"></i>
-			<i class="fa fa-sign-out"></i>
-		</div>
 		{{/if}}
+	</div>
+</template>
+
+<template name="footer">
+	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
+		{{#if currentUser}}
+			<div class="icons">
+				<i class="fa fa-globe"></i>
+				<i class="fa fa-instagram"></i>
+				<i class="fa fa-home"></i>
+				<i class="fa fa-sign-out"></i>
+			</div>
+		{{/if}}
+		<h4 class="center-text">Nathanael Paulemon</h4>
+		<a href="https://github.com/npaul007/fakeAGram" class="center-text" id="githubLink"><p class="center-text">Github</p></a>
 	</div>
 </template>

@@ -12,16 +12,21 @@ label{
 }
 
 .shadow{
-	box-shadow: 2px 2px 2px gray;
+	box-shadow: 2px 2px 2px white;
 }
 
 .icons{
 	font-size: 3.5em;
 	text-align: center;
+	background:  #993366;
 }
 
 #iconGlobeDiv{
 	background: green;
+}
+
+i{
+	margin-right: 20px;
 }
 
 i:hover{
@@ -42,13 +47,13 @@ i:hover{
 	margin-left: auto;
 }
 
-.navbar{
-	background: #cc0000;
-	padding: 10px;
-}
-
 .center-text{
 	text-align: center;
+}
+
+#navbar-top{
+	background: #cc0000;
+	padding: 10px;
 }
 
 #navSearchContainer{
@@ -78,6 +83,11 @@ i:hover{
 
 #navHeader{
 	font-family: 'Lily Script One', cursive;
+}
+
+#navbar-bottom{
+	background: #660033;
+	position: fixed;
 }
 
 #githubLink{
