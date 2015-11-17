@@ -11,6 +11,10 @@ label{
 	color: black;
 }
 
+.container{
+    margin-bottom: 400px;
+}
+
 .shadow{
 	box-shadow: 2px 2px 2px white;
 }
@@ -53,7 +57,7 @@ i:hover{
 
 #navbar-top{
 	background: #cc0000;
-	padding: 10px;
+	padding: 5px;
 }
 
 #navSearchContainer{
@@ -61,7 +65,7 @@ i:hover{
 }
 
 #navSearchBar{
-	width: 40%;
+	width: 45%;
 }
 
 #navSearchButton{
@@ -93,5 +97,5 @@ i:hover{
 #githubLink{
 	text-decoration: none;
 	color: white;
-	font-size: 1em;
+	font-size: .8em;
 }
