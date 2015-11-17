@@ -16,3 +16,10 @@ Template.login.events({
 		});
 	}
 });
+
+Template.login.rendered=function(){
+	// if user is already logged in
+	if(Meteor.userId()){
+		Router.go('/world');
+	}
+}
