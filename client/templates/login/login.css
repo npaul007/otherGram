@@ -1,8 +1,7 @@
 #loginForm{
-	border-radius: 10px;
 	width: 300px;
 	padding: 30px;
-	background: #ffbb99;
+	background: white;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -29,11 +28,11 @@
 }
 
 #loginButton:hover{
-	color: #660033;
-	background: white;
+	background: #cc0066;
+	border: 2px solid #cc0066;
 }
 
 #registerButton:hover{
-	color: #660033;
-	background: white;
+	background: #cc0066;
+	border: 2px solid #cc0066;
 }

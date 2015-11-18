@@ -2,7 +2,7 @@
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
 		{{>navbar}}
-		<div class="push">{{>yield}}</div>
+		{{>yield}}
 		{{>footer}}
 	</div>
 </template>
@@ -29,12 +29,13 @@
 		{{#if currentUser}}
 			<div class="icons">
 				<i class="fa fa-globe"></i>
+				<i class="fa fa-users"></i>
 				<i class="fa fa-instagram"></i>
 				<i class="fa fa-home"></i>
 				<i class="fa fa-sign-out"></i>
 			</div>
 		{{/if}}
-		<h5 class="center-text">Nathanael Paulemon</h5>
+		<p class="center-text">Nathanael Paulemon</p>
 		<a href="https://github.com/npaul007/fakeAGram" class="center-text" id="githubLink"><p class="center-text">Github</p></a>
 	</div>
 </template>

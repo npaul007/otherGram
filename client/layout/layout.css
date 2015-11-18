@@ -4,7 +4,7 @@
 body{
 	color: white;
 	font-family: 'Open Sans',sans-serif;
-	background: url(seamless-marbleized-textures-2.jpg);
+	background: #ffe6cc;
 }
 
 label{
@@ -13,16 +13,22 @@ label{
 
 .container{
     margin-bottom: 400px;
+    color: black;
 }
 
 .shadow{
-	box-shadow: 2px 2px 2px white;
+	box-shadow: 2px 2px 2px gray;
 }
 
 .icons{
-	font-size: 3.5em;
+	font-size: 3em;
 	text-align: center;
-	background:  #993366;
+	background:  #ff3300;
+	padding: 10px;
+}
+
+.selected{
+	border-bottom: 2px solid white;
 }
 
 #iconGlobeDiv{
@@ -90,7 +96,7 @@ i:hover{
 }
 
 #navbar-bottom{
-	background: #660033;
+	background: #800000;
 	position: fixed;
 }
 
