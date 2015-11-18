@@ -3,3 +3,29 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#registerUsername , #registerPassword , #registerConfirmPassword{
+	margin-left: auto;
+	margin-right: auto;
+	width: 260px;
+}
+
+#registerSubmitButton{
+	margin-top: 10px;
+	padding: 5px;
+
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+	width: 22%;
+
+	color: white;
+	background: #660033;
+	border: 2px solid #660033;
+}
+
+#registerSubmitButton:hover{
+	background: #cc0066;
+	border: 2px solid #cc0066;
+}

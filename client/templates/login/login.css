@@ -10,6 +10,7 @@
 #loginUsername , #loginPassword{
 	margin-left: auto;
 	margin-right: auto;
+	width: 260px;
 }
 
 #loginButton, #registerButton{

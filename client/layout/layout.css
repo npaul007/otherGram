@@ -21,7 +21,7 @@ label{
 }
 
 .icons{
-	font-size: 3em;
+	font-size: 2.2em;
 	text-align: center;
 	background:  #ff3300;
 	padding: 10px;
@@ -104,4 +104,6 @@ i:hover{
 	text-decoration: none;
 	color: white;
 	font-size: .8em;
+	margin-left: auto;
+	margin-right: auto;
 }
