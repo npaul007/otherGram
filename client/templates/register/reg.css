@@ -7,7 +7,7 @@
 #registerUsername , #registerPassword , #registerConfirmPassword{
 	margin-left: auto;
 	margin-right: auto;
-	width: 260px;
+	width: 90%;
 }
 
 #registerSubmitButton{
@@ -18,7 +18,7 @@
 	margin-right: auto;
 	margin-left: auto;
 
-	width: 22%;
+	width: 35%;
 
 	color: white;
 	background: #660033;

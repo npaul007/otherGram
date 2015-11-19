@@ -10,8 +10,6 @@ Template.login.events({
 		Meteor.loginWithPassword(username,password,function(error){
 			if(error){
 				alert("incorrect password");
-			}else{
-				Router.go('/world');
 			}
 		});
 	}
