@@ -13,7 +13,6 @@ Template.layout.events({
 	},
 	'click .fa-sign-out':function(){
 		Meteor.logout();
-		Router.go('/');
 	}
 });
 
