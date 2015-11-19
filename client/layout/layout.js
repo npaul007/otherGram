@@ -1,9 +1,6 @@
 Template.layout.events({
-	'click .fa-sign-out':function(){
-		Router.go('/');
-	},
 	'click .fa-globe':function(){
-		Router.go('/world');
+		Router.go('/');
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
