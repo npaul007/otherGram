@@ -69,7 +69,7 @@ Template.photoCrop.events({
 				}
 			});
 
-			Router.go('/world');
+			Router.go('/');
 		}
 
 
