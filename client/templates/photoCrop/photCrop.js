@@ -71,8 +71,10 @@ Template.photoCrop.events({
 
 			Router.go('/');
 		}
-
-
+	},
+	'click #uploadLabel':function(event,template){
+		event.preventDefault();
+		template.find('#uploaded').click();
 	}
 });
 
