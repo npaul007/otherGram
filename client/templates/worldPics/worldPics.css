@@ -19,21 +19,7 @@
 	margin: 10px;
 }
 
-#postedPic{
-	width: 95%;
-	height: 95%;
-}
-
-
 @media (max-width: 800px){
-	#postedPic{
-		display: block;
-		margin-right: auto;
-		margin-left: auto;
-		width: 95%;
-		height: 95%;
-	}
-
 	#worldPicContainer{
 		width: 91%;
 		margin-top: 10px;

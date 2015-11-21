@@ -6,11 +6,33 @@
 }
 
 #text{
-	width: 40%;
-	height: 100px;
+	width: 70%;
+	height: 200px;
 }
 
-#displayPic{
-	width: 50%;
-	height: 50%;
-} 
+#submitPic{
+	margin-top: 10px;
+	padding: 5px;
+
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+	width: 18%;
+
+	color: white;
+	background: #660033;
+	border: 2px solid #660033;
+}
+
+#submitPic:hover{
+	background: #cc0066;
+	border: 2px solid #cc0066;
+}
+
+@media (max-width: 800px){
+	#text{
+		width: 91%;
+	}
+
+}
