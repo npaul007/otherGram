@@ -1,3 +1,12 @@
+#registerForm{
+	width: 240px;
+	padding: 30px;
+	background: white;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #submitButton{
 	display: block;
 	margin-left: auto;
@@ -29,3 +38,4 @@
 	background: #cc0066;
 	border: 2px solid #cc0066;
 }
+
