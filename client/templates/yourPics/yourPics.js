@@ -5,12 +5,14 @@ Template.yourPics.helpers({
 });
 
 Template.yourPics.events({
- 	'click .fa-thumbs-o-up':function(){
- 		Images.update({_id:this._id},{$inc:{"metadata.likes":1}});
- 	},
  	'dblclick #postedYourPic':function(){
  		if(Meteor.user().profile.type === 'admin' || Meteor.userId() === this.metadata.userId){
  			Images.remove({_id:this._id});
  		}
  	}
 });
+
+Template.yourPics.rendered = function(event,template){
+	  $("html, body").animate({ scrollTop:$("#navbar-top").offset().top-45 }, "slow");
+	  return false;
+}
