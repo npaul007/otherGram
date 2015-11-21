@@ -1,27 +1,42 @@
-.center-text{
-	text-align: center;
-}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 
 body{
-	font-family: sans-serif;
-	background: #FFFF99;
+	color: white;
+	font-family: 'Open Sans',sans-serif;
+	background: #fff2e5;
+}
+
+label{
+	color: black;
+}
+
+.container{
+    margin-bottom: 100px;
+    color: black;
 }
 
 .shadow{
-	box-shadow: 2px 2px 2px gray;
-}
-
-input{
-	width: 100%;
+	box-shadow: 1px 1px 1px gray;
 }
 
 .icons{
-	font-size: 4em;
+	font-size: 2.5em;
 	text-align: center;
+	background:  #ff3300;
+	padding: 10px;
+}
+
+.selected{
+	border-bottom: 2px solid white;
+}
+
+i{
+	margin-right: 20px;
 }
 
 i:hover{
-	color: red;
+	color: teal;
 }
 
 .inline{
@@ -37,3 +52,61 @@ i:hover{
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.center-text{
+	text-align: center;
+}
+
+#navbar-top{
+	background: #cc0000;
+	padding: 5px;
+}
+
+#navSearchContainer{
+	text-align: center;
+}
+
+#navSearchBar{
+	width: 45%;
+}
+
+#navSearchButton{
+	position: relative;
+	top: -8px;
+	color: white;
+	background: #660033;
+	border: 2px solid #660033;
+}
+
+#navSearchButton:hover{
+	background: white;
+	color: #660033;
+}
+
+#navUsername{
+	text-align: right;
+}
+
+#navHeader{
+	font-family: 'Lily Script One', cursive;
+}
+
+#navbar-bottom{
+	position: fixed;
+	background: #cc0000;
+}
+
+#githubLink{
+	float: right;
+	text-decoration: none;
+	color: white;
+	padding-right:22px;
+}
+
+#myName{
+	float: left;
+	text-decoration: none;
+	color: white;
+	padding-left: 22px;
+}
+

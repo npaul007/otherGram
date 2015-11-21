@@ -1,23 +1,41 @@
 <template name="layout">
-	 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
-		<h1 class="center-text">Welcome to fakeAGram</h1>
-		{{#if currentUser}}
-			<h3 class="center-text">{{username}}</h3>
-		{{/if}}
-			<div class="icons">
-				{{#if currentUser}}
-				<i class="fa fa-globe"></i>
-				<i class="fa fa-instagram"></i>
-				<i class="fa fa-home"></i>
-				<i class="fa fa-sign-out"></i>
-				{{/if}}
-			</div>
+		{{>navbar}}
 		{{>yield}}
+		{{>footer}}
 	</div>
 </template>
 
 
 <template name="loading">
 	{{>spinner}}
+</template>
+
+<template name="navbar">
+	<div class="navbar navbar-default" id="navbar-top">
+		<h1 class="navbar-brand center-text" id="navHeader">fakeAGram</h1>
+		{{#if currentUser}}
+		<div id="navSearchContainer">
+		<input type="text" class="form-control inline" id="navSearchBar" placeholder="Search">
+		<button class="btn btn-default form-control" id="navSearchButton">Search</button>
+		</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="footer">
+	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
+		{{#if currentUser}}
+			<div class="icons">
+				<i class="fa fa-globe"></i>
+				<i class="fa fa-users"></i>
+				<i class="fa fa-instagram"></i>
+				<i class="fa fa-home"></i>
+				<i class="fa fa-sign-out"></i>
+			</div>
+		{{/if}}
+		<a href="http://natepa.co.nf/" id="myName">Nathanael Paulemon</a>
+		<a href="https://github.com/npaul007/fakeAGram" id="githubLink">Github</a>
+	</div>
 </template>

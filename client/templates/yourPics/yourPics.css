@@ -4,7 +4,11 @@
 	padding: 20px;
 	background: white;
 	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
+	word-wrap:break-word;
+	width: 285px;
 }
 
 #postedYourPic{

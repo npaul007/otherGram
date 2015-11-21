@@ -1,6 +1,5 @@
 <template name="yourPics">
 	<div class="container">
-		<h2 class="center-text">My Pictures</h2>
 		<div class="col-md-12 center">
 			{{#each myImages}}
 			<div id="yourPicContainer" class="shadow inline-block">
@@ -11,7 +10,6 @@
 					<i class="fa fa-thumbs-o-up"></i>
 					<p class="inline">{{this.metadata.likes}}</p>
 				</div>
-				<h4>{{this.metadata.post}}</h4>
 			</div>
 			{{/each}}
 		</div>

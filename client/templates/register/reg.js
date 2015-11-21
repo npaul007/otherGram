@@ -1,8 +1,8 @@
 Template.register.events({
-	'click #submitButton':function(event,template){
-		var username = template.find('#username').value;
-		var password = template.find('#password').value;
-		var passwordConfirm = template.find('#confirmPassword').value;
+	'click #registerSubmitButton':function(event,template){
+		var username = template.find('#registerUsername').value;
+		var password = template.find('#registerPassword').value;
+		var passwordConfirm = template.find('#registerConfirmPassword').value;
 
 		if(password.localeCompare(passwordConfirm) !=0){
 			alert('passwords do not match');

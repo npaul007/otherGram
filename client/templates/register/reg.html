@@ -1,12 +1,11 @@
 <template name="register">
 	<div class="container">
 		<div class="col-md-12">
-			<h2 class="center-text">Please Register</h2>
-			<div class="shadow" id="loginForm">
-				<label>Username <input type="text" id="username"></label>
-				<label>Desired Password <input type="password" id="password"></label>
-				<label>Confirm Password <input type="password" id="confirmPassword"></label>
-				<button id="submitButton">submit</button>
+			<div id="registerForm" class="shadow">
+				<input type="text" id="registerUsername" placeholder="desired username">
+				<input type="password" id="registerPassword" placeholder="password">
+				<input type="password" id="registerConfirmPassword" placeholder="confirm password">
+				<button id="registerSubmitButton" class="btn btn-default form-control">Sign up</button>
 			</div>
 		</div>
 	</div>
