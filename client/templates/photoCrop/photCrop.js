@@ -58,7 +58,7 @@ Template.photoCrop.events({
 		}
 
 		else if(corrupted){
-			alert('file is either corrupted or not an image');
+			alert('Your file is either corrupted or not an image.');
 		}
 
 		else{
@@ -97,8 +97,13 @@ Template.photoCrop.rendered=function(){
 	$("#uploaded").change(function(){
 	    readURL(this);
 	    $("#displayPic")
-		    .on('load', function() { alert("image loaded correctly"); corrupted = false;})
-		    .on('error', function() { alert("File is corrupted"); corrupted = true;})
-		;
+		    .on('load', function() { 
+		    	alert("Your image has loaded correctly."); 
+		    	corrupted = false;
+		    })
+		    .on('error', function() { 
+		    	alert("File is corrupted!"); 
+		    	corrupted = true;
+		    });
 	});
 }
