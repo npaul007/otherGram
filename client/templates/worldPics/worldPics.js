@@ -9,7 +9,7 @@ Template.worldPics.events({
  		Images.update({_id:this._id},{$inc:{"metadata.likes":1}});
  	},
  	'dblclick #worldPicContainer':function(){
- 		if(Meteor.user().profile.type === 'admin'){
+ 		if(Meteor.user().profile.type === 'admin' || Meteor.userId() === this.metadata.userId){
  			Images.remove({_id:this._id});
  		}
  	}
