@@ -13,7 +13,7 @@ Template.layout.events({
 	}
 });
 
-Template.navbar.helpers({
+Template.layout.helpers({
 	'username':function(){
 		return Meteor.user().username;
 	}
