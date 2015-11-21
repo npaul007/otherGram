@@ -2,7 +2,9 @@
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
 		{{>navbar}}
-		<p class="center-text" style="color:black">You are logged in as: {{username}}</p>
+		{{#if currentUser}}
+			<p class="center-text" style="color:black">You are logged in as: {{username}}</p>
+		{{/if}}
 		{{>yield}}
 		{{>footer}}
 	</div>
