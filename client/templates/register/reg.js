@@ -11,7 +11,10 @@ Template.register.events({
 			
 			Accounts.createUser({
 				username:username,
-				password:password
+				password:password,
+				profile:{
+					type:'normal'
+				}
 			});
 
 			Router.go('yourPics');

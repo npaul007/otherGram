@@ -1,17 +1,10 @@
 <template name="yourPics">
 	<div class="container">
-		<div class="col-md-12 center">
+
+			<div  class="center" id="yourImages">
 			{{#each myImages}}
-			<div id="yourPicContainer" class="shadow inline-block">
-				<h4>{{this.metadata.username}}</h4>
-				<h5>{{this.copies.images.updatedAt}}</h5>
-				<img src="{{this.url}}" id="postedYourPic">
-				<div id="likesDiv">
-					<i class="fa fa-thumbs-o-up"></i>
-					<p class="inline">{{this.metadata.likes}}</p>
-				</div>
-			</div>
+				<img src="{{this.url}}" id="postedYourPic" class="img-responsive">
 			{{/each}}
-		</div>
+			</div>
 	</div>
 </template>
