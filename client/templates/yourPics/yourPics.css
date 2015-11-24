@@ -1,5 +1,4 @@
-#yourImages{ margin: 0; padding: 0; }
-
+#yourImages{ margin-left: 0; margin-right: 0 padding: 0;}
 #yourImages {
    /* Prevent vertical gaps */
    line-height: 0;

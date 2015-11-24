@@ -5,14 +5,16 @@ Template.yourPics.helpers({
 });
 
 Template.yourPics.events({
- 	'dblclick #postedYourPic':function(){
- 		if(Meteor.user().profile.type === 'admin' || Meteor.userId() === this.metadata.userId){
- 			Images.remove({_id:this._id});
- 		}
- 	}
+
 });
 
 Template.yourPics.rendered = function(event,template){
-	  $("html, body").animate({ scrollTop:$("#navbar-top").offset().top-45 }, "slow");
+	  $("html, body").animate({ scrollTop:$("#navbar-top").offset().top-45 }, "fast");
 	  return false;
 }
+
+ 	/*
+ 		if(Meteor.user().profile.type === 'admin' || Meteor.userId() === this.metadata.userId){
+ 			Images.remove({_id:this._id});
+ 		}
+ 	 */
