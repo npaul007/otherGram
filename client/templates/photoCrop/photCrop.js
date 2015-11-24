@@ -79,20 +79,9 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
+	currentRouteSelected();
 
 	corrupted = false;
-
-	function readURL(input) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-
-	        reader.onload = function (e) {
-	            $('#displayPic').attr('src', e.target.result);
-	        }
-
-	        reader.readAsDataURL(input.files[0]);
-	    }
-	}
 
 	$("#uploaded").change(function(){
 	    readURL(this);
@@ -106,4 +95,18 @@ Template.photoCrop.rendered=function(){
 		    	corrupted = true;
 		    });
 	});
+
 }
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#displayPic').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+

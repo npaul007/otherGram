@@ -14,3 +14,7 @@ Template.worldPics.events({
  		}
  	}
 });
+
+Template.worldPics.rendered=function(){
+	currentRouteSelected();
+}
