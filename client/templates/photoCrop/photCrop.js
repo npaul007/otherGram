@@ -79,8 +79,6 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-	currentRouteSelected();
-
 	corrupted = false;
 
 	$("#uploaded").change(function(){
