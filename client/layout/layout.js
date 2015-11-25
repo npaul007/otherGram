@@ -1,15 +1,15 @@
 Template.layout.events({
 	'click .fa-globe':function(){
 		Router.go('/');
-		removeIconClasses();
+		removeIconClasses(this);
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
-		removeIconClasses();
+		removeIconClasses(this);
 	},
 	'click .fa-instagram':function(){
 		Router.go('/photoCrop');
-		removeIconClasses();
+		removeIconClasses(this);
 	},
 	'click .fa-sign-out':function(){
 		Meteor.logout();
@@ -19,11 +19,12 @@ Template.layout.events({
 	}
 });
 
-removeIconClasses = function(){
+removeIconClasses = function(element){
 	var icons = ['.fa-globe','.fa-home','.fa-instagram']
 	for(i = 0; i<icons.length; i++){
 		$(icons[i]).removeClass('selected');
 	}
+	$(element).addClass('selected');
 }
 
 Template.layout.helpers({

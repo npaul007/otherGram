@@ -16,6 +16,5 @@ Template.worldPics.events({
 });
 
 Template.worldPics.rendered = function(){
-	
-	$('.fa-globe').addClass('selected');
+	removeIconClasses('.fa-globe');
 }

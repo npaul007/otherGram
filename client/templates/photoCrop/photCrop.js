@@ -79,7 +79,7 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-	$('.fa-instagram').addClass('selected');
+	removeIconClasses('.fa-instagram');
 
 	corrupted = false;
 

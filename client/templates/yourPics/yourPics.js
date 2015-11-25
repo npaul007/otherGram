@@ -9,8 +9,7 @@ Template.yourPics.events({
 });
 
 Template.yourPics.rendered = function(event,template){
-	
-	$('.fa-home').addClass('selected');
+	removeIconClasses('.fa-home');
 
 	$("html, body").animate({ scrollTop:$("#navbar-top").offset().top-45 }, "fast");
 	return false;
