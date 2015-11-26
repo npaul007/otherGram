@@ -32,10 +32,10 @@
 	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
 		{{#if currentUser}}
 			<div class="icons">
-				<i class="fa fa-globe"></i>
-				<i class="fa fa-users"></i>
-				<i class="fa fa-instagram"></i>
-				<i class="fa fa-home"></i>
+				<a href="/"><i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i></a>
+				<a href=""><i class="fa fa-users "></i></a>
+				<a href="/photoCrop"><i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i></a>
+				<a href="/yourPics"><i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i></a>
 				<i class="fa fa-sign-out"></i>
 			</div>
 		{{/if}}

@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
-
 body{
 	color: white;
 	font-family: 'Open Sans',sans-serif;
@@ -27,17 +26,28 @@ label{
 	padding: 10px;
 }
 
-.selected{
+.active{
 	border-bottom: 4px solid white;
 	margin-top: 2px;
 }
 
 i{
 	margin-right: 20px;
+	outline: none;
 }
 
 i:hover{
 	color: teal;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+	outline: none;
+}
+
+a:visited{
+	color: white;
 }
 
 .inline{
