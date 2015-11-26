@@ -79,7 +79,6 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-	$('.fa-instagram').addClass('selected');
 
 	corrupted = false;
 
