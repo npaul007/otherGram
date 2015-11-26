@@ -79,7 +79,7 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-	Meteor.setTimeout(function(){$('.fa-instagram').addClass('selected');},100);
+	$('.fa-instagram').addClass('selected');
 
 	corrupted = false;
 

@@ -9,7 +9,7 @@ Template.yourPics.events({
 });
 
 Template.yourPics.rendered = function(event,template){
-	Meteor.setTimeout(function(){$('.fa-home').addClass('selected');},100);
+	$('.fa-home').addClass('selected');
 
 	$("html, body").animate({ scrollTop:$("#navbar-top").offset().top-45 }, "fast");
 	return false;
