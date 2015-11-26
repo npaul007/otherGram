@@ -79,7 +79,7 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-	removeIconClasses('.fa-instagram');
+	Meteor.setTimeout(function(){$('.fa-instagram').addClass('selected');},100);
 
 	corrupted = false;
 

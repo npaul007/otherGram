@@ -1,15 +1,15 @@
 Template.layout.events({
 	'click .fa-globe':function(){
 		Router.go('/');
-		removeIconClasses(this);
+		removeIconClasses();
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
-		removeIconClasses(this);
+		removeIconClasses();
 	},
 	'click .fa-instagram':function(){
 		Router.go('/photoCrop');
-		removeIconClasses(this);
+		removeIconClasses();
 	},
 	'click .fa-sign-out':function(){
 		Meteor.logout();
@@ -24,7 +24,6 @@ removeIconClasses = function(element){
 	for(i = 0; i<icons.length; i++){
 		$(icons[i]).removeClass('selected');
 	}
-	$(element).addClass('selected');
 }
 
 Template.layout.helpers({

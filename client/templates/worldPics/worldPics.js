@@ -16,5 +16,5 @@ Template.worldPics.events({
 });
 
 Template.worldPics.rendered = function(){
-	removeIconClasses('.fa-globe');
+	Meteor.setTimeout(function(){$('.fa-globe').addClass('selected');},100);
 }
