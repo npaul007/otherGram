@@ -12,13 +12,14 @@
 
 #submitPic{
 	margin-top: 10px;
-	padding: 5px;
+	padding: 6px;
 
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
 
-	width: 17%;
+	width: 15%;
+	font-size: 100%;
 
 	color: white;
 	background: #660033;
@@ -47,7 +48,7 @@
 }
 
 #uploadLabel{
-	width: 17%;
+	width: 14%;
 	border-radius: 4px;
 	padding: 5px;
 	color: white;
