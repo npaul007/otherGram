@@ -4,6 +4,11 @@ Template.worldPics.helpers({
  	}
 });
 
+Template.worldPics.onCreated(function () {
+  // Use this.subscribe inside onCreated callback
+  this.subscribe("images");
+});
+
 Template.worldPics.events({
  	'click .fa-thumbs-o-up':function(){
  		Images.update({_id:this._id},{$inc:{"metadata.likes":1}});
