@@ -8,8 +8,9 @@
 			</div>
 			{{#each images}}
 				<div id="worldPicContainer" class="shadow">
-					<h4>{{this.metadata.username}}</h4>
-					<h5>{{this.copies.images.updatedAt}}</h5>
+					<img src="empty.gif" id="userProfilePicPost" class="inline">
+					<h4 class="inline center-text center-fix">{{this.metadata.username}}</h4>
+					<h5 class="center-fix">{{this.copies.images.updatedAt}}</h5>
 					<img src="{{this.url}}" alt="thumbnail" class="img-responsive img-thumbnail" id="postedPic">
 					<div id="likesDiv">
 						<i class="fa fa-thumbs-o-up"></i>
