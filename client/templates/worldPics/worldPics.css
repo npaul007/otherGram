@@ -1,6 +1,6 @@
 #worldPicContainer{
 	width: 50%;
-	padding: 10px;
+	padding: 22px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	background: white;
@@ -17,6 +17,12 @@
 
 #likesDiv{
 	margin: 10px;
+}
+
+#commentInput{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media (max-width: 800px){
