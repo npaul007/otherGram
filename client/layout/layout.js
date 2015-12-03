@@ -1,6 +1,15 @@
 Template.layout.events({
 	'click .fa-sign-out':function(){
 		Meteor.logout();
+	},
+	'click .fa-globe':function(){
+		Router.go('/');
+	},
+	'click .fa-instagram':function(){
+		Router.go('/photoCrop');
+	},
+	'click .fa-home':function(){
+		Router.go('/yourPics');
 	}
 });
 
