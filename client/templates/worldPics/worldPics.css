@@ -25,21 +25,6 @@
 	left: -7px;
 }
 
-#submitComment{
-	margin-top: 5px;
-	padding: 5px;
-
-	display: block;
-	margin-right: auto;
-	margin-left: auto;
-
-	width: 60px;
-
-	color: white;
-	background: #660033;
-	border: 2px solid #660033;
-}
-
 #submitComment:hover{
 	background: #cc0066;
 	border: 2px solid #cc0066;
