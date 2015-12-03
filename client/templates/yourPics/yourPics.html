@@ -1,6 +1,10 @@
 <template name="yourPics">
 	{{#if Template.subscriptionsReady}}
 	<div class="container">
+		<div id="gridButtons">
+			<i class="fa fa-th photoFormatButtons"></i>
+			<i class="fa fa-bars photoFormatButtons"></i>
+		</div>
 		<div  class="center" id="yourImages">
 			{{#each myImages}}
 				<img src="{{this.url}}" id="postedYourPic" class="img-responsive">

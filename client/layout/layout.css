@@ -104,3 +104,22 @@ a:visited{
 	margin-right: auto;
 	display: block;
 }
+
+.photoFormatButtons{
+	color: white;
+	background: #660033;
+	border: 2px solid #660033;
+	font-size: 2em;
+	padding: 2px;
+}
+
+.photoFormatButtons:hover{
+	background: #cc0066;
+	border: 2px solid #cc0066;
+}
+
+#gridButtons{
+	text-align: center;
+	position: relative;
+	right: -6px;
+}

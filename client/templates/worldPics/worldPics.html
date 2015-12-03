@@ -2,6 +2,10 @@
 	{{#if Template.subscriptionsReady}}
 	<div class="container">
 		<div class="col-md-12">
+			<div id="gridButtons">
+				<i class="fa fa-th photoFormatButtons"></i>
+				<i class="fa fa-bars photoFormatButtons"></i>
+			</div>
 			{{#each images}}
 				<div id="worldPicContainer" class="shadow">
 					<h4>{{this.metadata.username}}</h4>
