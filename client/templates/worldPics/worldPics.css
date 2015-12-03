@@ -42,6 +42,14 @@
 	float: left;
 }
 
+#deletePostButton{
+	float: right;
+}
+
+#deletePostButton:hover{
+	color: red;
+}
+
 @media (max-width: 800px){
 	#worldPicContainer{
 		width: 91%;
