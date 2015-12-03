@@ -1,6 +1,6 @@
 #worldPicContainer{
 	width: 50%;
-	padding: 22px;
+	padding: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	background: white;
@@ -21,8 +21,28 @@
 
 #commentInput{
 	width: 100%;
-	margin-left: auto;
+	position: relative;
+	left: -7px;
+}
+
+#submitComment{
+	margin-top: 5px;
+	padding: 5px;
+
+	display: block;
 	margin-right: auto;
+	margin-left: auto;
+
+	width: 60px;
+
+	color: white;
+	background: #660033;
+	border: 2px solid #660033;
+}
+
+#submitComment:hover{
+	background: #cc0066;
+	border: 2px solid #cc0066;
 }
 
 @media (max-width: 800px){
