@@ -18,7 +18,7 @@
 	margin-right: auto;
 	margin-left: auto;
 
-	width: 15%;
+	width: 60px;
 	font-size: 100%;
 
 	color: white;
@@ -48,7 +48,7 @@
 }
 
 #uploadLabel{
-	width: 14%;
+	width: 60px;
 	border-radius: 4px;
 	padding: 5px;
 	color: white;
