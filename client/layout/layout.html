@@ -3,9 +3,6 @@
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
 		{{>navbar}}
-		{{#if currentUser}}
-			<p class="center-text" style="color:black">You are logged in as: {{username}}</p>
-		{{/if}}
 		{{>yield}}
 		{{>footer}}
 	</div>
@@ -20,10 +17,7 @@
 	<div class="navbar navbar-default" id="navbar-top">
 		<h1 class="navbar-brand center-text" id="navHeader">fakeAGram</h1>
 		{{#if currentUser}}
-		<div id="navSearchContainer">
-		<input type="text" class="form-control inline" id="navSearchBar" placeholder="Search">
-		<button class="btn btn-default form-control" id="navSearchButton">Search</button>
-		</div>
+			<p class="center-text" style="color:white;">You are logged in as: {{username}}</p>
 		{{/if}}
 	</div>
 </template>

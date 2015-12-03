@@ -69,27 +69,6 @@ a:visited{
 	padding: 5px;
 }
 
-#navSearchContainer{
-	text-align: center;
-}
-
-#navSearchBar{
-	width: 45%;
-}
-
-#navSearchButton{
-	position: relative;
-	top: -8px;
-	color: white;
-	background: #660033;
-	border: 2px solid #660033;
-}
-
-#navSearchButton:hover{
-	background: white;
-	color: #660033;
-}
-
 #navUsername{
 	text-align: right;
 }
