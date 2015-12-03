@@ -96,3 +96,11 @@ a:visited{
 	padding-left: 22px;
 }
 
+#loggedUserPic{
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
