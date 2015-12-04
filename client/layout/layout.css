@@ -3,7 +3,7 @@
 body{
 	color: white;
 	font-family: 'Open Sans',sans-serif;
-	background: url(6946160-sunset-wallpaper-hd-widescreen.jpg);
+	background: #ffb3b3;
 }
 
 label{
@@ -11,7 +11,7 @@ label{
 }
 
 .container{
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     color: black;
 }
 
