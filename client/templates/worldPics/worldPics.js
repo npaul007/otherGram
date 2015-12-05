@@ -14,10 +14,19 @@ Template.worldPics.events({
  		Images.update({_id:this._id},{$inc:{"metadata.likes":1}});
  	},
  	'dblclick #worldPicContainer':function(){
- 		if(Meteor.user().profile.type === 'admin' || Meteor.userId() === this.metadata.userId){
+ 		if(Meteor.user().profile.type === 'admin'){
  			Images.remove({_id:this._id});
  		}
+ 	},
+ 	'click #deletePostButton':function(){
+ 		if(Meteor.userId() === this.metadata.userId){
+	 		var del = confirm("Are you sure you want to delete this picture?");
+	 		if(del){
+	 			Images.remove({_id:this._id});
+	 		}
+ 		}
  	}
+
 });
 
 
