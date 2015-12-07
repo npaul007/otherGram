@@ -55,13 +55,9 @@ Template.photoCrop.events({
 		
 		if ($('#uploaded').get(0).files.length === 0) {
 		    alert("No files selected.");
-		}
-
-		else if(corrupted){
+		}else if(corrupted){
 			alert('Your file is either corrupted or not an image.');
-		}
-
-		else{
+		}else{
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
 					alert('error');
@@ -108,4 +104,9 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+Template.photoCrop.onCreated(function () {
+  // Use this.subscribe inside onCreated callback
+  this.subscribe("images");
+});
 
