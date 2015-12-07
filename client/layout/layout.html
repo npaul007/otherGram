@@ -33,6 +33,10 @@
 				<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
 				<i class="fa fa-sign-out"></i>
 			</div>
+		{{else}}
+			<div class="margin-bottom">
+				{{> loading}}
+			</div>
 		{{/if}}
 		<a href="http://natepa.co.nf/" id="myName">Nathanael Paulemon</a>
 		<a href="https://github.com/npaul007/fakeAGram" id="githubLink">Github</a>
