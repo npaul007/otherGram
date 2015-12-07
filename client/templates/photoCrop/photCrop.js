@@ -75,7 +75,6 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-
 	corrupted = false;
 
 	$("#uploaded").change(function(){
@@ -105,8 +104,5 @@ function readURL(input) {
     }
 }
 
-Template.photoCrop.onCreated(function () {
-  // Use this.subscribe inside onCreated callback
-  this.subscribe("images");
-});
+
 
