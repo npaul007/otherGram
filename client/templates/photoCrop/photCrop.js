@@ -43,7 +43,6 @@ Template.photoCrop.events({
 
 		var file = $('#uploaded').get(0).files[0]; 
 		var fsFile = new FS.File(file);
-
 		var textareaText = $('#text').val()
 
 		fsFile.metadata = {
@@ -55,12 +54,16 @@ Template.photoCrop.events({
 		
 		if ($('#uploaded').get(0).files.length === 0) {
 		    alert("No files selected.");
-		}else if(corrupted){
+		}
+
+		else if(corrupted){
 			alert('Your file is either corrupted or not an image.');
-		}else{
+		}
+
+		else{
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
-					alert('error');
+					alert('Error!');
 					return;
 				}else{
 					alert('Upload successful!');
