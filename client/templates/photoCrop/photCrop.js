@@ -54,13 +54,7 @@ Template.photoCrop.events({
 		
 		if ($('#uploaded').get(0).files.length === 0) {
 		    alert("No files selected.");
-		}
-
-		else if(corrupted){
-			alert('Your file is either corrupted or not an image.');
-		}
-
-		else{
+		}else{
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
 					alert('Error!');
@@ -77,24 +71,6 @@ Template.photoCrop.events({
 		template.find('#uploaded').click();
 	}
 });
-
-Template.photoCrop.rendered=function(){
-	corrupted = false;
-
-	$("#uploaded").change(function(){
-	    readURL(this);
-	    $("#displayPic")
-		    .on('load', function() { 
-		    	alert("Your image has loaded correctly."); 
-		    	corrupted = false;
-		    })
-		    .on('error', function() { 
-		    	alert("File is corrupted!"); 
-		    	corrupted = true;
-		    });
-	});
-
-}
 
 function readURL(input) {
     if (input.files && input.files[0]) {
