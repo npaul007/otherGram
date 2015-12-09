@@ -62,10 +62,11 @@ Template.photoCrop.events({
 				if(error){
 					alert('error');
 					return;
+				}else{
+					alert('Upload successful!');
+					Router.go('/');
 				}
 			});
-
-			Router.go('/');
 		}
 	},
 	'click #uploadLabel':function(event,template){
