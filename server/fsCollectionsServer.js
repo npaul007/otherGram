@@ -36,3 +36,8 @@ Images.allow({
 	 return true;
  }
 });
+
+
+Meteor.publish('pictures',function(){
+	return Images.find();
+});

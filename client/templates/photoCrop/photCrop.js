@@ -37,6 +37,8 @@ Images.allow({
  }
 });
 
+Meteor.subscribe('pictures');
+
 Template.photoCrop.events({
 	'click #submitPic':function(event,template){
 		event.preventDefault();
