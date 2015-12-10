@@ -78,11 +78,9 @@ Template.photoCrop.rendered=function(){
 	    $("#displayPic")
 		    .on('load', function() { 
 		    	alert("Your image has loaded correctly."); 
-		    	corrupted = false;
 		    })
 		    .on('error', function() { 
 		    	alert("File is corrupted!"); 
-		    	corrupted = true;
 		    });
 	});
 
