@@ -57,7 +57,7 @@ Template.photoCrop.events({
 		}else{
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
-					alert('Error!');
+					alert('Upload failed... please try again.');
 					return;
 				}else{
 					alert('Upload successful!');
@@ -71,6 +71,22 @@ Template.photoCrop.events({
 		template.find('#uploaded').click();
 	}
 });
+
+Template.photoCrop.rendered=function(){
+	$("#uploaded").change(function(){
+	    readURL(this);
+	    $("#displayPic")
+		    .on('load', function() { 
+		    	alert("Your image has loaded correctly."); 
+		    	corrupted = false;
+		    })
+		    .on('error', function() { 
+		    	alert("File is corrupted!"); 
+		    	corrupted = true;
+		    });
+	});
+
+}
 
 function readURL(input) {
     if (input.files && input.files[0]) {
