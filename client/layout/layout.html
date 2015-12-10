@@ -25,7 +25,6 @@
 
 <template name="footer">
 	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
-		{{#if Template.subscriptionsReady}}
 		{{#if currentUser}}
 			<div class="icons">
 				<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
@@ -34,9 +33,6 @@
 				<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
 				<i class="fa fa-sign-out"></i>
 			</div>
-		{{/if}}
-		{{else}}
-			<div class="margin-bottom">{{> loading}}</div>
 		{{/if}}
 		<a href="http://natepa.co.nf/" id="myName">Nathanael Paulemon</a>
 		<a href="https://github.com/npaul007/fakeAGram" id="githubLink">Github</a>
