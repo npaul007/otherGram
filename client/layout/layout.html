@@ -1,5 +1,4 @@
 <template name="layout">
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
 		{{>navbar}}
@@ -36,7 +35,7 @@
 				</div>
 			{{/if}}
 		{{else}}
-			{{> loading}}
+			<div class="margin-bottom">{{> loading}}</div>
 		{{/if}}
 		<a href="http://natepa.co.nf/" id="myName">Nathanael Paulemon</a>
 		<a href="https://github.com/npaul007/fakeAGram" id="githubLink">Github</a>

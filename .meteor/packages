@@ -25,3 +25,4 @@ cfs:filesystem
 cfs:gridfs
 aldeed:collection2
 sacha:spin
+jquery
