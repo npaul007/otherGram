@@ -27,15 +27,20 @@ Template.worldPics.events({
  		}
  	},
  	'click #wpGrid':function(){
- 		$('.pic').addClass('yourImages');
- 		$('.pic').removeClass('shadow')
- 		$('.pic').removeAttr('id');
- 		$('#userProfilePicPost').hide();
- 		$('#deletePostButton').hide();
- 		$('#likesDiv').hide();
- 		$('#commentInput').hide();
- 		$('#postUsername').hide();
- 		$('#postUpdatedAt').hide();
+ 		$('.picDiv').removeClass('shadow');
+ 		$('.picDiv').removeClass('worldPicContainer');
+ 		$('.yImages').addClass('yourImages');
+ 		$('.pProfile').hide();
+ 		$('.pDelete').hide();
+ 		$('.pDate').hide();
+ 		$('.pLikes').hide();
+ 		$('.pUser').hide();
+ 		$('.pComment').hide();
+ 		$('.pPost').hide();
+ 		$('.pPic').addClass('inline');
+ 	},
+ 	'click #wpBars':function(){
+
  	}
 
 });
