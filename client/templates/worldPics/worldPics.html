@@ -4,15 +4,15 @@
 		<div class="col-md-12">
 			<h3 class="center-text">World</h3>
 			<div id="gridButtons">
-				<i class="fa fa-th photoFormatButtons"></i>
-				<i class="fa fa-bars photoFormatButtons"></i>
+				<i class="fa fa-th photoFormatButtons" id="wpGrid"></i>
+				<i class="fa fa-bars photoFormatButtons" id="wpBars"></i>
 			</div>
 			{{#each images}}
-				<div id="worldPicContainer" class="shadow">
+				<div id="worldPicContainer" class="shadow pic">
 					<img src="empty.gif" id="userProfilePicPost" class="inline">
-					<h4 class="inline center-text">{{this.metadata.username}}</h4>
+					<h4 class="inline center-text" id="postUsername">{{this.metadata.username}}</h4>
 					<i class="inline center-fix" id="deletePostButton"><strong>x</strong></i>
-					<h5>{{this.copies.images.updatedAt}}</h5>
+					<h5 id="postUpdatedAt">{{this.copies.images.updatedAt}}</h5>
 					<img src="{{this.url}}" alt="thumbnail" class="img-responsive img-thumbnail" id="postedPic">
 					<div id="likesDiv">
 						<i class="fa fa-thumbs-o-up"></i>

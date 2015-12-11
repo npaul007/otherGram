@@ -25,6 +25,17 @@ Template.worldPics.events({
 	 			Images.remove({_id:this._id});
 	 		}
  		}
+ 	},
+ 	'click #wpGrid':function(){
+ 		$('.pic').addClass('yourImages');
+ 		$('.pic').removeClass('shadow')
+ 		$('.pic').removeAttr('id');
+ 		$('#userProfilePicPost').hide();
+ 		$('#deletePostButton').hide();
+ 		$('#likesDiv').hide();
+ 		$('#commentInput').hide();
+ 		$('#postUsername').hide();
+ 		$('#postUpdatedAt').hide();
  	}
 
 });
