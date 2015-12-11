@@ -30,14 +30,12 @@ Template.worldPics.events({
  		$('.picDiv').removeClass('shadow');
  		$('.picDiv').removeClass('worldPicContainer');
  		$('.yImages').addClass('yourImages');
- 		$('.pProfile').hide();
- 		$('.pDelete').hide();
- 		$('.pDate').hide();
- 		$('.pLikes').hide();
- 		$('.pUser').hide();
- 		$('.pComment').hide();
- 		$('.pPost').hide();
- 		$('.pPic').addClass('inline');
+
+ 		var toHide = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
+
+ 		for(var i = 0; i< toHide.length; i++){
+ 			$(toHide[i]).hide();
+ 		}
  	},
  	'click #wpBars':function(){
 
