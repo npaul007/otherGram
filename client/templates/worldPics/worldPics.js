@@ -38,9 +38,20 @@ Template.worldPics.events({
  		}
  	},
  	'click #wpBars':function(){
+ 		$('.picDiv').addClass('shadow');
+ 		$('.picDiv').addClass('worldPicContainer');
+ 		$('.yImages').removeClass('yourImages');
 
+ 		var toShow = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
+
+ 		for(var p = 0; p< toShow.length; p++){
+ 			$(toShow[p]).show();
+ 		}
  	}
 
 });
+
+
+
 
 
