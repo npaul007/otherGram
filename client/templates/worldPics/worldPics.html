@@ -10,10 +10,12 @@
 			<div class="yImages">
 			{{#each images}}
 				<div class="shadow picDiv worldPicContainer">
-					<img src="empty.gif" id="userProfilePicPost" class="inline pProfile">
-					<h4 class="inline center-text pUser" id="postUsername">{{this.metadata.username}}</h4>
-					<i class="inline center-fix pDelete" id="deletePostButton"><strong>x</strong></i>
-					<h5 id="postUpdatedAt" class="pDate">{{this.copies.images.updatedAt}}</h5>
+					<div class="inline">
+						<img src="empty.gif" id="userProfilePicPost" class="inline pProfile">
+						<i class="inline pDelete" id="deletePostButton"><strong>x</strong></i>
+						<h4 class="pUser">{{this.metadata.username}}</h4>
+					</div>
+					<h5 class="pDate center-text">{{this.copies.images.updatedAt}}</h5>
 					<img src="{{this.url}}" alt="thumbnail" class="img-responsive pPic">
 					<div id="likesDiv" class="pLikes">
 						<i class="fa fa-thumbs-o-up"></i>
