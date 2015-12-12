@@ -13,7 +13,7 @@ Template.worldPics.events({
  	'click .fa-thumbs-o-up':function(){
  		Images.update({_id:this._id},{$inc:{"metadata.likes":1}});
  	},
- 	'dblclick #worldPicContainer':function(){
+ 	'dblclick .picDiv':function(){
  		if(Meteor.user().profile.type === 'admin'){
  			Images.remove({_id:this._id});
  		}
