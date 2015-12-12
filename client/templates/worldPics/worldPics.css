@@ -50,7 +50,7 @@
 }
 
 @media (max-width: 800px){
-	#worldPicContainer{
+	.worldPicContainer{
 		width: 91%;
 		margin-top: 10px;
 		margin-bottom: 10px;
