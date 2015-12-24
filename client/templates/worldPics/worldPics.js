@@ -47,9 +47,27 @@ Template.worldPics.events({
  		for(var p = 0; p< toShow.length; p++){
  			$(toShow[p]).show();
  		}
+ 	},
+ 	'keypress #commentInput':function(event,template){
+ 		if(event.keyCode == 13){
+ 			var comment = template.find('#commentInput').value;
+ 			Images.update({_id:this._id} , 
+ 				{$push:
+ 					{"metadata.post":
+ 						{
+ 							username:Meteor.user().username, 
+ 							comment:comment
+ 						}
+ 					}
+ 				}
+ 			);
+ 			template.find('#commentInput').value = " ";
+ 		}
  	}
 
 });
+
+
 
 
 
