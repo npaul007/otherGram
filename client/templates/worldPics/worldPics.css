@@ -49,6 +49,10 @@
 	color: red;
 }
 
+.pPost{
+	text-align: left;
+}
+
 @media (max-width: 800px){
 	.worldPicContainer{
 		width: 91%;

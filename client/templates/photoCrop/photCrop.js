@@ -48,7 +48,12 @@ Template.photoCrop.events({
 		var textareaText = $('#text').val()
 
 		fsFile.metadata = {
-			post:textareaText,
+			post:[
+				{
+					username:Meteor.user().username,
+					comment:textareaText
+				}
+			],
 			likes:0,
 			userId:Meteor.userId(),
 			username:Meteor.user().username

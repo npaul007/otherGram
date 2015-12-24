@@ -21,7 +21,9 @@
 						<i class="fa fa-thumbs-o-up"></i>
 						<p class="inline">{{this.metadata.likes}}</p>
 					</div>
-					<p class="pPost">{{this.metadata.post}}</p>
+					{{#each this.metadata.post}}
+					<p class="pPost"><strong>{{username}}</strong> {{comment}}</p>
+					{{/each}}
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>
 			{{/each}}
