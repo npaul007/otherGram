@@ -49,22 +49,24 @@ Template.yourPics.events({
 		}
 	},
 	'keypress #commentInput':function(event,template){
-		var comment = template.find('#commentInput').value;
-		if(comment.length == 0){
-			return;
-		}else{
-			Images.update({_id:this._id} , 
-				{$push:
-					{"metadata.post":
-						[
-							Meteor.user().username, 
-							comment
-						]
+ 		if(event.keyCode == 13){
+ 			var comment = template.find('#commentInput').value;
+ 			if(comment.length == 0){
+				return;
+			}else{
+				Images.update({_id:this._id} , 
+					{$push:
+						{"metadata.post":
+							[
+								Meteor.user().username, 
+								comment
+							]
+						}
 					}
-				}
-			);
-		}
-		template.find('#commentInput').value = " ";
+				);
+				template.find('#commentInput').value = "";
+			}
+ 		}
  	}
 
 });

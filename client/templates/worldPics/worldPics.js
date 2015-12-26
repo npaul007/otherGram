@@ -52,20 +52,21 @@ Template.worldPics.events({
  		if(event.keyCode == 13){
  			var comment = template.find('#commentInput').value;
  			if(comment.length == 0){
- 				return;
- 			}else{
-	 			Images.update({_id:this._id} , 
-	 				{$push:
-	 					{"metadata.post":
-	 						[
-	 							Meteor.user().username, 
-	 							comment
-	 						]
-	 					}
-	 				}
-	 			);
- 			}
- 			template.find('#commentInput').value = " ";
+				return;
+			}else{
+				var comment = template.find('#commentInput').value;
+				Images.update({_id:this._id} , 
+					{$push:
+						{"metadata.post":
+							[
+								Meteor.user().username, 
+								comment
+							]
+						}
+					}
+				);
+				template.find('#commentInput').value = "";
+			}
  		}
  	}
 
