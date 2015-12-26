@@ -9,7 +9,6 @@ Template.yourPics.onCreated(function () {
   this.subscribe("myImages");
 });
 
-
 Template.yourPics.events({
  	/*'click .fa-thumbs-o-up':function(){
  		Images.update({_id:this._id},{$push:{"metadata.likes":Meteor.userId()}});
