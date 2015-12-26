@@ -1,6 +1,6 @@
 Template.yourPics.helpers({
 	'myImages':function(){
-		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}});
+		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}}).fetch();
 	}
 });
 
@@ -67,3 +67,10 @@ Template.yourPics.events({
  	}
 
 });
+
+Template.yourPics.rendered=function(){
+	if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}

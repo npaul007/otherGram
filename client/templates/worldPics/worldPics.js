@@ -1,6 +1,6 @@
 Template.worldPics.helpers({
  	'images': function(){
- 		return Images.find({},{sort:{"copies.images.updatedAt":-1}});
+ 		return Images.find({},{sort:{"copies.images.updatedAt":-1}}).fetch();
  	}
 });
 
@@ -66,6 +66,13 @@ Template.worldPics.events({
  	}
 
 });
+
+Template.worldPics.rendered=function(){
+	if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
 
 
 
