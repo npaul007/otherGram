@@ -54,7 +54,7 @@ Template.photoCrop.events({
 					comment:textareaText
 				}
 			],
-			likes:0,
+			likes:[],
 			userId:Meteor.userId(),
 			username:Meteor.user().username
 		};

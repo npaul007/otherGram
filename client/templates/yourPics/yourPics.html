@@ -13,15 +13,15 @@
 					<div class="inline">
 						<img src="empty.gif" id="userProfilePicPost" class="inline pProfile">
 						<i class="inline pDelete" id="deletePostButton"><strong>x</strong></i>
-						<h4 class="pUser">{{this.metadata.username}}</h4>
+						<h4 class="pUser">{{metadata.username}}</h4>
 					</div>
-					<h5 class="pDate center-text">{{this.copies.images.updatedAt}}</h5>
-					<img src="{{this.url}}" alt="thumbnail" class="img-responsive pPic">
+					<h5 class="pDate center-text">{{copies.images.updatedAt}}</h5>
+					<img src="{{url}}" alt="thumbnail" class="img-responsive pPic">
 					<div id="likesDiv" class="pLikes">
 						<i class="fa fa-thumbs-o-up"></i>
-						<p class="inline">{{this.metadata.likes}}</p>
+						<p class="inline">{{metadata.likes}}</p>
 					</div>
-					{{#each this.metadata.post}}
+					{{#each metadata.post}}
 						<p class="pPost"><strong>{{username}}</strong> {{comment}}</p>
 					{{/each}}
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
