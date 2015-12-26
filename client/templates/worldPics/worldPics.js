@@ -1,6 +1,6 @@
 Template.worldPics.helpers({
  	'images': function(){
- 		return Images.find({},{sort:{"copies.images.updatedAt":-1}}).fetch();
+ 		return Images.find({},{sort:{"copies.images.updatedAt":-1}});
  	}
 });
 
@@ -10,9 +10,9 @@ Template.worldPics.onCreated(function () {
 });
 
 Template.worldPics.events({
- 	'click .fa-thumbs-o-up':function(){
+ 	/*'click .fa-thumbs-o-up':function(){
  		Images.update({_id:this._id},{$push:{"metadata.likes":Meteor.userId()}});
- 	},
+ 	}, */
  	'dblclick .picDiv':function(){
  		if(Meteor.user().profile.type === 'admin'){
  			Images.remove({_id:this._id});
@@ -54,10 +54,10 @@ Template.worldPics.events({
  			Images.update({_id:this._id} , 
  				{$push:
  					{"metadata.post":
- 						{
- 							username:Meteor.user().username, 
- 							comment:comment
- 						}
+ 						[
+ 							Meteor.user().username, 
+ 							comment
+ 						]
  					}
  				}
  			);
@@ -67,12 +67,6 @@ Template.worldPics.events({
 
 });
 
-Template.worldPics.rendered=function(){
-	if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-}
 
 
 

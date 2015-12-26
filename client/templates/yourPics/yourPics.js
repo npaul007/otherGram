@@ -1,6 +1,6 @@
 Template.yourPics.helpers({
 	'myImages':function(){
-		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}}).fetch();
+		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}});
 	}
 });
 
@@ -11,9 +11,9 @@ Template.yourPics.onCreated(function () {
 
 
 Template.yourPics.events({
-	'click .fa-thumbs-o-up':function(){
-		Images.update({_id:this._id},{$inc:{"metadata.likes":1}});
-	},
+ 	/*'click .fa-thumbs-o-up':function(){
+ 		Images.update({_id:this._id},{$push:{"metadata.likes":Meteor.userId()}});
+ 	}, */
 	'dblclick .picDiv':function(){
 		if(Meteor.user().profile.type === 'admin'){
 			Images.remove({_id:this._id});
@@ -55,10 +55,10 @@ Template.yourPics.events({
  			Images.update({_id:this._id} , 
  				{$push:
  					{"metadata.post":
- 						{
- 							username:Meteor.user().username, 
- 							comment:comment
- 						}
+ 						[
+ 							Meteor.user().username, 
+ 							comment
+ 						]
  					}
  				}
  			);
@@ -68,9 +68,3 @@ Template.yourPics.events({
 
 });
 
-Template.yourPics.rendered=function(){
-	if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-}

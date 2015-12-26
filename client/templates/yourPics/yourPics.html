@@ -19,10 +19,10 @@
 					<img src="{{this.url}}" alt="thumbnail" class="img-responsive pPic">
 					<div id="likesDiv" class="pLikes">
 						<i class="fa fa-thumbs-o-up"></i>
-						<p class="inline">{{this.metadata.likes}}</p>
+						<!--<p class="inline">{{this.metadata.likes.count}}</p>-->
 					</div>
 					{{#each this.metadata.post}}
-						<p class="pPost"><strong>{{username}}</strong> {{comment}}</p>
+						<p class="pPost"><strong>{{this.[0]}}: </strong> {{this.[1]}}</p>
 					{{/each}}
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>
