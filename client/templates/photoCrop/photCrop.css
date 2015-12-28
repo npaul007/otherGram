@@ -10,8 +10,14 @@
 	height: 150px;
 }
 
-.alert{
-	width: 90%;
+.alert-danger{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-warning{
+	position: relative;
+	right: -15px;
 }
 
 #submitPic{
@@ -66,7 +72,3 @@
 	border: 2px solid #cc0066;
 }
 
-.center-warning{
-	position: relative;
-	right: -10px;
-}
