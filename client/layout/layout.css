@@ -1,7 +1,7 @@
 body{
 	color: white;
-	font-family: sans-serif;
 	background: #ffe6cc;
+	font-family: arial;
 }
 
 label{
@@ -69,10 +69,6 @@ a:visited{
 
 #navUsername{
 	text-align: right;
-}
-
-#navHeader{
-	font-family: 'Lily Script One', cursive;
 }
 
 #navbar-bottom{
