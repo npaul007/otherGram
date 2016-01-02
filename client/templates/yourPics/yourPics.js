@@ -51,21 +51,15 @@ Template.yourPics.events({
 	'keypress #commentInput':function(event,template){
  		if(event.keyCode == 13){
  			event.preventDefault();
+
  			var comment = event.target.value;
+
  			console.log(comment);
+
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update({_id:this._id} , 
-					{$push:
-						{"metadata.post":
-							[
-								Meteor.user().username, 
-								comment
-							]
-						}
-					}
-				);
+	 			Images.update({_id:this._id} , {$push:{"metadata.post":[Meteor.user().username, comment]}});
 				event.target.value = "";
  			}
  		}

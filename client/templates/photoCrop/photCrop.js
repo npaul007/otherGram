@@ -49,7 +49,7 @@ Template.photoCrop.events({
 
 		fsFile.metadata = {
 			post:[
-				[Meteor.user().username , textareaText	]
+				[Meteor.user().username , textareaText]
 			],
 			userId:Meteor.userId(),
 			username:Meteor.user().username
