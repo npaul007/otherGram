@@ -56,20 +56,21 @@ Template.worldPics.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update({_id:this._id} , 
-					{$push:
-						{"metadata.post":
-							[
-								Meteor.user().username, 
-								comment
-							]
-						}
-					}
-				);
+	 			Images.update({_id:this._id} , {$push:{"metadata.post":[Meteor.user().username, comment]}});
 				event.target.value = "";
  			}
  		}
- 	}
+ 	},
+ 	'focus input':function(){
+		var windowWidth = $(window).width();
+
+		if(windowWidth < 1000){
+			$('.footer').hide();
+		}
+	},
+	'blur input':function(){
+		$('.footer').show();
+	}
 
 });
 

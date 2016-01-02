@@ -63,7 +63,17 @@ Template.yourPics.events({
 				event.target.value = "";
  			}
  		}
- 	}
+ 	},
+ 	'focus input':function(){
+		var windowWidth = $(window).width();
+
+		if(windowWidth < 1000){
+			$('.footer').hide();
+		}
+	},
+	'blur input':function(){
+		$('.footer').show();
+	}
 
 });
 

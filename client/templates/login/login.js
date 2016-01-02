@@ -12,6 +12,16 @@ Template.login.events({
 				alert("incorrect password");
 			}
 		});
+	},
+	'focus input':function(){
+		var windowWidth = $(window).width();
+
+		if(windowWidth < 1000){
+			$('.footer').hide();
+		}
+	},
+	'blur input':function(){
+		$('.footer').show();
 	}
 });
 
