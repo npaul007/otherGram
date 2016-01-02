@@ -63,6 +63,7 @@ Template.yourPics.events({
 				event.target.value = "";
  			}
  		}
+ 		$('.footer').show();
  	},
  	'focus input':function(){
 		var windowWidth = $(window).width();

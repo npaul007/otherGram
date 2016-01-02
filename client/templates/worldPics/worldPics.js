@@ -60,6 +60,7 @@ Template.worldPics.events({
 				event.target.value = "";
  			}
  		}
+ 		$('.footer').show();
  	},
  	'focus input':function(){
 		var windowWidth = $(window).width();
@@ -68,9 +69,6 @@ Template.worldPics.events({
 			$('.footer').hide();
 		}
 	},
-	'blur input':function(){
-		$('.footer').show();
-	}
 
 });
 

@@ -3,7 +3,6 @@ Template.login.events({
 		Router.go('/register');
 	},
 	'click #loginButton':function(event,template){
-
 		var username = template.find('#loginUsername').value;
 		var password = template.find('#loginPassword').value;
 
@@ -25,6 +24,8 @@ Template.login.events({
 				}
 			});
 		}
+
+		$('.footer').show();
 	},
 	'focus input':function(){
 		var windowWidth = $(window).width();
