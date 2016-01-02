@@ -13,6 +13,19 @@ Template.login.events({
 			}
 		});
 	},
+	'keypress input':function(event,template){
+		var keyCode = event.keyCode;
+		if(keyCode === 13){
+			var username = template.find('#loginUsername').value;
+			var password = template.find('#loginPassword').value;
+
+			Meteor.loginWithPassword(username,password,function(error){
+				if(error){
+					alert("incorrect password");
+				}
+			});
+		}
+	},
 	'focus input':function(){
 		var windowWidth = $(window).width();
 
