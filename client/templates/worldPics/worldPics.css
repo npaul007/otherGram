@@ -28,6 +28,9 @@
 	width: 100%;
 	position: relative;
 	left: -7px;
+	border: 0;
+    box-shadow: none; 
+    border-bottom: .1em solid gray;
 }
 
 #submitComment:hover{

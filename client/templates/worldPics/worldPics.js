@@ -60,15 +60,16 @@ Template.worldPics.events({
 				event.target.value = "";
  			}
  		}
- 		$('.footer').show();
  	},
  	'focus input':function(){
 		var windowWidth = $(window).width();
-
 		if(windowWidth < 1000){
 			$('.footer').hide();
 		}
 	},
+	'blur input':function(){
+		$('.footer').show();
+	}
 
 });
 
