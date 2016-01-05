@@ -1,3 +1,10 @@
 <template name="people">
-	
+	<div class="container">
+		{{#each users}}
+			<div id="userDiv">
+				<img src="">
+				<h4 class="center-text">{{this.username}}</h4>
+			</div>
+		{{/each}}
+	</div>
 </template>
