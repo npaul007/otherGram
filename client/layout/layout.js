@@ -10,6 +10,9 @@ Template.layout.events({
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
+	},
+	'click .fa-user-plus':function(){
+		Router.go('/people');
 	}
 });
 

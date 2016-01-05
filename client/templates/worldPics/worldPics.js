@@ -27,7 +27,6 @@ Template.worldPics.events({
  		}
  	},
  	'click #wpGrid':function(){
- 		$('.picDiv').removeClass('shadow');
  		$('.picDiv').removeClass('worldPicContainer');
  		$('.yImages').addClass('yourImages');
 
@@ -38,7 +37,6 @@ Template.worldPics.events({
  		}
  	},
  	'click #wpBars':function(){
- 		$('.picDiv').addClass('shadow');
  		$('.picDiv').addClass('worldPicContainer');
  		$('.yImages').removeClass('yourImages');
 
