@@ -4,15 +4,15 @@ Template.worldPics.helpers({
  	}
 });
 
+Template.registerHelper("timeSincePosted",function(date){
+	return moment(new Date(date)).fromNow();
+});
+
 Template.worldPics.onCreated(function () {
-  // Use this.subscribe inside onCreated callback
   this.subscribe("images");
 });
 
 Template.worldPics.events({
- 	/*'click .fa-thumbs-o-up':function(){
- 		Images.update({_id:this._id},{$push:{"metadata.likes":Meteor.userId()}});
- 	}, */
  	'dblclick .picDiv':function(){
  		if(Meteor.user().profile.type === 'admin'){
  			Images.remove({_id:this._id});

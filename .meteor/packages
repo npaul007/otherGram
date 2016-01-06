@@ -26,3 +26,7 @@ cfs:gridfs
 aldeed:collection2
 sacha:spin
 jquery
+
+
+npm-container
+momentjs:moment

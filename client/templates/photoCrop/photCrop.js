@@ -52,7 +52,8 @@ Template.photoCrop.events({
 				[Meteor.user().username , textareaText]
 			],
 			userId:Meteor.userId(),
-			username:Meteor.user().username
+			username:Meteor.user().username,
+			date:Date()
 		};
 		
 		if ($('#uploaded').get(0).files.length === 0) {
