@@ -61,6 +61,10 @@
 	text-align: left;
 }
 
+.pDate{
+	margin-left: 40px;
+}
+
 @media (max-width: 800px){
 	.worldPicContainer{
 		width: 91%;
@@ -71,7 +75,6 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		text-align: center;
 		word-wrap:break-word;
 	}
 
