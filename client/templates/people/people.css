@@ -1,14 +1,27 @@
 #userDiv{
-	display: inline-block;
+	display: block;
 	background: white;
 	margin: 20px;
-	padding: 50px;
-	width: 10%;
-	height: 10%;
-	border-radius: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	width: 50%;
+	height: 50%;
+	border-radius: 5px;
 }
 
 #userDiv:hover{
 	color: white;
 	background: #cc0000;
+}
+
+#profilePic{
+	width: 40%;
+	height: 40%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	border-radius: 200px;
 }
