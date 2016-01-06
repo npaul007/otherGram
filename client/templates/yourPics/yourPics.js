@@ -10,6 +10,7 @@ Template.yourPics.onCreated(function () {
 });
 
 Template.registerHelper("timeSincePosted",function(date){
+	
 	return timeSince(date);
 });
 
