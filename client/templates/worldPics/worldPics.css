@@ -7,7 +7,6 @@
 	background: white;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
 	word-wrap:break-word;
 }
 
@@ -22,6 +21,10 @@
 
 #likesDiv{
 	margin: 10px;
+}
+
+.pUser{
+	padding-left: 20px;
 }
 
 #commentInput{
@@ -43,6 +46,7 @@
 	height: 30px;
 	border-radius: 100px;
 	float: left;
+	margin-right: 10px;
 }
 
 #deletePostButton{
