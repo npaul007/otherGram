@@ -1,4 +1,4 @@
-function addBars() {
+addBars = function() {
 	$('.picDiv').addClass('worldPicContainer');
 	$('.yImages').removeClass('yourImages');
 
@@ -9,7 +9,7 @@ function addBars() {
 	}
 }
 
-function addGrid() {
+addGrid = function() {
 	$('.picDiv').removeClass('worldPicContainer');
 	$('.yImages').addClass('yourImages');
 
