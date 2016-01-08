@@ -11,6 +11,8 @@ Template.login.events({
 				alert("incorrect password");
 			}
 		});
+
+		Session.set('currentDisplaySettingWorldPics',"bars");
 	},
 	'keypress input':function(event,template){
 		var keyCode = event.keyCode;
@@ -23,6 +25,8 @@ Template.login.events({
 					alert("incorrect password");
 				}
 			});
+
+			Session.set('currentDisplaySettingWorldPics',"bars");
 		}
 
 		$('.footer').show();

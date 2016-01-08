@@ -1,6 +1,29 @@
+function addBars() {
+	$('.picDiv').addClass('worldPicContainer');
+	$('.yImages').removeClass('yourImages');
+
+	var toShow = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
+
+	for(var p = 0; p< toShow.length; p++){
+		$(toShow[p]).show();
+	}
+}
+
+function addGrid() {
+	$('.picDiv').removeClass('worldPicContainer');
+	$('.yImages').addClass('yourImages');
+
+	var toHide = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
+
+	for(var i = 0; i< toHide.length; i++){
+		$(toHide[i]).hide();
+	}
+}
+
 Template.worldPics.helpers({
  	'images': function(){
  		return Images.find({},{sort:{"copies.images.updatedAt":-1}});
+ 		addGrid();
  	}
 });
 
@@ -8,14 +31,18 @@ Template.registerHelper("timeSincePosted",function(date){
 	return moment(new Date(date)).fromNow();
 });
 
-Template.worldPics.onCreated(function () {
-  this.subscribe("images");
-});
+Template.worldPics.rendered = function(){
+	if(Session.get('currentDisplaySettingWorldPics') === "grid"){
+		addGrid();
+	}else{
+		addBars();
+	}
+}
 
 Template.worldPics.events({
-	'click .picDiv':function(){
+	'click .pPic':function(){
 		Session.set('selectedPicture',this._id);
-		console.log(Session.get('selectedPicture'));
+		Session.set('previousPage','worldPics');
 		Router.go('/selectedPicture');
 	}
 	,
@@ -33,24 +60,12 @@ Template.worldPics.events({
  		}
  	},
  	'click #wpGrid':function(){
- 		$('.picDiv').removeClass('worldPicContainer');
- 		$('.yImages').addClass('yourImages');
-
- 		var toHide = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
-
- 		for(var i = 0; i< toHide.length; i++){
- 			$(toHide[i]).hide();
- 		}
+ 		addGrid();
+ 		Session.set('currentDisplaySettingWorldPics',"grid");
  	},
  	'click #wpBars':function(){
- 		$('.picDiv').addClass('worldPicContainer');
- 		$('.yImages').removeClass('yourImages');
-
- 		var toShow = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
-
- 		for(var p = 0; p< toShow.length; p++){
- 			$(toShow[p]).show();
- 		}
+ 		addBars();
+ 		Session.set('currentDisplaySettingWorldPics',"bars");
  	},
  	'keypress #commentInput':function(event,template){
  		if(event.keyCode == 13){
@@ -76,8 +91,6 @@ Template.worldPics.events({
 	}
 
 });
-
-
 
 
 
