@@ -8,7 +8,7 @@ Template.login.events({
 
 		Meteor.loginWithPassword(username,password,function(error){
 			if(error){
-				alert("incorrect password");
+				alert("Invalid Username/Password");
 			}
 		});
 
@@ -22,7 +22,7 @@ Template.login.events({
 
 			Meteor.loginWithPassword(username,password,function(error){
 				if(error){
-					alert("incorrect password");
+					alert("Invalid Username/Password");
 				}
 			});
 
