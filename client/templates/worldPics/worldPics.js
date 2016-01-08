@@ -13,6 +13,12 @@ Template.worldPics.onCreated(function () {
 });
 
 Template.worldPics.events({
+	'click .picDiv':function(){
+		Session.set('selectedPicture',this._id);
+		console.log(Session.get('selectedPicture'));
+		Router.go('/selectedPicture');
+	}
+	,
  	'dblclick .picDiv':function(){
  		if(Meteor.user().profile.type === 'admin'){
  			Images.remove({_id:this._id});
