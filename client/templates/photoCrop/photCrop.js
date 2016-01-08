@@ -37,7 +37,10 @@ Images.allow({
  }
 });
 
-Meteor.subscribe('pictures');
+// if pictures collection is ready return true
+Meteor.subscribe('pictures', function onReady(){
+	Session.set('picturesLoaded',true);
+});
 
 Template.photoCrop.events({
 	'click #submitPic':function(event,template){

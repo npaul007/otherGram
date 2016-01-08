@@ -10,4 +10,8 @@ Template.selectedPicture.rendered = function(){
 	if(lastPage === "worldPics"){
 		$('.fa-globe').addClass('active');
 	}
+
+	else if(lastPage === "yourPics"){
+		$('.fa-home').addClass('active');
+	}
 }

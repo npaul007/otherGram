@@ -1,3 +1,4 @@
+// formats pictures in a scrollable form showing comments likes and when the picture was posted
 addBars = function() {
 	$('.picDiv').addClass('worldPicContainer');
 	$('.yImages').removeClass('yourImages');
@@ -9,6 +10,7 @@ addBars = function() {
 	}
 }
 
+// formats photos in a grid format
 addGrid = function() {
 	$('.picDiv').removeClass('worldPicContainer');
 	$('.yImages').addClass('yourImages');
@@ -20,17 +22,25 @@ addGrid = function() {
 	}
 }
 
+// Returns the image collections in order of the most recent picture upload date
 Template.worldPics.helpers({
  	'images': function(){
  		return Images.find({},{sort:{"copies.images.updatedAt":-1}});
- 		addGrid();
+ 	},
+ 	'imagesLoaded':function(){
+ 		return Session.get('picturesLoaded');
  	}
 });
 
+
+// Helper responsible for displaying time since picture was posted
 Template.registerHelper("timeSincePosted",function(date){
 	return moment(new Date(date)).fromNow();
 });
 
+
+/* when the world pics template is rendered check to see current session variable to see what 
+format to view pictures in the user last selected */
 Template.worldPics.rendered = function(){
 	if(Session.get('currentDisplaySettingWorldPics') === "grid"){
 		addGrid();
@@ -41,8 +51,12 @@ Template.worldPics.rendered = function(){
 
 Template.worldPics.events({
 	'click .pPic':function(){
-		Session.set('selectedPicture',this._id);
+		// create sessions variable of selected photo to be displayed in selectedPicture template
+		Session.set('selectedPicture',this._id); 
+
+		// Session variable stored to set respective nav icon active
 		Session.set('previousPage','worldPics');
+
 		Router.go('/selectedPicture');
 	}
 	,
@@ -68,6 +82,7 @@ Template.worldPics.events({
  		Session.set('currentDisplaySettingWorldPics',"bars");
  	},
  	'keypress #commentInput':function(event,template){
+ 		// if the enter button is pressed and comment input isnt empty, comment is submitted into array
  		if(event.keyCode == 13){
  			event.preventDefault();
  			var comment = event.target.value;

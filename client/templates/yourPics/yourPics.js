@@ -1,9 +1,14 @@
 Template.yourPics.helpers({
 	'myImages':function(){
 		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}});
-	}
+	},
+ 	'imagesLoaded':function(){
+ 		return Session.get('picturesLoaded');
+ 	}
 });
 
+/* when the world pics template is rendered check to see current session variable to see what 
+format to view pictures in the user last selected */
 Template.yourPics.rendered = function(){
 	if(Session.get('currentDisplaySettingYourPics') === "grid"){
 		addGrid();
@@ -14,8 +19,12 @@ Template.yourPics.rendered = function(){
 
 Template.yourPics.events({
 	'click .pPic':function(){
+		// create sessions variable of selected photo to be displayed in selectedPicture template
 		Session.set('selectedPicture',this._id);
-		Session.set('previousPage','YourPics');
+
+		// Session variable stored to set respective nav icon active
+		Session.set('previousPage','yourPics');
+
 		Router.go('/selectedPicture');
 	}
 	,
@@ -41,6 +50,7 @@ Template.yourPics.events({
  		Session.set('currentDisplaySettingYourPics',"bars");
  	},
  	'keypress #commentInput':function(event,template){
+ 		// if the enter button is pressed and comment input isnt empty, comment is submitted into array
  		if(event.keyCode == 13){
  			event.preventDefault();
  			var comment = event.target.value;
