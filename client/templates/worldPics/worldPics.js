@@ -38,6 +38,9 @@ Template.registerHelper("timeSincePosted",function(date){
 	return moment(new Date(date)).fromNow();
 });
 
+Template.registerHelper("numberOfLikes", function(arrayObject){
+	return arrayObject.length;
+});
 
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
@@ -50,6 +53,21 @@ Template.worldPics.rendered = function(){
 }
 
 Template.worldPics.events({
+	// like button
+	'click .fa-thumbs-o-up':function(){
+		if(this.metadata.likes.length === 0){
+			Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
+		}else{
+			for(var g = 0; g<this.metadata.likes.length; g++){
+				if(Meteor.userId() === this.metadata.likes[g]){
+					alert("already liked");
+				}else{
+					Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
+				}
+				console.log(this.metadata.likes[g]);
+			} 
+		}
+	},
 	'click .pPic':function(){
 		// create sessions variable of selected photo to be displayed in selectedPicture template
 		Session.set('selectedPicture',this._id); 
