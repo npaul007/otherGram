@@ -60,11 +60,12 @@ Template.worldPics.events({
 		}else{
 			for(var g = 0; g<this.metadata.likes.length; g++){
 				if(Meteor.userId() === this.metadata.likes[g]){
-					alert("already liked");
+					alert("you have already liked this");
+					this.metadata.likes.splice(g,1);
+					console.log(this.metadata);
 				}else{
 					Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
 				}
-				console.log(this.metadata.likes[g]);
 			} 
 		}
 	},
