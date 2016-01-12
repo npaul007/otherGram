@@ -1,13 +1,12 @@
-#worldPicContainer{
+.worldPicContainer{
 	width: 50%;
-	padding: 15px;
+	padding: 20px;
+	border-radius: 5px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	background: white;
-	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
 	word-wrap:break-word;
 }
 
@@ -24,10 +23,17 @@
 	margin: 10px;
 }
 
+.pUser{
+	padding-left: 20px;
+}
+
 #commentInput{
 	width: 100%;
 	position: relative;
 	left: -7px;
+	border: 0;
+    box-shadow: none; 
+    border-bottom: .1em solid gray;
 }
 
 #submitComment:hover{
@@ -40,6 +46,7 @@
 	height: 30px;
 	border-radius: 100px;
 	float: left;
+	margin-right: 10px;
 }
 
 #deletePostButton{
@@ -50,8 +57,21 @@
 	color: red;
 }
 
+.pPost{
+	text-align: left;
+}
+
+.pDate{
+	margin-left: 40px;
+}
+
+.pPic{
+	width: 100%;
+	height: 100%;
+}
+
 @media (max-width: 800px){
-	#worldPicContainer{
+	.worldPicContainer{
 		width: 91%;
 		margin-top: 10px;
 		margin-bottom: 10px;
@@ -60,7 +80,6 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		text-align: center;
 		word-wrap:break-word;
 	}
 

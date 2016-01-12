@@ -1,11 +1,13 @@
 <template name="register">
 	<div class="container">
 		<div class="col-md-12">
-			<div id="registerForm" class="shadow">
+			<div id="registerForm">
+				<h2 class="center-text">Register</h2>
 				<input type="text" id="registerUsername" placeholder="desired username">
-				<input type="password" id="registerPassword" placeholder="password">
+				<input type="password" id="registerPassword" placeholder="desired password">
 				<input type="password" id="registerConfirmPassword" placeholder="confirm password">
 				<button id="registerSubmitButton" class="btn btn-default form-control">Sign up</button>
+				<button id="back" class="btn btn-default form-control"  onclick="history.go(-1);">Back</button>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,19 @@
+#selectedPic{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+	width: 80%;
+	height: 80%;
+}
+
+@media (max-width: 800px){
+	#selectedPic{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 100px;
+		width: 150%;
+		height: 100%;
+	}
+}

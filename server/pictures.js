@@ -7,6 +7,10 @@ Images = new FS.Collection("images",{
     }
 });
 
+Meteor.publish('pictures',function(){
+	return Images.find();
+});
+
 Images.deny({
  insert: function(){
 	 return false;
@@ -36,3 +40,8 @@ Images.allow({
 	 return true;
  }
 });
+
+
+
+
+

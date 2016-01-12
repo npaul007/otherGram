@@ -10,6 +10,9 @@ Template.layout.events({
 	},
 	'click .fa-home':function(){
 		Router.go('/yourPics');
+	},
+	'click .fa-user-plus':function(){
+		Router.go('/people');
 	}
 });
 
@@ -20,5 +23,10 @@ Template.navbar.helpers({
 });
 
 Template.registerHelper("isCurrentPage",function(current){
-	return current === Session.get("currentRouteName") ;
+	return current === Session.get("currentRouteName");
+});
+
+Template.footer.onCreated(function () {
+  // Use this.subscribe inside onCreated callback
+  this.subscribe("currentUser");
 });

@@ -1,27 +1,33 @@
 <template name="worldPics">
-	{{#if Template.subscriptionsReady}}
+	{{#if imagesLoaded}}
 	<div class="container">
 		<div class="col-md-12">
 			<h3 class="center-text">World</h3>
 			<div id="gridButtons">
-				<i class="fa fa-th photoFormatButtons"></i>
-				<i class="fa fa-bars photoFormatButtons"></i>
+				<i class="fa fa-th photoFormatButtons" id="wpGrid"></i>
+				<i class="fa fa-bars photoFormatButtons" id="wpBars"></i>
 			</div>
+			<div class="yImages">
 			{{#each images}}
-				<div id="worldPicContainer" class="shadow">
-					<img src="empty.gif" id="userProfilePicPost" class="inline">
-					<h4 class="inline center-text center-fix img-responsive">{{this.metadata.username}}</h4>
-					<p class="inline center-fix" id="deletePostButton"><strong>x</strong></p>
-					<h5 class="center-fix">{{this.copies.images.updatedAt}}</h5>
-					<img src="{{this.url}}" alt="thumbnail" class="img-responsive img-thumbnail" id="postedPic">
-					<div id="likesDiv">
-						<i class="fa fa-thumbs-o-up"></i>
-						<p class="inline">{{this.metadata.likes}}</p>
+				<div class="picDiv worldPicContainer">
+					<div class="inline">
+						<img src="default-user-icon-profile.png" id="userProfilePicPost" class="inline pProfile">
+						<i class="inline pDelete" id="deletePostButton"><strong>x</strong></i>
+						<h4 class="pUser">{{this.metadata.username}}</h4>
 					</div>
-					<p>{{this.metadata.post}}</p>
-					<input type="text" class="form-control inline" id="commentInput" placeholder="speak your mind">
+					<h5 class="pDate">{{timeSincePosted this.metadata.date }}</h5>
+					<img src="{{this.url}}" alt="thumbnail" class="img-responsive pPic">
+					<div id="likesDiv" class="pLikes">
+						<i class="fa fa-thumbs-o-up"></i>
+						<p class="inline">{{numberOfLikes this.metadata.likes}} people like this</p>
+					</div>
+					{{#each this.metadata.post}}
+						<p class="pPost"><strong>{{this.[0]}}: </strong> {{this.[1]}}</p>
+					{{/each}}
+					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>
 			{{/each}}
+			</div>
 		</div>
 	</div>
 	{{else}}

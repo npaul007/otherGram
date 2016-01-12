@@ -37,39 +37,41 @@ Images.allow({
  }
 });
 
+// if pictures collection is ready return true
+Meteor.subscribe('pictures', function onReady(){
+	Session.set('picturesLoaded',true);
+});
+
 Template.photoCrop.events({
 	'click #submitPic':function(event,template){
 		event.preventDefault();
 
 		var file = $('#uploaded').get(0).files[0]; 
 		var fsFile = new FS.File(file);
-
 		var textareaText = $('#text').val()
 
 		fsFile.metadata = {
-			post:textareaText,
-			likes:0,
+			likes:[],
+			post:[
+				[Meteor.user().username , textareaText]
+			],
 			userId:Meteor.userId(),
-			username:Meteor.user().username
+			username:Meteor.user().username,
+			date:Date()
 		};
 		
 		if ($('#uploaded').get(0).files.length === 0) {
 		    alert("No files selected.");
-		}
-
-		else if(corrupted){
-			alert('Your file is either corrupted or not an image.');
-		}
-
-		else{
+		}else{
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
-					alert('error');
+					alert('Upload failed... please try again.');
 					return;
+				}else{
+					alert('Upload successful!');
+					Router.go('/');
 				}
 			});
-
-			Router.go('/');
 		}
 	},
 	'click #uploadLabel':function(event,template){
@@ -79,19 +81,14 @@ Template.photoCrop.events({
 });
 
 Template.photoCrop.rendered=function(){
-
-	corrupted = false;
-
 	$("#uploaded").change(function(){
 	    readURL(this);
 	    $("#displayPic")
 		    .on('load', function() { 
 		    	alert("Your image has loaded correctly."); 
-		    	corrupted = false;
 		    })
 		    .on('error', function() { 
 		    	alert("File is corrupted!"); 
-		    	corrupted = true;
 		    });
 	});
 
@@ -108,4 +105,6 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+
 

@@ -1,10 +1,12 @@
 #registerForm{
 	width: 240px;
-	padding: 30px;
-	background: white;
+	padding: 40px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
+	background: white;
+	border-radius: 5px;
 }
 
 #submitButton{
@@ -14,12 +16,16 @@
 }
 
 #registerUsername , #registerPassword , #registerConfirmPassword{
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
+	border: 0;
+    box-shadow: none; 
+    border-bottom: .1em solid gray;
 }
 
-#registerSubmitButton{
+#registerSubmitButton , #back{
 	margin-top: 10px;
 	padding: 5px;
 
@@ -35,6 +41,11 @@
 }
 
 #registerSubmitButton:hover{
+	background: #cc0066;
+	border: 2px solid #cc0066;
+}
+
+#back:hover{
 	background: #cc0066;
 	border: 2px solid #cc0066;
 }

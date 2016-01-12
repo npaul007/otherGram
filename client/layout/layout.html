@@ -1,5 +1,4 @@
 <template name="layout">
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main">
 		{{>navbar}}
@@ -15,9 +14,9 @@
 
 <template name="navbar">
 	<div class="navbar navbar-default" id="navbar-top">
-		<h1 class="navbar-brand center-text" id="navHeader">SolarGram</h1>
+		<h1 class="navbar-brand center-text" id="navHeader"><strong>otherGram</strong></h1>
 		{{#if currentUser}}
-			<img src="empty.gif" id="loggedUserPic">
+			<img src="default-user-icon-profile.png" id="loggedUserPic">
 			<p class="center-text" style="color:white;">{{username}}</p>
 		{{/if}}
 	</div>
@@ -25,16 +24,20 @@
 
 <template name="footer">
 	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
-		{{#if currentUser}}
-			<div class="icons">
-				<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
-				<i class="fa fa-users "></i>
-				<i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i>
-				<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
-				<i class="fa fa-sign-out"></i>
-			</div>
+		{{#if Template.subscriptionsReady}}
+			{{#if currentUser}}
+				<div class="icons">
+					<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
+					<i class="fa fa-user-plus {{#if isCurrentPage "people"}}active{{/if}}"></i>
+					<i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i>
+					<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
+					<i class="fa fa-sign-out"></i>
+				</div>
+			{{/if}}
+		{{else}}
+			<div class="margin-bottom">{{> loading}}</div>
 		{{/if}}
-		<a href="http://natepa.co.nf/" id="myName">Nathanael Paulemon</a>
-		<a href="https://github.com/npaul007/fakeAGram" id="githubLink">Github</a>
+		<a href="http://nathanaelpaulemon.co.nf/" id="myName">Nathanael Paulemon</a>
+		<a href="https://github.com/npaul007/otherGram" id="githubLink">Github</a>
 	</div>
 </template>

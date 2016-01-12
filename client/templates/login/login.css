@@ -1,16 +1,22 @@
 #loginForm{
 	width: 240px;
-	padding: 30px;
-	background: white;
+	padding: 40px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
+	background: white;
+	border-radius: 5px;
 }
 
 #loginUsername , #loginPassword{
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 	width: 90%;
+	border: 0;
+    box-shadow: none; 
+    border-bottom: .1em solid gray;
 }
 
 #loginButton, #registerButton{
