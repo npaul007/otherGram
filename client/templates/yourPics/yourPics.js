@@ -18,6 +18,22 @@ Template.yourPics.rendered = function(){
 }
 
 Template.yourPics.events({
+	'click .fa-thumbs-o-up':function(){
+		if(this.metadata.likes.length === 0){
+			Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
+		}else{
+			for(var g = 0; g<this.metadata.likes.length; g++){
+				if(Meteor.userId() === this.metadata.likes[g]){
+					var unlike = confirm("You have already liked this post, would you like to unlike it?");
+					if(unlike){
+						Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});
+					}
+				}else{
+					Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
+				}
+			} 
+		}
+	},
 	'click .pPic':function(){
 		// create sessions variable of selected photo to be displayed in selectedPicture template
 		Session.set('selectedPicture',this._id);

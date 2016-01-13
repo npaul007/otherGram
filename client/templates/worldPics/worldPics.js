@@ -38,10 +38,6 @@ Template.registerHelper("timeSincePosted",function(date){
 	return moment(new Date(date)).fromNow();
 });
 
-Template.registerHelper("numberOfLikes", function(arrayObject){
-	return arrayObject.length;
-});
-
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.worldPics.rendered = function(){
@@ -60,9 +56,10 @@ Template.worldPics.events({
 		}else{
 			for(var g = 0; g<this.metadata.likes.length; g++){
 				if(Meteor.userId() === this.metadata.likes[g]){
-					alert("you have already liked this");
-					this.metadata.likes.splice(g,1);
-					console.log(this.metadata);
+					var unlike = confirm("You have already liked this post, would you like to unlike it?");
+					if(unlike){
+						Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});
+					}
 				}else{
 					Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
 				}
