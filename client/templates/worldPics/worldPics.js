@@ -50,21 +50,22 @@ Template.worldPics.rendered = function(){
 
 Template.worldPics.events({
 	// like button
-	'click .fa-thumbs-o-up':function(){
-		if(this.metadata.likes.length === 0){
-			Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
+	'click .fa-thumbs-o-up':function(event){
+		event.preventDefault();
+
+		if(Images.find({_id:this._id}, {"metadata.likes":{$elemMatch:Meteor.userId()}).count() > 0){
+			if(confirm("You have been found, would you like to unlike this photo?")){
+				Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});
+			}else{
+				return false;
+			}
 		}else{
-			for(var g = 0; g<this.metadata.likes.length; g++){
-				if(Meteor.userId() === this.metadata.likes[g]){
-					var unlike = confirm("You have already liked this post, would you like to unlike it?");
-					if(unlike){
-						Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});
-					}
-				}else{
-					Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
-				}
-			} 
+			Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
 		}
+			/*
+				Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});			
+				Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}}); 
+			*/
 	},
 	'click .pPic':function(){
 		// create sessions variable of selected photo to be displayed in selectedPicture template
