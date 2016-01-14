@@ -52,7 +52,6 @@ Template.worldPics.events({
 	// like button
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
-
 		if(Images.find({$and: [{_id:this._id}, {"metadata.likes":{$elemMatch:{"userId":Meteor.userId()}}}]}).count() > 0){
 			if(confirm("You have already liked this photo, would you like to unlike this photo?")){
 				Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
@@ -62,10 +61,6 @@ Template.worldPics.events({
 		}else{
 			Images.update({_id:this._id}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
 		}
-			/*
-				Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});			
-				Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}}); 
-			*/
 	},
 	'click .pPic':function(){
 		// create sessions variable of selected photo to be displayed in selectedPicture template
