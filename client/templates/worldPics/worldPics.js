@@ -53,14 +53,14 @@ Template.worldPics.events({
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
 
-		if(Images.find({_id:this._id}, {"metadata.likes":{$elemMatch:Meteor.userId()}).count() > 0){
-			if(confirm("You have been found, would you like to unlike this photo?")){
-				Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});
+		if(Images.find({$and: [{_id:this._id}, {"metadata.likes":{$elemMatch:{"userId":Meteor.userId()}}}]}).count() > 0){
+			if(confirm("You have already liked this photo, would you like to unlike this photo?")){
+				Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
 			}else{
 				return false;
 			}
 		}else{
-			Images.update({_id:this._id}, {$push:{"metadata.likes":Meteor.userId()}});
+			Images.update({_id:this._id}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
 		}
 			/*
 				Images.update({_id:this._id}, {$pull:{"metadata.likes":Meteor.userId()}});			
