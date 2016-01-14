@@ -48,12 +48,19 @@ Template.photoCrop.events({
 
 		var file = $('#uploaded').get(0).files[0]; 
 		var fsFile = new FS.File(file);
-		var textareaText = $('#text').val()
+		var textareaText = $('#text').val();
+		var userName = Meteor.user().username;
+
+		console.log(textareaText.length);
+
+		if(textareaText.length === 0){
+			alert("yolo");
+		}
 
 		fsFile.metadata = {
 			likes:[],
 			post:[
-				[Meteor.user().username , textareaText]
+				[userName , textareaText]
 			],
 			userId:Meteor.userId(),
 			username:Meteor.user().username,

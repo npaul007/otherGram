@@ -38,6 +38,20 @@ Template.registerHelper("timeSincePosted",function(date){
 	return moment(new Date(date)).fromNow();
 });
 
+Template.registerHelper("likeCount",function(arrayObject){
+	if(arrayObject.length >= 2){
+		return arrayObject.length +" people like this";
+	}
+
+	else if(arrayObject.length === 0){
+		return " ";
+	}
+
+	else{
+		return arrayObject.length+" person likes this";
+	}
+});
+
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.worldPics.rendered = function(){
