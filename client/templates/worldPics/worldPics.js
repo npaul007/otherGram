@@ -3,7 +3,14 @@ addBars = function() {
 	$('.picDiv').addClass('worldPicContainer');
 	$('.yImages').removeClass('yourImages');
 
-	var toShow = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
+	var toShow = ['.pProfile',
+				  '.pDelete',
+				  '.pDate',
+				  '.pLikes',
+				  '.pUser',
+				  '.pComment',
+				  '.pPost'
+				  ];
 
 	for(var p = 0; p< toShow.length; p++){
 		$(toShow[p]).show();
@@ -15,7 +22,14 @@ addGrid = function() {
 	$('.picDiv').removeClass('worldPicContainer');
 	$('.yImages').addClass('yourImages');
 
-	var toHide = ['.pProfile','.pDelete','.pDate','.pLikes','.pUser','.pComment','.pPost'];
+	var toHide = ['.pProfile',
+				  '.pDelete',
+				  '.pDate',
+				  '.pLikes',
+				  '.pUser',
+				  '.pComment',
+				  '.pPost'
+				 ];
 
 	for(var i = 0; i< toHide.length; i++){
 		$(toHide[i]).hide();
@@ -58,6 +72,10 @@ Template.worldPics.rendered = function(){
 }
 
 Template.worldPics.events({
+	'click .fa-pencil-square-o':function(event,template){
+		var index = event.target.getAttribute('currentIndex');
+		console.log(index);
+	},
 	// like button
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();

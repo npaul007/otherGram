@@ -23,6 +23,7 @@
 					</div>
 					{{#each this.metadata.post}}
 						<p class="pPost"><strong>{{this.[0]}}</strong> {{this.[1]}}</p>
+						<i class="fa fa-pencil-square-o" currentIndex="{{@index}}"></i>
 					{{/each}}
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>

@@ -14,6 +14,12 @@
 	font-size: 1.6em;
 }
 
+.fa-pencil-square-o{
+	float: right;
+	position: relative;
+	top: -30px;
+}
+
 .center-fix{
 	position: relative;
 	left: -10px;
