@@ -32,7 +32,6 @@ Template.worldPics.helpers({
  	}
 });
 
-
 // Helper responsible for displaying time since picture was posted
 Template.registerHelper("timeSincePosted",function(date){
 	return moment(new Date(date)).fromNow();
@@ -41,13 +40,9 @@ Template.registerHelper("timeSincePosted",function(date){
 Template.registerHelper("likeCount",function(arrayObject){
 	if(arrayObject.length >= 2){
 		return arrayObject.length +" people like this";
-	}
-
-	else if(arrayObject.length === 0){
+	}else if(arrayObject.length === 0){
 		return " ";
-	}
-
-	else{
+	}else{
 		return arrayObject.length+" person likes this";
 	}
 });
@@ -111,8 +106,10 @@ Template.worldPics.events({
  		// if the enter button is pressed and comment input isnt empty, comment is submitted into array
  		if(event.keyCode == 13){
  			event.preventDefault();
+
  			var comment = event.target.value;
  			console.log(comment);
+
  			if(comment.length == 0){
  				return;
  			}else{
