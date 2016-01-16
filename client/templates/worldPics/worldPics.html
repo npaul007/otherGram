@@ -22,8 +22,8 @@
 						<p class="inline">{{likeCount this.metadata.likes}}</p>
 					</div>
 					{{#each this.metadata.post}}
-						<p class="pPost"><strong>{{this.[0]}}</strong> {{this.[1]}}</p>
-						<i class="fa fa-pencil-square-o" currentIndex="{{@index}}"></i>
+						<p class="pPost"><strong>{{this.username}}</strong> {{this.comment}}</p>
+						<i class="fa fa-pencil-square-o" currentIndex="{{@index}}" currentUsername="{{this.username}}" currentComment="{{this.comment}}"></i>
 					{{/each}}
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>

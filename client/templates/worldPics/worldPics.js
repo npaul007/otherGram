@@ -74,7 +74,18 @@ Template.worldPics.rendered = function(){
 Template.worldPics.events({
 	'click .fa-pencil-square-o':function(event,template){
 		var index = event.target.getAttribute('currentIndex');
-		console.log(index);
+		var username = event.target.getAttribute('currentUsername');
+		var comment = event.target.getAttribute('currentComment');
+
+		console.log(index+":{"+username+","+comment+"}");
+
+		if(confirm("Would you like to delete your comment?")){
+			Images.update({_id:this._id}, {$pull:{"metadata.post":{"username":username, "comment":comment}}});
+		}else{
+			if(confirm("Would you like to edit your comment?")){
+				var edit = prompt("Your comment:",comment);
+			}
+		}
 	},
 	// like button
 	'click .fa-thumbs-o-up':function(event){
@@ -131,7 +142,7 @@ Template.worldPics.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update({_id:this._id} , {$push:{"metadata.post":[Meteor.user().username, comment]}});
+	 			Images.update({_id:this._id} , {$push:{"metadata.post":{"username":Meteor.user().username , "comment":comment}}});
 				event.target.value = "";
  			}
  		}

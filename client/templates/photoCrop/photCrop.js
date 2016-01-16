@@ -58,7 +58,7 @@ Template.photoCrop.events({
 		fsFile.metadata = {
 			likes:[],
 			post:[
-				[userName , textareaText]
+				{username:userName , comment:textareaText}
 			],
 			userId:Meteor.userId(),
 			username:Meteor.user().username,
