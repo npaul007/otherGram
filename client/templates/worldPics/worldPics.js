@@ -52,11 +52,16 @@ Template.registerHelper("timeSincePosted",function(date){
 });
 
 Template.registerHelper("likeCount",function(arrayObject){
+	// if more than one person likes a photo
 	if(arrayObject.length >= 2){
 		return arrayObject.length +" people like this";
-	}else if(arrayObject.length === 0){
+	}
+	// if nobody likes a photo
+	else if(arrayObject.length === 0){
 		return " ";
-	}else{
+	}
+	// if one person likes a photo
+	else{
 		return arrayObject.length+" person likes this";
 	}
 });
@@ -73,14 +78,17 @@ Template.worldPics.rendered = function(){
 
 Template.worldPics.events({
 	'click .fa-pencil-square-o':function(event,template){
-		var index = event.target.getAttribute('currentIndex');
-		var username = event.target.getAttribute('currentUsername');
-		var comment = event.target.getAttribute('currentComment');
+		event.preventDefault();
 
-		console.log(index+":{"+username+","+comment+"}");
+		var username = Meteor.user().username;
+		var comment = event.target.getAttribute('currentComment');
+		var id = event.target.getAttribute('currentId');
+
+		console.log("{"+username+","+comment+"}");
+		console.log(id);
 
 		if(confirm("Would you like to delete your comment?")){
-			Images.update({_id:this._id}, {$pull:{"metadata.post":{"username":username, "comment":comment}}});
+			Images.update({_id:id} , {$pull:{"metadata.comments":{"username":username , "comment":comment}}});
 		}else{
 			if(confirm("Would you like to edit your comment?")){
 				var edit = prompt("Your comment:",comment);
@@ -90,13 +98,16 @@ Template.worldPics.events({
 	// like button
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
+		// if the user has already likes this photo
 		if(Images.find({$and: [{_id:this._id}, {"metadata.likes":{$elemMatch:{"userId":Meteor.userId()}}}]}).count() > 0){
+			// offer the option to unlike it
 			if(confirm("You have already liked this photo, would you like to unlike this photo?")){
 				Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
 			}else{
-				return false;
+				return false; // if they say no do nothing
 			}
 		}else{
+			// if they havent liked the photo, like it
 			Images.update({_id:this._id}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
 		}
 	},
@@ -142,7 +153,7 @@ Template.worldPics.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update({_id:this._id} , {$push:{"metadata.post":{"username":Meteor.user().username , "comment":comment}}});
+	 			Images.update({_id:this._id} , {$push:{"metadata.comments":{"username":Meteor.user().username , "comment":comment}}});
 				event.target.value = "";
  			}
  		}

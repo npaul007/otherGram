@@ -46,28 +46,34 @@ Template.photoCrop.events({
 	'click #submitPic':function(event,template){
 		event.preventDefault();
 
+		// create new fs file with the uploaded picture
 		var file = $('#uploaded').get(0).files[0]; 
 		var fsFile = new FS.File(file);
 
-		var textareaText = $('#text').val();
-		var userName = Meteor.user().username;
+		// grab current user's username and their post
+		var comment = template.find('#text').value;
+		var username = Meteor.user().username;
 
-		if(textareaText.length < 1)
-			userName = " ";
+		// if text isn't posted insert nothing
+		if(comment.length < 1)
+			username = " ";
 
+		// create the metadata to store the date, comments, likes, userId and username
 		fsFile.metadata = {
 			likes:[],
-			post:[
-				{username:userName , comment:textareaText}
+			comments:[
+				{username:username , comment:comment}
 			],
 			userId:Meteor.userId(),
 			username:Meteor.user().username,
 			date:Date()
 		};
 		
+		// if there is no uploaded picture
 		if ($('#uploaded').get(0).files.length === 0) {
 		    alert("No files selected.");
 		}else{
+			// if there is an uploaded picture insert the file into our collection
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
 					alert('Upload failed... please try again.');
@@ -81,13 +87,17 @@ Template.photoCrop.events({
 	},
 	'click #uploadLabel':function(event,template){
 		event.preventDefault();
+		// event for styled upload label
 		template.find('#uploaded').click();
 	}
 });
 
 Template.photoCrop.rendered=function(){
+	// upload picture
 	$("#uploaded").change(function(){
+		// read the URL
 	    readURL(this);
+
 	    $("#displayPic")
 		    .on('load', function() { 
 		    	alert("Your image has loaded correctly."); 
@@ -99,6 +109,7 @@ Template.photoCrop.rendered=function(){
 
 }
 
+// this function displays the picture on the photo upload display
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
