@@ -76,28 +76,40 @@ Template.worldPics.rendered = function(){
 	}
 }
 
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 Template.worldPics.events({
 	'click .fa-pencil-square-o':function(event,template){
 		event.preventDefault();
 
+		var index = event.target.getAttribute('currentIndex');
 		var username = Meteor.user().username;
 		var comment = event.target.getAttribute('currentComment');
+		var commentId = event.target.getAttribute('commentId');
 		var id = event.target.getAttribute('currentId');
 
 		console.log("{"+username+","+comment+"}");
 		console.log(id);
+		console.log(index);
 
 		if(confirm("Would you like to delete your comment?")){
-			Images.update({_id:id} , {$pull:{"metadata.comments":{"username":username , "comment":comment}}});
+			Images.update({_id:id} , {$pull:{"metadata.comments":{"_id":commentId, "username":username , "comment":comment}}});
 		}else{
 			if(confirm("Would you like to edit your comment?")){
 				var edit = prompt("Your comment:",comment);
+				Meteor.call('editComment',id,username,comment,commentId,index,edit);
 			}
-		}
+		} 
 	},
 	// like button
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
+		
 		// if the user has already likes this photo
 		if(Images.find({$and: [{_id:this._id}, {"metadata.likes":{$elemMatch:{"userId":Meteor.userId()}}}]}).count() > 0){
 			// offer the option to unlike it
@@ -153,7 +165,7 @@ Template.worldPics.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update({_id:this._id} , {$push:{"metadata.comments":{"username":Meteor.user().username , "comment":comment}}});
+	 			Images.update({_id:this._id} , {$push:{"metadata.comments":{"_id":guidGenerator(), "username":Meteor.user().username , "comment":comment}}});
 				event.target.value = "";
  			}
  		}
@@ -169,9 +181,5 @@ Template.worldPics.events({
 	}
 
 });
-
-
-
-
 
 

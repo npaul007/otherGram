@@ -53,16 +53,19 @@ Template.photoCrop.events({
 		// grab current user's username and their post
 		var comment = template.find('#text').value;
 		var username = Meteor.user().username;
+		var _id = guidGenerator();
 
 		// if text isn't posted insert nothing
-		if(comment.length < 1)
+		if(comment.length < 1){
 			username = " ";
+			_id = " ";
+		}
 
 		// create the metadata to store the date, comments, likes, userId and username
 		fsFile.metadata = {
 			likes:[],
 			comments:[
-				{username:username , comment:comment}
+				{_id:_id, username:username , comment:comment}
 			],
 			userId:Meteor.userId(),
 			username:Meteor.user().username,
@@ -122,5 +125,11 @@ function readURL(input) {
     }
 }
 
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
 
 

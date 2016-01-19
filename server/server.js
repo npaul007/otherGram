@@ -1,0 +1,20 @@
+Meteor.methods({
+	editComment:function(id,username,comment,commentId,index,edit){
+		Images.update(
+			{
+				_id:id,
+				"metadata.comments._id":commentId
+			},
+			{
+				$set:
+				{
+					"metadata.comments.$":
+					{
+						"username":username,
+						"comment":edit
+					}
+				}
+			}
+		);
+	}
+});
