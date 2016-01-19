@@ -54,18 +54,20 @@ Template.photoCrop.events({
 		var comment = template.find('#text').value;
 		var username = Meteor.user().username;
 		var _id = guidGenerator();
+		var userId = Meteor.userId();
 
 		// if text isn't posted insert nothing
 		if(comment.length < 1){
 			username = " ";
 			_id = " ";
+			userId = " ";
 		}
 
 		// create the metadata to store the date, comments, likes, userId and username
 		fsFile.metadata = {
 			likes:[],
 			comments:[
-				{_id:_id, username:username , comment:comment}
+				{_id:_id, userId:userId, username:username , comment:comment}
 			],
 			userId:Meteor.userId(),
 			username:Meteor.user().username,

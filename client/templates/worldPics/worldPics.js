@@ -89,29 +89,59 @@ Template.worldPics.events({
 
 		var index = event.target.getAttribute('currentIndex');
 		var username = Meteor.user().username;
+		var userId = event.target.getAttribute('userId')
 		var comment = event.target.getAttribute('currentComment');
 		var commentId = event.target.getAttribute('commentId');
 		var id = event.target.getAttribute('currentId');
 
-		console.log("{"+username+","+comment+"}");
-		console.log(id);
-		console.log(index);
-
-		if(confirm("Would you like to delete your comment?")){
-			Images.update({_id:id} , {$pull:{"metadata.comments":{"_id":commentId, "username":username , "comment":comment}}});
-		}else{
-			if(confirm("Would you like to edit your comment?")){
-				var edit = prompt("Your comment:",comment);
-				Meteor.call('editComment',id,username,comment,commentId,index,edit);
-			}
-		} 
+		if(Meteor.userId() === userId || Meteor.user().profile.type === 'admin'){
+			if(confirm("Would you like to delete your comment?")){
+				Images.update(
+					{
+						_id:id
+					} , 
+					{
+						$pull:
+						{
+							"metadata.comments":
+							{
+								"_id":commentId,
+								"userId":userId,
+								"username":username, 
+								"comment":comment
+							}
+						}
+					}
+				);
+			}else{
+				if(confirm("Would you like to edit your comment?")){
+					var edit = prompt("Your comment:",comment);
+					Meteor.call('editComment',id,userId,username,comment,commentId,index,edit);
+				}
+			} 
+		}
 	},
 	// like button
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
 		
 		// if the user has already likes this photo
-		if(Images.find({$and: [{_id:this._id}, {"metadata.likes":{$elemMatch:{"userId":Meteor.userId()}}}]}).count() > 0){
+		if(Images.find(
+			{
+				$and: [
+					{_id:this._id}, 
+					{
+						"metadata.likes":
+						{
+							$elemMatch:
+							{
+								"userId":Meteor.userId()
+							}
+						}
+					}
+				]
+			}
+			).count() > 0){
 			// offer the option to unlike it
 			if(confirm("You have already liked this photo, would you like to unlike this photo?")){
 				Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
@@ -165,7 +195,22 @@ Template.worldPics.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update({_id:this._id} , {$push:{"metadata.comments":{"_id":guidGenerator(), "username":Meteor.user().username , "comment":comment}}});
+	 			Images.update(
+	 				{
+	 					_id:this._id
+	 				} , 
+	 				{
+	 					$push:{
+	 						"metadata.comments":
+	 						{
+	 							"_id":guidGenerator(),
+	 							"userId":Meteor.userId(),
+	 							"username":Meteor.user().username ,
+	 							"comment":comment
+	 						}
+	 					}
+	 				}
+	 			);
 				event.target.value = "";
  			}
  		}
