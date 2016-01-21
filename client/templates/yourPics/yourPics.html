@@ -21,8 +21,9 @@
 						<i class="fa fa-thumbs-o-up"></i>
 						<p class="inline">{{likeCount this.metadata.likes}}</p>
 					</div>
-					{{#each this.metadata.post}}
-						<p class="pPost"><strong>{{this.[0]}}</strong> {{this.[1]}}</p>
+					{{#each this.metadata.comments}}
+						<p class="pPost"><strong>{{this.username}}</strong> {{this.comment}}</p>
+						<i class="fa fa-pencil-square-o {{#if showOrHideBlock this ../metadata.userId}}{{else}}hidden{{/if}}" currentComment="{{this.comment}}" currentId="{{../_id}}" commentId="{{this._id}}" currentIndex="{{@index}}" userId="{{this.userId}}" username="{{this.username}}" ownersUserId="{{../metadata.userId}}"></i>
 					{{/each}}
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>
@@ -31,6 +32,6 @@
 		</div>
 	</div>
 	{{else}}
-		{{>loading}}
+		{{> loading}}
 	{{/if}}
 </template>
