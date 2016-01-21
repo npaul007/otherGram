@@ -9,7 +9,8 @@ addBars = function() {
 				  '.pLikes',
 				  '.pUser',
 				  '.pComment',
-				  '.pPost'
+				  '.pPost',
+				  '.fa-pencil-square-o'
 				  ];
 
 	for(var p = 0; p< toShow.length; p++){
@@ -28,7 +29,8 @@ addGrid = function() {
 				  '.pLikes',
 				  '.pUser',
 				  '.pComment',
-				  '.pPost'
+				  '.pPost',
+				  '.fa-pencil-square-o'
 				 ];
 
 	for(var i = 0; i< toHide.length; i++){
