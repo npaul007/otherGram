@@ -23,6 +23,10 @@ label{
 	padding: 10px;
 }
 
+.hidden{
+	display: none;
+}
+
 .active{
 	border-bottom: 4px solid white;
 	margin-top: 2px;

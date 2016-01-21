@@ -1,5 +1,5 @@
 Meteor.methods({
-	editComment:function(id,userId,username,comment,commentId,index,edit){
+	editComment:function(id,userId,username,comment,commentId,edit){
 		Images.update(
 			{
 				_id:id,

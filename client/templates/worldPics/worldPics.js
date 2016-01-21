@@ -66,6 +66,14 @@ Template.registerHelper("likeCount",function(arrayObject){
 	}
 });
 
+Template.registerHelper("showOrHideBlock",function(arrayElement, ownersUserId){
+	if(Meteor.userId() === arrayElement.userId || Meteor.user().profile.type === 'admin' || Meteor.userId() === ownersUserId){
+		return true;
+	}else{
+		return false;
+	}
+});
+
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.worldPics.rendered = function(){
@@ -76,6 +84,7 @@ Template.worldPics.rendered = function(){
 	}
 }
 
+// id generator
 function guidGenerator() {
     var S4 = function() {
        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
@@ -87,18 +96,18 @@ Template.worldPics.events({
 	'click .fa-pencil-square-o':function(event,template){
 		event.preventDefault();
 
-		var index = event.target.getAttribute('currentIndex');
-		var username = Meteor.user().username;
-		var userId = event.target.getAttribute('userId')
+		var username = event.target.getAttribute('username');
+		var userId = event.target.getAttribute('userId');
 		var comment = event.target.getAttribute('currentComment');
 		var commentId = event.target.getAttribute('commentId');
-		var id = event.target.getAttribute('currentId');
+		var imageId = event.target.getAttribute('currentId');
+		var ownersUserId = event.target.getAttribute('ownersUserId');
 
-		if(Meteor.userId() === userId || Meteor.user().profile.type === 'admin'){
-			if(confirm("Would you like to delete your comment?")){
+		if(Meteor.userId() === userId || Meteor.userId() === ownersUserId || Meteor.user().profile.type === 'admin'){
+			if(confirm("Would you like to delete this comment?")){
 				Images.update(
 					{
-						_id:id
+						_id:imageId
 					} , 
 					{
 						$pull:
@@ -114,9 +123,11 @@ Template.worldPics.events({
 					}
 				);
 			}else{
-				if(confirm("Would you like to edit your comment?")){
-					var edit = prompt("Your comment:",comment);
-					Meteor.call('editComment',id,userId,username,comment,commentId,index,edit);
+				if(Meteor.userId() == userId){
+					if(confirm("Would you like to edit this comment?")){
+						var edit = prompt("Your comment:",comment);
+						Meteor.call('editComment',imageId,userId,username,comment,commentId,edit);
+					}
 				}
 			} 
 		}
