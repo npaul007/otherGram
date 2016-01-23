@@ -1,3 +1,43 @@
+// formats pictures in a scrollable form showing comments likes and when the picture was posted
+var addBars = function() {
+	$('.picDiv').addClass('worldPicContainer');
+	$('.yImages').removeClass('yourImages');
+
+	var toShow = ['.pProfile',
+				  '.pDelete',
+				  '.pDate',
+				  '.pLikes',
+				  '.pUser',
+				  '.pComment',
+				  '.pPost',
+				  '.fa-pencil-square-o'
+				  ];
+
+	for(var p = 0; p< toShow.length; p++){
+		$(toShow[p]).show();
+	}
+}
+
+// formats photos in a grid format
+var addGrid = function() {
+	$('.picDiv').removeClass('worldPicContainer');
+	$('.yImages').addClass('yourImages');
+
+	var toHide = ['.pProfile',
+				  '.pDelete',
+				  '.pDate',
+				  '.pLikes',
+				  '.pUser',
+				  '.pComment',
+				  '.pPost',
+				  '.fa-pencil-square-o'
+				 ];
+
+	for(var i = 0; i< toHide.length; i++){
+		$(toHide[i]).hide();
+	}
+}
+
 Template.yourPics.helpers({
 	'myImages':function(){
 		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}});
@@ -94,7 +134,7 @@ Template.yourPics.events({
 		Session.set('selectedPicture',this._id); 
 
 		// Session variable stored to set respective nav icon active
-		Session.set('previousPage','worldPics');
+		Session.set('previousPage','yourPics');
 
 		Router.go('/selectedPicture');
 	}
@@ -114,11 +154,11 @@ Template.yourPics.events({
  	},
  	'click #wpGrid':function(){
  		addGrid();
- 		Session.set('currentDisplaySettingWorldPics',"grid");
+ 		Session.set('currentDisplaySettingYourPics',"grid");
  	},
  	'click #wpBars':function(){
  		addBars();
- 		Session.set('currentDisplaySettingWorldPics',"bars");
+ 		Session.set('currentDisplaySettingYourPics',"bars");
  	},
  	'keypress #commentInput':function(event,template){
  		// if the enter button is pressed and comment input isnt empty, comment is submitted into array

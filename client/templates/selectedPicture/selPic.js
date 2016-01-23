@@ -7,6 +7,10 @@ Template.selectedPicture.helpers({
 Template.selectedPicture.rendered = function(){
 	var lastPage = Session.get('previousPage');
 
+	if(!Session.get('selectedPicture')){
+		history.go(-1);
+	}
+
 	if(lastPage === "worldPics"){
 		$('.fa-globe').addClass('active');
 	}
@@ -14,4 +18,6 @@ Template.selectedPicture.rendered = function(){
 	else if(lastPage === "yourPics"){
 		$('.fa-home').addClass('active');
 	}
+
+	Session.set('previousPage',Router.current().route.getName());
 }

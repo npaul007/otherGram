@@ -1,5 +1,5 @@
 // formats pictures in a scrollable form showing comments likes and when the picture was posted
-addBars = function() {
+var addBars = function() {
 	$('.picDiv').addClass('worldPicContainer');
 	$('.yImages').removeClass('yourImages');
 
@@ -19,7 +19,7 @@ addBars = function() {
 }
 
 // formats photos in a grid format
-addGrid = function() {
+var addGrid = function() {
 	$('.picDiv').removeClass('worldPicContainer');
 	$('.yImages').addClass('yourImages');
 
