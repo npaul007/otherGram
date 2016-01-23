@@ -43,7 +43,9 @@ Template.navbar.events({
 		};
 
 		if(ProfilePictures.find({"metadata.userId":Meteor.userId()}).count() > 0){
-			ProfilePictures.remove({_id:this._id});
+			var _id = ProfilePictures.findOne({"metadata.userId":Meteor.userId()})._id;
+			console.log(_id);
+			ProfilePictures.remove({_id:_id});
 		}
 
 		ProfilePictures.insert(fsFile,function(error,fileObject){
