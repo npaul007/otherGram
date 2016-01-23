@@ -11,7 +11,7 @@
 			{{#each images}}
 				<div class="picDiv worldPicContainer">
 					<div class="inline">
-						<img src="default-user-icon-profile.png" id="userProfilePicPost" class="inline pProfile">
+						<img src="{{postProfilePic this.metadata.userId}}" id="userProfilePicPost" class="inline pProfile">
 						<i class="inline pDelete" id="deletePostButton"><strong>x</strong></i>
 						<h4 class="pUser">{{this.metadata.username}}</h4>
 					</div>
