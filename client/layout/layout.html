@@ -16,7 +16,8 @@
 	<div class="navbar navbar-default" id="navbar-top">
 		<h1 class="navbar-brand center-text" id="navHeader"><strong>otherGram</strong></h1>
 		{{#if currentUser}}
-			<img src="default-user-icon-profile.png" id="loggedUserPic">
+			<img src="{{profilePic}}" id="loggedUserPic">
+			<input type='file' style="display:none;" id="profilePicUpload" size="10" accept="image/*" />
 			<p class="center-text" style="color:white;">{{username}}</p>
 		{{/if}}
 	</div>

@@ -41,6 +41,48 @@ Images.allow({
  }
 });
 
+ProfilePictures = new FS.Collection("profilePictures",{
+	stores:[new FS.Store.FileSystem("profilePictures",{path:"pictures"})],
+	filter: {
+        allow: {
+            contentTypes: ['image/*']
+        }
+    }
+});
+
+Meteor.publish('profilePictures',function(){
+	return ProfilePictures.find();
+});
+
+ProfilePictures.deny({
+ insert: function(){
+	 return false;
+ },
+ update: function(){
+	 return false;
+ },
+ remove: function(){
+	 return false;
+ },
+ download: function(){
+	 return false;
+ }
+});
+
+ProfilePictures.allow({
+ insert: function(){
+	 return true;
+ },
+ update: function(){
+	 return true;
+ },
+ remove: function(){
+	 return true;
+ },
+ download: function(){
+	 return true;
+ }
+});
 
 
 
