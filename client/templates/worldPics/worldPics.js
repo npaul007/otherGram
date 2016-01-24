@@ -77,10 +77,11 @@ Template.registerHelper("showOrHideBlock",function(arrayElement, ownersUserId){
 });
 
 Template.registerHelper("postProfilePic",function(userId){
-	if(ProfilePictures.find({"metadata.userId":userId}).count() > 0)
+	if(ProfilePictures.find({"metadata.userId":userId}).count() > 0){
 		return ProfilePictures.findOne({"metadata.userId":userId}).url();
-	else
+	}else{
 		return "default-user-icon-profile.png";
+	}
 });
 
 /* when the world pics template is rendered check to see current session variable to see what 

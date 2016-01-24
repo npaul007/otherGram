@@ -58,21 +58,27 @@ Template.photoCrop.events({
 
 		// if text isn't posted insert nothing
 		if(comment.length < 1){
-			username = " ";
-			_id = " ";
-			userId = " ";
+			fsFile.metadata = {
+				likes:[],
+				comments:[],
+				userId:Meteor.userId(),
+				username:Meteor.user().username,
+				date:Date()
+			};
+		}else{
+			// create the metadata to store the date, comments, likes, userId and username
+			fsFile.metadata = {
+				likes:[],
+				comments:[
+					{_id:_id, userId:userId, username:username , comment:comment}
+				],
+				userId:Meteor.userId(),
+				username:Meteor.user().username,
+				date:Date()
+			};
 		}
 
-		// create the metadata to store the date, comments, likes, userId and username
-		fsFile.metadata = {
-			likes:[],
-			comments:[
-				{_id:_id, userId:userId, username:username , comment:comment}
-			],
-			userId:Meteor.userId(),
-			username:Meteor.user().username,
-			date:Date()
-		};
+
 		
 		// if there is no uploaded picture
 		if ($('#uploaded').get(0).files.length === 0) {
