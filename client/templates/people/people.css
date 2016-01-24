@@ -16,7 +16,7 @@
 }
 
 #profilePic{
-	background-size: 100% 100%;
+	background-size: 140% 100%;
 	background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 50%;
@@ -28,4 +28,22 @@
 	margin-bottom: 10px;
 	margin-top: 10px;
 	border-radius: 200px;
+}
+
+@media (max-width: 500px){
+#profilePic{
+	background-size: 140% 100%;
+	background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	border-radius: 200px;
+}
+
 }
