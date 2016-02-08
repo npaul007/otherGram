@@ -41,7 +41,7 @@ var addGrid = function() {
 // Returns the image collections in order of the most recent picture upload date
 Template.worldPics.helpers({
  	'images': function(){
- 		return Images.find({},{sort:{"copies.images.updatedAt":-1}});
+ 		return Images.find({},{sort:{"uploadedAt":-1}});
  	},
  	'imagesLoaded':function(){
  		return Session.get('picturesLoaded');

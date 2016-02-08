@@ -40,7 +40,7 @@ var addGrid = function() {
 
 Template.yourPics.helpers({
 	'myImages':function(){
-		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"copies.images.updatedAt":-1}});
+		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"uploadedAt":-1}});
 	},
  	'imagesLoaded':function(){
  		return Session.get('picturesLoaded');
