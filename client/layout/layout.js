@@ -68,8 +68,10 @@ Template.footer.onCreated(function () {
   this.subscribe("currentUser");
 });
 
+var ProfilePictureStore = new FS.Store.GridFS('profilePicStore');
+
 ProfilePictures = new FS.Collection("profilePictures",{
-	stores:[new FS.Store.FileSystem("profilePictures",{path:"pictures"})],
+	stores:[ProfilePictureStore],
 	filter: {
         allow: {
             contentTypes: ['image/*']

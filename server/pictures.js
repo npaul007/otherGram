@@ -1,5 +1,7 @@
+var ImagesStore = new FS.Store.GridFS('imageStore');
+
 Images = new FS.Collection("images",{
-	stores:[new FS.Store.FileSystem("images",{path:"pictures"})],
+	stores:[ImagesStore],
 	filter: {
         allow: {
             contentTypes: ['image/*']
@@ -41,8 +43,10 @@ Images.allow({
  }
 });
 
+var ProfilePictureStore = new FS.Store.GridFS('profilePicStore');
+
 ProfilePictures = new FS.Collection("profilePictures",{
-	stores:[new FS.Store.FileSystem("profilePictures",{path:"pictures"})],
+	stores:[ProfilePictureStore],
 	filter: {
         allow: {
             contentTypes: ['image/*']

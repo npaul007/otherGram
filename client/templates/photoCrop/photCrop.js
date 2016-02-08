@@ -1,5 +1,7 @@
+var ImagesStore = new FS.Store.GridFS('imageStore');
+
 Images = new FS.Collection("images",{
-	stores:[new FS.Store.FileSystem("images",{path:"pictures"})],
+	stores:[ImagesStore],
 	filter: {
         allow: {
             contentTypes: ['image/*']
@@ -70,15 +72,18 @@ Template.photoCrop.events({
 			fsFile.metadata = {
 				likes:[],
 				comments:[
-					{_id:_id, userId:userId, username:username , comment:comment}
+					{
+						_id:_id, 
+						userId:userId, 
+						username:username, 
+						comment:comment
+					}
 				],
 				userId:Meteor.userId(),
 				username:Meteor.user().username,
 				date:Date()
 			};
 		}
-
-
 		
 		// if there is no uploaded picture
 		if ($('#uploaded').get(0).files.length === 0) {

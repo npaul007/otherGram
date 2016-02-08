@@ -3,8 +3,8 @@
 		<h3 class="center-text">People</h3>
 		{{#each users}}
 			<div id="userDiv">
-				<div style="background-image:url({{postProfilePic this._id}})" id="profilePic"></div>
-				<h5 class="center-text">{{this.username}}</h5>
+				<img src="{{postProfilePic this._id}}" alt="" id="profilePic" class="img-responsive img-circle">
+				<h3 class="center-text">{{this.username}}</h3>
 			</div>
 		{{/each}}
 	</div>
