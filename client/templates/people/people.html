@@ -4,7 +4,8 @@
 		{{#each users}}
 			<div class="col-md-3" id="peopleDiv">
 				<img src="{{postProfilePic this._id}}" alt="" id="profilePic" class="img-responsive img-circle">
-				<h3 class="center-text">{{this.username}}</h3>
+				<h4 class="center-text">{{this.username}}</h4>
+				<button class="btn btn-default" id="followButton">Follow +</button>
 			</div>
 		{{/each}}
 	</div>
