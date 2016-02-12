@@ -88,6 +88,24 @@ ProfilePictures.allow({
  }
 });
 
+uploadStream = new Meteor.Stream('photoupload');
+
+uploadStream.permissions.read(function() {
+	return true;
+});
+
+uploadStream.permissions.write(function() {
+	return true;
+});
+
+
+
+
+
+
+
+
+
 
 
 

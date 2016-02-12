@@ -84,9 +84,7 @@ Template.registerHelper("postProfilePic",function(userId){
 	}
 });
 
-/* when the world pics template is rendered check to see current session variable to see what 
-format to view pictures in the user last selected */
-Template.worldPics.rendered = function(){
+function checkPictureFormatSetting(){
 	if(Session.get('currentDisplaySettingWorldPics') === "grid"){
 		addGrid();
 	}else{
@@ -101,6 +99,16 @@ function guidGenerator() {
     };
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
+
+/* when the world pics template is rendered check to see current session variable to see what 
+format to view pictures in the user last selected */
+Template.worldPics.rendered = function(){
+	checkPictureFormatSetting();
+}
+
+uploadStream.on('uploaded',function(){
+	checkPictureFormatSetting();
+});
 
 Template.worldPics.events({
 	'click .fa-pencil-square-o':function(event,template){

@@ -10,8 +10,7 @@ var addBars = function() {
 				  '.pUser',
 				  '.pComment',
 				  '.pPost',
-				  '.fa-pencil-square-o'
-				  ];
+				  '.fa-pencil-square-o'];
 
 	for(var p = 0; p< toShow.length; p++){
 		$(toShow[p]).show();
@@ -30,8 +29,7 @@ var addGrid = function() {
 				  '.pUser',
 				  '.pComment',
 				  '.pPost',
-				  '.fa-pencil-square-o'
-				 ];
+				  '.fa-pencil-square-o'];
 
 	for(var i = 0; i< toHide.length; i++){
 		$(toHide[i]).hide();
@@ -47,10 +45,8 @@ Template.yourPics.helpers({
  	}
 });
 
-/* when the world pics template is rendered check to see current session variable to see what 
-format to view pictures in the user last selected */
-Template.yourPics.rendered = function(){
-	if(Session.get('currentDisplaySettingYourPics') === "grid"){
+function checkPictureFormatSetting(){
+	if(Session.get('currentDisplaySettingWorldPics') === "grid"){
 		addGrid();
 	}else{
 		addBars();
@@ -64,6 +60,16 @@ function guidGenerator() {
     };
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
+
+/* when the world pics template is rendered check to see current session variable to see what 
+format to view pictures in the user last selected */
+Template.yourPics.rendered = function(){
+	checkPictureFormatSetting();
+}
+
+uploadStream.on('uploaded',function(){
+	checkPictureFormatSetting();
+});
 
 Template.yourPics.events({
 	'click .fa-pencil-square-o':function(event,template){

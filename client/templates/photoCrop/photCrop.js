@@ -44,6 +44,24 @@ Meteor.subscribe('pictures', function onReady(){
 	Session.set('picturesLoaded',true);
 });
 
+Template.photoCrop.rendered=function(){
+	// upload picture
+	$("#uploaded").change(function(){
+		// read the URL
+	    readURL(this);
+
+	    $("#displayPic")
+		    .on('load', function() { 
+		    	alert("Your image has loaded correctly."); 
+		    })
+		    .on('error', function() { 
+		    	alert("File is corrupted!"); 
+		    });
+	});
+}
+
+uploadStream = new Meteor.Stream('photoupload');
+
 Template.photoCrop.events({
 	'click #submitPic':function(event,template){
 		event.preventDefault();
@@ -95,6 +113,7 @@ Template.photoCrop.events({
 					alert('Upload failed... please try again.');
 					return;
 				}else{
+					uploadStream.emit('uploaded');
 					alert('Upload successful!');
 					Router.go('/');
 				}
@@ -107,23 +126,6 @@ Template.photoCrop.events({
 		template.find('#uploaded').click();
 	}
 });
-
-Template.photoCrop.rendered=function(){
-	// upload picture
-	$("#uploaded").change(function(){
-		// read the URL
-	    readURL(this);
-
-	    $("#displayPic")
-		    .on('load', function() { 
-		    	alert("Your image has loaded correctly."); 
-		    })
-		    .on('error', function() { 
-		    	alert("File is corrupted!"); 
-		    });
-	});
-
-}
 
 // this function displays the picture on the photo upload display
 function readURL(input) {
