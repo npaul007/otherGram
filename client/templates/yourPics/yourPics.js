@@ -46,7 +46,7 @@ Template.yourPics.helpers({
 });
 
 function checkPictureFormatSetting(){
-	if(Session.get('currentDisplaySettingWorldPics') === "grid"){
+	if(Session.get('currentDisplaySettingYourPics') === "grid"){
 		addGrid();
 	}else{
 		addBars();
