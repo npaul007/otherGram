@@ -66,7 +66,11 @@ function guidGenerator() {
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.yourPics.rendered = function(){
-	checkPictureFormatSetting();
+	if(Session.get('currentDisplaySettingYourPics') === "grid" ){
+		addGrid();
+	}else{
+		addBars();
+	}
 }
 
 uploadStream.on('uploaded',function(){
