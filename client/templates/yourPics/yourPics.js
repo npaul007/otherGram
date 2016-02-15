@@ -45,11 +45,13 @@ Template.yourPics.helpers({
  	}
 });
 
-function checkPictureFormatSetting(){
-	if(Session.get('currentDisplaySettingYourPics') === "grid"){
-		addGrid();
-	}else{
-		addBars();
+function checkPictureFormatSetting(userId){
+	if(Meteor.userId() === userId){
+		if(Session.get('currentDisplaySettingYourPics') === "grid" ){
+			addGrid();
+		}else{
+			addBars();
+		}
 	}
 }
 

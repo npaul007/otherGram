@@ -84,11 +84,13 @@ Template.registerHelper("postProfilePic",function(userId){
 	}
 });
 
-function checkPictureFormatSetting(){
-	if(Session.get('currentDisplaySettingWorldPics') === "grid"){
-		addGrid();
-	}else{
-		addBars();
+function checkPictureFormatSetting(userId){
+	if(Meteor.userId() === userId){
+		if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
+			addGrid();
+		}else{
+			addBars();
+		}
 	}
 }
 
@@ -106,8 +108,8 @@ Template.worldPics.rendered = function(){
 	checkPictureFormatSetting();
 }
 
-uploadStream.on('uploaded',function(){
-	checkPictureFormatSetting();
+uploadStream.on('uploaded',function(userId){
+	checkPictureFormatSetting(userId);
 });
 
 Template.worldPics.events({
@@ -158,7 +160,9 @@ Template.worldPics.events({
 		if(Images.find(
 			{
 				$and: [
-					{_id:this._id}, 
+					{
+						_id:this._id
+					}, 
 					{
 						"metadata.likes":
 						{
