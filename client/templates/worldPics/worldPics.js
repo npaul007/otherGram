@@ -38,6 +38,24 @@ var addGrid = function() {
 	}
 }
 
+function checkPictureFormatSetting(userId){
+	if(Meteor.userId() === userId){
+		if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
+			addGrid();
+		}else{
+			addBars();
+		}
+	}
+}
+
+// id generator
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 // Returns the image collections in order of the most recent picture upload date
 Template.worldPics.helpers({
  	'images': function(){
@@ -83,24 +101,6 @@ Template.registerHelper("postProfilePic",function(userId){
 		return "default-user-icon-profile.png";
 	}
 });
-
-function checkPictureFormatSetting(userId){
-	if(Meteor.userId() === userId){
-		if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
-			addGrid();
-		}else{
-			addBars();
-		}
-	}
-}
-
-// id generator
-function guidGenerator() {
-    var S4 = function() {
-       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-    };
-    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
-}
 
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */

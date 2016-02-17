@@ -1,12 +1,15 @@
-if(Meteor.isClient){
-	Meteor.subscribe('accounts');
-}
+Meteor.subscribe('accounts',function onReady(){
+	Session.set('accountsLoaded',true);
+});
 
 Template.people.helpers({
 	'users':function(){
 		return Meteor.users.find();
+	},
+	'usersLoaded':function(){
+		return Session.get('accountsLoaded');
 	}
-})
+});
 
 Template.people.events({
 	'click #userDiv':function(event,template){

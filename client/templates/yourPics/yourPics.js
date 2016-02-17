@@ -36,15 +36,6 @@ var addGrid = function() {
 	}
 }
 
-Template.yourPics.helpers({
-	'myImages':function(){
-		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"uploadedAt":-1}});
-	},
- 	'imagesLoaded':function(){
- 		return Session.get('picturesLoaded');
- 	}
-});
-
 function checkPictureFormatSetting(userId){
 	if(Meteor.userId() === userId){
 		if(Session.get('currentDisplaySettingYourPics') === "grid" ){
@@ -62,6 +53,15 @@ function guidGenerator() {
     };
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
+
+Template.yourPics.helpers({
+	'myImages':function(){
+		return Images.find({"metadata.userId":Meteor.userId()} ,{sort:{"uploadedAt":-1}});
+	},
+ 	'imagesLoaded':function(){
+ 		return Session.get('picturesLoaded');
+ 	}
+});
 
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */

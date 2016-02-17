@@ -1,12 +1,16 @@
 <template name="people">
 	<div class="container">
 		<h3 class="center-text">People</h3>
-		{{#each users}}
-			<div class="col-md-3" id="peopleDiv">
-				<img src="{{postProfilePic this._id}}" alt="" id="profilePic" class="img-responsive img-circle">
-				<h4 class="center-text">{{this.username}}</h4>
-				<button class="btn btn-default" id="followButton">Follow +</button>
-			</div>
-		{{/each}}
+		{{#if usersLoaded}}
+			{{#each users}}
+				<div class="col-md-3" id="peopleDiv">
+					<img src="{{postProfilePic this._id}}" alt="" id="profilePic" class="img-responsive img-circle">
+					<h4 class="center-text">{{this.username}}</h4>
+					<button class="btn btn-default" id="albumButton">See Pictures</button>
+				</div>
+			{{/each}}
+		{{else}}
+			{{>loading}}
+		{{/if}}
 	</div>
 </template>

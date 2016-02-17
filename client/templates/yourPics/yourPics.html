@@ -1,5 +1,4 @@
 <template name="yourPics">
-	{{#if imagesLoaded}}
 	<div class="container">
 		<h3 class="center-text">My Pictures</h3>
 		<div id="gridButtons">
@@ -7,6 +6,7 @@
 			<i class="fa fa-bars photoFormatButtons" id="wpBars"></i>
 		</div>
 		<div class="yImages col-md-6">
+		{{#if imagesLoaded}}
 			{{#each myImages}}
 				<div class="picDiv worldPicContainer">
 					<div class="inline">
@@ -27,9 +27,9 @@
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 				</div>
 			{{/each}}
+		{{else}}
+			{{> loading}}
+		{{/if}}
 		</div>
 	</div>
-	{{else}}
-		{{> loading}}
-	{{/if}}
 </template>
