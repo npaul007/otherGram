@@ -19,6 +19,9 @@ Template.layout.events({
 Template.navbar.helpers({
 	'username':function(){
 		return Meteor.user().username;
+	},
+	'profilePicLoaded':function(){
+		return Session.get('profilePicLoaded');
 	}
 });
 

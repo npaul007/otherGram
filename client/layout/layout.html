@@ -9,14 +9,18 @@
 
 
 <template name="loading">
-	{{>spinner}}
+	<h4 class="center-text">Loading ..</h4>
 </template>
 
 <template name="navbar">
 	<div class="navbar navbar-default" id="navbar-top">
 		<h1 class="navbar-brand center-text" id="navHeader"><strong>otherGram</strong></h1>
 		{{#if currentUser}}
-			<img src="{{profilePic}}" id="loggedUserPic">
+			{{#if profilePicLoaded}}
+				<img src="{{profilePic}}" id="loggedUserPic">
+			{{else}}
+				<div style="bottom:200px">{{> loading}}</div>
+			{{/if}}
 			<input type='file' style="display:none;" id="profilePicUpload" size="10" accept="image/*" />
 			<p class="center-text" style="color:white;">{{username}}</p>
 		{{/if}}
@@ -25,18 +29,14 @@
 
 <template name="footer">
 	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
-		{{#if Template.subscriptionsReady}}
-			{{#if currentUser}}
-				<div class="icons">
-					<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
-					<i class="fa fa-user-plus {{#if isCurrentPage "people"}}active{{/if}}"></i>
-					<i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i>
-					<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
-					<i class="fa fa-sign-out"></i>
-				</div>
-			{{/if}}
-		{{else}}
-			<div class="margin-bottom">{{> loading}}</div>
+		{{#if currentUser}}
+			<div class="icons">
+				<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
+				<i class="fa fa-user-plus {{#if isCurrentPage "people"}}active{{/if}}"></i>
+				<i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i>
+				<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
+				<i class="fa fa-sign-out"></i>
+			</div>
 		{{/if}}
 		<a href="http://nathanaelpaulemon.co.nf/" id="myName">Nathanael Paulemon</a>
 		<a href="https://github.com/npaul007/otherGram" id="githubLink">Github</a>
