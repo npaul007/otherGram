@@ -13,7 +13,7 @@ label{
 }
 
 .shadow{
-	box-shadow: 1px 1px 1px gray;
+	box-shadow: 2px 2px 2px gray;
 }
 
 .icons{
@@ -68,6 +68,9 @@ a:visited{
 #navbar-top{
 	background: #cc0000;
 	padding: 5px;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 
 #navUsername{

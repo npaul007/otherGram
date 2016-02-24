@@ -9,7 +9,11 @@
 
 
 <template name="loading">
-	<h4 class="center-text">Loading ..</h4>
+	<h3 class="center-text">Loading . . .</h3>
+</template>
+
+<template name="loadingBlack">
+	<h3 class="center-text" style="color:black; margin-top:12%;">Loading . . .</h3>
 </template>
 
 <template name="navbar">
@@ -29,14 +33,18 @@
 
 <template name="footer">
 	<div class="footer navbar-fixed-bottom" id="navbar-bottom">
-		{{#if currentUser}}
-			<div class="icons">
-				<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
-				<i class="fa fa-user-plus {{#if isCurrentPage "people"}}active{{/if}}"></i>
-				<i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i>
-				<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
-				<i class="fa fa-sign-out"></i>
-			</div>
+		{{#if Template.subscriptionsReady}}
+			{{#if currentUser}}
+				<div class="icons">
+					<i class="fa fa-globe {{#if isCurrentPage "worldPics"}}active{{/if}}"></i>
+					<i class="fa fa-user-plus {{#if isCurrentPage "people"}}active{{/if}}"></i>
+					<i class="fa fa-instagram {{#if isCurrentPage "photoCrop"}}active{{/if}}"></i>
+					<i class="fa fa-home {{#if isCurrentPage "yourPics"}}active{{/if}}"></i>
+					<i class="fa fa-sign-out"></i>
+				</div>
+			{{/if}}
+		{{else}}
+			<div>{{> loading}}</div>
 		{{/if}}
 		<a href="http://nathanaelpaulemon.co.nf/" id="myName">Nathanael Paulemon</a>
 		<a href="https://github.com/npaul007/otherGram" id="githubLink">Github</a>
