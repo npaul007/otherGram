@@ -12,7 +12,7 @@
 					<div class="picDiv worldPicContainer shadow">
 						<div class="inline">
 							<img src="{{postProfilePic this.metadata.userId}}" id="userProfilePicPost" class="inline pProfile img-responsive">
-							<i class="inline pDelete" id="deletePostButton"><strong>x</strong></i>
+							<i class="inline pDelete {{#if showOrHideBlock this this.metadata.userId}}{{else}}hidden{{/if}}" id="deletePostButton"><strong>x</strong></i>
 							<h4 class="pUser">{{this.metadata.username}}</h4>
 						</div>
 						<h5 class="pDate">{{timeSincePosted this.metadata.date }}</h5>
