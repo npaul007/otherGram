@@ -66,11 +66,26 @@ Template.yourPics.helpers({
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.yourPics.rendered = function(){
+	var pos = Session.get('yourPicsVerticalPosition');
+	if(typeof  pos === 'undefined'){
+		$(document).scrollTop(0);
+	}else{
+		console.log('height is'+Session.get('yourPicsVerticalPosition'));
+		$(document).scrollTop(Session.get('yourPicsVerticalPosition'));
+	}
+
 	if(Session.get('currentDisplaySettingYourPics') === "grid" ){
 		addGrid();
 	}else{
 		addBars();
 	}
+
+	$(window).scroll(function(){
+		if(Router.current().route.getName() === 'yourPics'){
+			Session.set('yourPicsVerticalPosition', $(document).scrollTop());
+			console.log(Session.get('yourPicsVerticalPosition'));
+		}
+	});
 }
 
 uploadStream.on('uploaded',function(){

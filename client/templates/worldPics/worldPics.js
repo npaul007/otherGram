@@ -105,11 +105,26 @@ Template.registerHelper("postProfilePic",function(userId){
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.worldPics.rendered = function(){
+	var pos = Session.get('worldPicsVerticalPosition');
+	if(typeof  pos === 'undefined'){
+		$(document).scrollTop(0);
+	}else{
+		console.log('height is'+Session.get('worldPicsVerticalPosition'));
+		$(document).scrollTop(Session.get('worldPicsVerticalPosition'));
+	}
+
 	if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
 		addGrid();
 	}else{
 		addBars();
 	}
+
+	$(window).scroll(function(){
+		if(Router.current().route.getName() === 'worldPics'){
+			Session.set('worldPicsVerticalPosition', $(document).scrollTop());
+			console.log(Session.get('worldPicsVerticalPosition'));
+		}
+	});
 }
 
 uploadStream.on('uploaded',function(userId){

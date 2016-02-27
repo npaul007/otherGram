@@ -24,3 +24,19 @@ Template.people.events({
 
 	}
 });
+
+Template.people.rendered = function(){
+	var pos = Session.get('peopleVerticalPosition');
+	if(typeof  pos === 'undefined'){
+		$(document).scrollTop(0);
+	}else{
+		console.log('height is'+Session.get('peopleVerticalPosition'));
+		$(document).scrollTop(Session.get('peopleVerticalPosition'));
+	}
+	$(window).scroll(function(){
+		if(Router.current().route.getName() === 'people'){
+			Session.set('peopleVerticalPosition', $(document).scrollTop());
+			console.log(Session.get('peopleVerticalPosition'));
+		}
+	});
+}
