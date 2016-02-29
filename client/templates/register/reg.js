@@ -13,7 +13,8 @@ Template.register.events({
 				username:username,
 				password:password,
 				profile:{
-					type:'normal'
+					type:'normal',
+					currentUser:''
 				}
 			});
 
