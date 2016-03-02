@@ -38,14 +38,12 @@ var addGrid = function() {
 	}
 }
 
-function checkPictureFormatSetting(userId){
-	if(Meteor.userId() === userId){
+function checkPictureFormatSetting(){
 		if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
 			addGrid();
 		}else{
 			addBars();
 		}
-	}
 }
 
 // id generator
@@ -127,8 +125,8 @@ Template.worldPics.rendered = function(){
 	});
 }
 
-uploadStream.on('uploaded',function(userId){
-	checkPictureFormatSetting(userId);
+uploadStream.on('uploaded',function(){
+	checkPictureFormatSetting();
 });
 
 Template.worldPics.events({

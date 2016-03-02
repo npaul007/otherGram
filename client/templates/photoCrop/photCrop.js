@@ -113,7 +113,7 @@ Template.photoCrop.events({
 					alert('Upload failed... please try again.');
 					return;
 				}else{
-					uploadStream.emit('uploaded', Meteor.userId());
+					uploadStream.emit('uploaded');
 					alert('Upload successful!');
 					Router.go('/');
 				}

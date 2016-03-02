@@ -13,7 +13,6 @@ Template.registerHelper('getCurrentUsername', function(){
 
 Template.seePics.rendered = function(){
 	Session.set('previousPage', Router.current().route.getName());
-	Session.set('currentUser', Meteor.user().profile.currentUser);
 	$('.fa-user-plus').addClass('active');
 
 	var pos = Session.get('seePicsVerticalPosition');
@@ -29,4 +28,6 @@ Template.seePics.rendered = function(){
 			console.log(Session.get('seePicsVerticalPosition'));
 		}
 	});
+
+	Session.set('currentUser', Meteor.user().profile.currentUser);
 }
