@@ -16,9 +16,8 @@ Template.people.events({
 		event.preventDefault();
 
 		var selectedUserId = this._id;
-		Meteor.users.update({_id:Meteor.userId()},{$set:{'profile.currentUser':selectedUserId}});
 
-		Router.go('/seePics');
+		Router.go('/seePics/'+this._id);
 	}
 });
 
