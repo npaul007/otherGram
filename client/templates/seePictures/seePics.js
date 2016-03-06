@@ -1,6 +1,6 @@
 Template.seePics.helpers({
 	'usersPictures':function(){
-		return Images.find({"metadata.userId":Template.currentData()} ,{sort:{"uploadedAt":-1}});
+		return Images.find({"metadata.username":Template.currentData()} ,{sort:{"uploadedAt":-1}});
 	},
 	'imagesLoaded':function(){
  		return Session.get('picturesLoaded');
@@ -8,7 +8,7 @@ Template.seePics.helpers({
 });
 
 Template.registerHelper('getCurrentUsername', function(){
-	return Meteor.users.findOne({_id:Template.currentData()}).username;
+	return Meteor.users.findOne({username:Template.currentData()}).username;
 });
 
 Template.seePics.rendered = function(){
@@ -29,5 +29,4 @@ Template.seePics.rendered = function(){
 		}
 	});
 
-	Session.set('currentUser', Meteor.user().profile.currentUser);
 }

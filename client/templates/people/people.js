@@ -15,9 +15,8 @@ Template.people.events({
 	'click #albumButton':function(event,template){
 		event.preventDefault();
 
-		var selectedUserId = this._id;
-
-		Router.go('/seePics/'+this._id);
+		var username = this.username;
+		Router.go('/seePics/'+username);
 	}
 });
 
