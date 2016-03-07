@@ -21,6 +21,7 @@ label{
 	text-align: center;
 	background:  #ff3300;
 	padding: 10px;
+	cursor: pointer;
 }
 
 .hidden{
