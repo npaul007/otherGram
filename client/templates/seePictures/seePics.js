@@ -15,7 +15,7 @@ Template.seePics.rendered = function(){
 	$('.fa-user-plus').addClass('active');
 
 	var pos = Session.get('seePicsVerticalPosition');
-	if(typeof  pos === 'undefined' || Session.get('currentUser') != Meteor.user().profile.currentUser){
+	if(typeof  pos === 'undefined'){
 		$(document).scrollTop(0);
 	}else{
 		console.log('height is'+Session.get('seePicsVerticalPosition'));
