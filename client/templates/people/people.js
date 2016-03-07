@@ -16,18 +16,31 @@ Template.people.events({
 		event.preventDefault();
 
 		var username = this.username;
+
+		Session.set('personSelected', username);
+
 		Router.go('/seePics/'+username);
 	}
 });
 
 Template.people.rendered = function(){
+	var person = Session.get('personSelected');
+
+	if(person != null)
+		Router.go('/seePics/'+person);
+	else
+		Router.go('people');
+
 	var pos = Session.get('peopleVerticalPosition');
 	if(typeof  pos === 'undefined'){
 		$(document).scrollTop(0);
-	}else{
+	}
+
+	else{
 		console.log('height is'+Session.get('peopleVerticalPosition'));
 		$(document).scrollTop(Session.get('peopleVerticalPosition'));
 	}
+
 	$(window).scroll(function(){
 		if(Router.current().route.getName() === 'people'){
 			Session.set('peopleVerticalPosition', $(document).scrollTop());

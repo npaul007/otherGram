@@ -1,6 +1,7 @@
 <template name="seePics">
 	<div class="container">
 		<div class="col-md-12">
+			<button class="btn btn-default" id="backToPeople"> Back To People</button>
 			<h3 class="center-text">{{getCurrentUsername}}'s Pictures</h3>
 			<div id="gridButtons">
 				<i class="fa fa-th photoFormatButtons" id="wpGrid"></i>
@@ -13,7 +14,7 @@
 						<div class="inline">
 							<img src="{{postProfilePic this.metadata.userId}}" id="userProfilePicPost" class="inline pProfile img-responsive">
 							<i class="inline pDelete {{#if showOrHideBlock this this.metadata.userId}}{{else}}hidden{{/if}}" id="deletePostButton"><strong>x</strong></i>
-							<h4 class="pUser">{{this.metadata.username}}</h4>
+							<h4 class="pUser" vale="{{this.metadata.username}}">{{this.metadata.username}}</h4>
 						</div>
 						<h5 class="pDate">{{timeSincePosted this.metadata.date }}</h5>
 						<img src="{{this.url}}" alt="thumbnail" class="img-responsive pPic">
