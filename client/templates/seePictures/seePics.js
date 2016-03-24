@@ -222,7 +222,7 @@ Template.seePics.events({
 		Session.set('selectedPicture',this._id); 
 
 		// Session variable stored to set respective nav icon active
-		Session.set('previousPage','worldPics');
+		Session.set('previousPage','seePics/:parameter');
 
 		Router.go('/selectedPicture');
 	}

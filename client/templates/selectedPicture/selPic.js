@@ -19,5 +19,9 @@ Template.selectedPicture.rendered = function(){
 		$('.fa-home').addClass('active');
 	}
 
+	if(lastPage === 'seePics/:parameter'){
+		$('.fa-user-plus').addClass('active');
+	}
+
 	Session.set('previousPage',Router.current().route.getName());
 }
