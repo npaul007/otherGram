@@ -123,6 +123,8 @@ Template.worldPics.rendered = function(){
 			console.log(Session.get('worldPicsVerticalPosition'));
 		}
 	});
+
+	Session.set('previousPage',Router.current().route.getName());
 }
 
 uploadStream.on('uploaded',function(){

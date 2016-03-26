@@ -63,11 +63,23 @@ Template.navbar.events({
 });
 
 Template.registerHelper("isCurrentPage",function(current){
-	return current === Session.get("currentRouteName");
+	if(Router.current().route.getName() === 'selectedPicture'){
+		if(current === Session.get('previousPage')){
+			return true;
+		}
+	}else{
+		return current === Router.current().route.getName();
+	}
 });
 
 Template.registerHelper("isCurrentPagePeople",function(current1, current2){
-	if(Router.current().route.getName() === current1 || Router.current().route.getName() === current2){
+	if(Router.current().route.getName() === 'selectedPicture'){
+		if(Session.get('previousPage') === 'seePics/:parameter'){
+			return true;
+		}
+	}
+
+	else if(Router.current().route.getName() === current1 || Router.current().route.getName() === current2){
 		//console.log('true');
 		return true;
 	}

@@ -86,6 +86,8 @@ Template.yourPics.rendered = function(){
 			console.log(Session.get('yourPicsVerticalPosition'));
 		}
 	});
+
+	Session.set('previousPage',Router.current().route.getName());
 }
 
 uploadStream.on('uploaded',function(){

@@ -4,6 +4,3 @@ Template.selectedPicture.helpers({
 	}
 });
 
-Template.selectedPicture.rendered = function(){
-	Session.set('previousPage',Router.current().route.getName());
-}
