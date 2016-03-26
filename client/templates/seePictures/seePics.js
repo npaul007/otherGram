@@ -12,7 +12,7 @@ Template.registerHelper('getCurrentUsername', function(){
 });
 
 Template.seePics.rendered = function(){
-	console.log(Router.current().route.getName());
+	//console.log(Router.current().route.getName());
 
 	var pos = Session.get('seePicsVerticalPosition');
 	if(typeof  pos === 'undefined'){

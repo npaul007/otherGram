@@ -115,6 +115,7 @@ Template.photoCrop.events({
 				}else{
 					uploadStream.emit('uploaded');
 					alert('Upload successful!');
+					Session.set('worldPicsVerticalPosition', 0);
 					Router.go('/');
 				}
 			});
