@@ -12,7 +12,7 @@ Template.registerHelper('getCurrentUsername', function(){
 });
 
 Template.seePics.rendered = function(){
-	$('.fa-user-plus').addClass('active');
+	console.log(Router.current().route.getName());
 
 	var pos = Session.get('seePicsVerticalPosition');
 	if(typeof  pos === 'undefined'){
@@ -290,7 +290,7 @@ Template.seePics.events({
 	},
 	'click #backToPeople':function(){
 		Session.set('personSelected', null);
-		Router.go('/people');
+		Router.go('people');
 	}
 
 });

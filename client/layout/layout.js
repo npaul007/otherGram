@@ -66,6 +66,13 @@ Template.registerHelper("isCurrentPage",function(current){
 	return current === Session.get("currentRouteName");
 });
 
+Template.registerHelper("isCurrentPagePeople",function(current1, current2){
+	if(Router.current().route.getName() === current1 || Router.current().route.getName() === current2){
+		//console.log('true');
+		return true;
+	}
+});
+
 Template.footer.onCreated(function () {
   // Use this.subscribe inside onCreated callback
   this.subscribe("currentUser");

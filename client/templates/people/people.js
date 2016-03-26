@@ -19,7 +19,7 @@ Template.people.events({
 
 		Session.set('personSelected', username);
 
-		Router.go('/seePics/'+username);
+		Router.go('/people/'+username);
 	}
 });
 
@@ -27,7 +27,7 @@ Template.people.rendered = function(){
 	var person = Session.get('personSelected');
 
 	if(person != null)
-		Router.go('/seePics/'+person);
+		Router.go('/people/'+person);
 	else
 		Router.go('people');
 
