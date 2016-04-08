@@ -2,9 +2,11 @@ Template.login.events({
 	'click #registerButton':function(){
 		Router.go('/register');
 	},
-	'click #loginButton':function(event,template){
-		var username = template.find('#loginUsername').value;
-		var password = template.find('#loginPassword').value;
+	'submit .loginForm':function(event,template){
+		event.preventDefault();
+
+		var username = event.target.username.value;
+		var password = event.target.password.value;
 
 		Meteor.loginWithPassword(username,password,function(error){
 			if(error){
