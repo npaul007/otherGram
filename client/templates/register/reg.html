@@ -1,14 +1,23 @@
 <template name="register">
 	<div class="container">
 		<div class="col-md-12">
-			<div id="registerForm" class="shadow">
+			<form id="registerForm" class="shadow">
 				<h2 class="center-text">Register</h2>
-				<input type="text" id="registerUsername" placeholder="desired username">
-				<input type="password" id="registerPassword" placeholder="desired password">
-				<input type="password" id="registerConfirmPassword" placeholder="confirm password">
-				<button id="registerSubmitButton" class="btn btn-default form-control">Sign up</button>
+
+				<input type="text" name="username" class="registerTextFields" placeholder="desired username" required />
+
+				<input type="password" name="password" class="registerTextFields" placeholder="desired password" required />
+
+				<input type="password" name="confirmPassword"  placeholder="confirm password" class="registerTextFields"  required />
+
+				<input type="text" name="recoveryQuestion"  placeholder="recovery question" class="registerTextFields"  required />
+
+				<input type="text" name="recoveryAnswer"  placeholder="recovery answer" class="registerTextFields"  required />
+
+				<input type="submit" id="registerSubmitButton" class="btn btn-default form-control" value="Sign Up"
+				/>
 				<button id="back" class="btn btn-default form-control"  onclick="history.go(-1);">Back</button>
-			</div>
+			</form>
 		</div>
 	</div>
 </template>

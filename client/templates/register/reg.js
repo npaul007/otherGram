@@ -1,8 +1,12 @@
 Template.register.events({
-	'click #registerSubmitButton':function(event,template){
-		var username = template.find('#registerUsername').value;
-		var password = template.find('#registerPassword').value;
-		var passwordConfirm = template.find('#registerConfirmPassword').value;
+	'submit #registerForm':function(event,template){
+		event.preventDefault();
+
+		var username = event.target.username.value;
+		var password = event.target.password.value;
+		var passwordConfirm = event.target.confirmPassword.value;
+		var recoveryQuestion = event.target.recoveryQuestion.value;
+		var recoveryAnswer = event.target.recoveryAnswer.value;
 
 		if(password.localeCompare(passwordConfirm) != 0 ){
 			alert('passwords do not match');
@@ -19,17 +23,17 @@ Template.register.events({
 				username:username,
 				password:password,
 				profile:{
-					type:'normal'
+					type:'normal',
+					forgotPassword:{
+						recoveryQuestion:recoveryQuestion,
+						recoveryAnswer:recoveryAnswer
+					}
 				}
 			});
 
-			Router.go('yourPics');
-		}
-	},
-	'keypress input':function(event,template){
-		var keyCode = event.keyCode;
-		if(keyCode === 13){
-			template.find('#registerSubmitButton').click();
+			alert("You've successfully registered! Please Login!");
+
+			Router.go('/yourPics');
 		}
 	}
 });
