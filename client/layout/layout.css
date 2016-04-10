@@ -106,6 +106,10 @@ a:visited{
 	display: block;
 }
 
+#loggedUserPic:hover{
+	cursor: pointer;
+}
+
 .photoFormatButtons{
 	color: white;
 	background: #660033;

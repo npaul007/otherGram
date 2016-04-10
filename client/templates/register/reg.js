@@ -31,7 +31,7 @@ Template.register.events({
 				}
 			});
 
-			alert("You've successfully registered! Please Login!");
+			alert("You've successfully registered!");
 
 			Router.go('/yourPics');
 		}

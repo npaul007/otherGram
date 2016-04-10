@@ -35,6 +35,10 @@
 	padding-left: 20px;
 }
 
+.photoFormatButtons:hover{
+	cursor: pointer;
+}
+
 #commentInput{
 	width: 100%;
 	position: relative;
