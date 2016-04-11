@@ -18,5 +18,8 @@ Meteor.methods({
 				}
 			}
 		);
+	},
+	recoverPassword:function(userId,newPassword){
+		Accounts.setPassword(userId, newPassword);
 	}
 });

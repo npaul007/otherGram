@@ -38,6 +38,7 @@ Template.login.events({
 		var username = prompt('Please enter your username');
 
 		var recoveryQuestion = Meteor.users.findOne({username:username}).profile.forgotPassword.recoveryQuestion;
+		var _id = Meteor.users.findOne({username:username})._id;
 
 		if(recoveryQuestion != null){
 			var recoveryAnswer = prompt("Answer the following recovery question:\n" + recoveryQuestion);
@@ -51,9 +52,11 @@ Template.login.events({
 					newPassword = prompt('Please enter your new password:');
 					confirmNewPassword = prompt('Please confirm your new password:');
 				}
-				alert('this works');
-				/*Meteor.users.update({username:username}, {$set:{'password':'yolo'}});
-				alert('Your new password is:' + newPassword); */
+
+				Meteor.call('recoverPassword', _id, newPassword);
+
+				alert('Your new password is: ' + newPassword);
+
 			}else{
 				alert('Access Denied.');
 			}
