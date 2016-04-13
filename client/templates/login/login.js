@@ -46,16 +46,21 @@ Template.login.events({
 				alert('Access Granted.');
 				var newPassword = prompt('Please enter your new password:');
 				var confirmNewPassword = prompt('Please confirm your new password:');
+				var placeHolder = 'new Password';
 
 				while(newPassword != confirmNewPassword){
 					alert('Passwords do not match.');
-					newPassword = prompt('Please enter your new password:');
-					confirmNewPassword = prompt('Please confirm your new password:');
+					newPassword = prompt("Please enter your new password:");		
+					confirmNewPassword = prompt("Please confirm your new password:");
 				}
 
-				Meteor.call('recoverPassword', _id, newPassword);
-
-				alert('Your new password is: ' + newPassword);
+				if((newPassword != null && confirmNewPassword != null) && 
+					(newPassword != '' && confirmNewPassword != '')){
+					Meteor.call('recoverPassword', _id, newPassword);
+					alert('Your new password is: ' + newPassword);
+				}else{
+					alert('invalid passwords.');
+				}
 
 			}else{
 				alert('Access Denied.');
