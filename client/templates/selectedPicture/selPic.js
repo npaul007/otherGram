@@ -4,3 +4,10 @@ Template.selectedPicture.helpers({
 	}
 });
 
+Template.selectedPicture.rendered = function(){
+	var selPic = Session.get('selectedPicture');
+	if(typeof selPic === 'undefined'){
+		history.go(-1);
+	}
+}
+
