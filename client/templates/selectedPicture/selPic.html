@@ -1,5 +1,13 @@
 <template name="selectedPicture">
-	{{#each selectedPic}}
-	 <img src="{{this.url}}" class="img-responsive" id="selectedPic">
-	{{/each}}
+	<div class="container">
+		{{#each selectedPic}}
+			<div id="controls">
+				<button class="btn btn-default">Delete Picture</button>
+				<button class="btn btn-default">Ban User</button>
+				<button class="btn btn-default">User Profile</button>
+				<button class="btn btn-default">View Comments</button>
+			</div>
+			<img src="{{this.url}}" class="img-responsive" id="selectedPic">
+		{{/each}}
+	</div>
 </template>

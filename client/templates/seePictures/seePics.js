@@ -35,8 +35,12 @@ Template.seePics.rendered = function(){
 		}
 	});
 
-	Session.set('previousPage',Router.current().route.getName());
+	window.onpopstate = function(){
+		Session.set('personSelected', null);
+		Router.go(Session.get('previousPage'));
+	}
 
+	Session.set('previousPage',Router.current().route.getName());
 }
 
 // formats pictures in a scrollable form showing comments likes and when the picture was posted
@@ -294,7 +298,6 @@ Template.seePics.events({
 		Session.set('personSelected', null);
 		Router.go('people');
 	}
-
 });
 
 

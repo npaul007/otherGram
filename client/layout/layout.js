@@ -85,11 +85,6 @@ Template.registerHelper("isCurrentPagePeople",function(current1, current2){
 	}
 });
 
-Template.footer.onCreated(function () {
-  // Use this.subscribe inside onCreated callback
-  this.subscribe("currentUser");
-});
-
 var ProfilePictureStore = new FS.Store.GridFS('profilePicStore');
 
 ProfilePictures = new FS.Collection("profilePictures",{
