@@ -13,6 +13,12 @@ Template.layout.events({
 	},
 	'click .fa-user-plus':function(){
 		Router.go('/people');
+
+		console.log(Router.current().route.getName());
+		
+		if(Router.current().route.getName() === 'seePics' && Template.currentData() != null){
+			Session.set('personSelected',null);
+		}
 	}
 });
 

@@ -11,3 +11,17 @@ Template.selectedPicture.rendered = function(){
 	}
 }
 
+Template.selectedPicture.events({
+	'click #sel-del':function(){
+		var deletePicture = confirm('Are you sure you would like to delete this photo?');
+	},
+	'click #sel-prof':function(){
+		var _id = Session.get('selectedPicture');
+		var img = Images.findOne({_id:_id});
+
+		console.log(img.metadata.username);
+		
+		Router.go(/people/+img.metadata.username);
+	}
+});
+

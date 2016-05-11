@@ -15,10 +15,11 @@ Template.seePics.rendered = function(){
 	//console.log(Router.current().route.getName());
 
 	var pos = Session.get('seePicsVerticalPosition');
-	if(typeof  pos === 'undefined'){
+
+	if(typeof  pos === 'undefined' || Session.get('personSelected') != Session.get('previousPerson')){
 		$(document).scrollTop(0);
 	}else{
-		console.log('height is'+Session.get('seePicsVerticalPosition'));
+		//console.log('height is'+Session.get('seePicsVerticalPosition'));
 		$(document).scrollTop(Session.get('seePicsVerticalPosition'));
 	}
 
@@ -31,7 +32,7 @@ Template.seePics.rendered = function(){
 	$(window).scroll(function(){
 		if(Router.current().route.getName() === 'seePics'){
 			Session.set('seePicsVerticalPosition', $(document).scrollTop());
-			console.log(Session.get('seePicsVerticalPosition'));
+			//console.log(Session.get('seePicsVerticalPosition'));
 		}
 	});
 
@@ -40,6 +41,7 @@ Template.seePics.rendered = function(){
 		Router.go(Session.get('previousPage'));
 	}
 
+	Session.set('previousPerson', Template.currentData());
 	Session.set('previousPage',Router.current().route.getName());
 }
 

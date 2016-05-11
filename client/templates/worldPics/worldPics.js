@@ -107,7 +107,7 @@ Template.worldPics.rendered = function(){
 	if(typeof  pos === 'undefined'){
 		$(document).scrollTop(0);
 	}else{
-		console.log('height is'+Session.get('worldPicsVerticalPosition'));
+		//console.log('height is'+Session.get('worldPicsVerticalPosition'));
 		$(document).scrollTop(Session.get('worldPicsVerticalPosition'));
 	}
 
@@ -120,7 +120,7 @@ Template.worldPics.rendered = function(){
 	$(window).scroll(function(){
 		if(Router.current().route.getName() === 'worldPics'){
 			Session.set('worldPicsVerticalPosition', $(document).scrollTop());
-			console.log(Session.get('worldPicsVerticalPosition'));
+			//console.log(Session.get('worldPicsVerticalPosition'));
 		}
 	});
 

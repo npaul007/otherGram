@@ -70,7 +70,7 @@ Template.yourPics.rendered = function(){
 	if(typeof  pos === 'undefined'){
 		$(document).scrollTop(0);
 	}else{
-		console.log('height is'+Session.get('yourPicsVerticalPosition'));
+		//console.log('height is'+Session.get('yourPicsVerticalPosition'));
 		$(document).scrollTop(Session.get('yourPicsVerticalPosition'));
 	}
 
@@ -83,7 +83,7 @@ Template.yourPics.rendered = function(){
 	$(window).scroll(function(){
 		if(Router.current().route.getName() === 'yourPics'){
 			Session.set('yourPicsVerticalPosition', $(document).scrollTop());
-			console.log(Session.get('yourPicsVerticalPosition'));
+			//console.log(Session.get('yourPicsVerticalPosition'));
 		}
 	});
 

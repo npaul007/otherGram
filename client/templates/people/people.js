@@ -37,14 +37,16 @@ Template.people.rendered = function(){
 	}
 
 	else{
-		console.log('height is'+Session.get('peopleVerticalPosition'));
+		//console.log('height is'+Session.get('peopleVerticalPosition'));
 		$(document).scrollTop(Session.get('peopleVerticalPosition'));
 	}
 
 	$(window).scroll(function(){
 		if(Router.current().route.getName() === 'people'){
 			Session.set('peopleVerticalPosition', $(document).scrollTop());
-			console.log(Session.get('peopleVerticalPosition'));
+			//console.log(Session.get('peopleVerticalPosition'));
 		}
 	});
+
+	Session.set('previousPage',Router.current().route.getName());
 }
