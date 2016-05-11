@@ -20,8 +20,13 @@ Template.selectedPicture.events({
 		var img = Images.findOne({_id:_id});
 
 		console.log(img.metadata.username);
-		
+
 		Router.go(/people/+img.metadata.username);
+	},
+	'click #sel-comm':function(e){
+		e.preventDefault();
+
+		$('#myModal').modal('show');
 	}
 });
 

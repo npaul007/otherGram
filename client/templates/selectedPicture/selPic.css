@@ -12,6 +12,11 @@
 	text-align: center;
 }
 
+.modal {
+    z-index: 10000;
+    color: black;
+}
+
 @media (max-width: 800px){
 	#selectedPic{
 		display: block;
