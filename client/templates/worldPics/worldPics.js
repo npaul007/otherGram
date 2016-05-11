@@ -100,6 +100,29 @@ Template.registerHelper("postProfilePic",function(userId){
 	}
 });
 
+Template.registerHelper("likedPhoto",function(){
+	if(Images.find(
+			{
+				$and: [
+					{
+						_id:this._id
+					}, 
+					{
+						"metadata.likes":
+						{
+							$elemMatch:
+							{
+								"userId":Meteor.userId()
+							}
+						}
+					}
+				]
+			}
+			).count() > 0){
+		return true;
+	}
+});
+
 /* when the world pics template is rendered check to see current session variable to see what 
 format to view pictures in the user last selected */
 Template.worldPics.rendered = function(){

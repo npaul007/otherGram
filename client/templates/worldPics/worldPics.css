@@ -15,6 +15,10 @@
 	cursor: pointer;
 }
 
+.likedPicture{
+	color: red;
+}
+
 .fa-pencil-square-o{
 	float: right;
 	position: relative;
