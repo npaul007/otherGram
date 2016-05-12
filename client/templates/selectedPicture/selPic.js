@@ -4,6 +4,10 @@ Template.selectedPicture.helpers({
 	}
 });
 
+Template.registerHelper("reverseComments",function(arr){
+	arr.reverse();
+});
+
 Template.selectedPicture.rendered = function(){
 	var selPic = Session.get('selectedPicture');
 
@@ -32,4 +36,5 @@ Template.selectedPicture.events({
 		$('#myModal').modal('show');
 	}
 });
+
 
