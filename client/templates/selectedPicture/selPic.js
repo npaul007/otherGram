@@ -6,9 +6,12 @@ Template.selectedPicture.helpers({
 
 Template.selectedPicture.rendered = function(){
 	var selPic = Session.get('selectedPicture');
+
 	if(typeof selPic === 'undefined'){
 		history.go(-1);
 	}
+
+	//Session.set('previousPage',Router.current().route.getName());
 }
 
 Template.selectedPicture.events({
