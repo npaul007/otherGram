@@ -12,9 +12,15 @@
 	text-align: center;
 }
 
-.modal {
-    z-index: 10000;
+#myModal {
     color: black;
+    height: 500px;
+}
+
+.modal-body{
+	overflow: auto;
+	word-wrap:break-word;
+	height: 275px;
 }
 
 @media (max-width: 800px){
