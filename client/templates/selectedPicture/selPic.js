@@ -27,9 +27,6 @@ Template.selectedPicture.rendered = function(){
 }
 
 Template.selectedPicture.events({
-	'click #sel-del':function(){
-		var deletePicture = confirm('Are you sure you would like to delete this photo?');
-	},
 	'click #sel-prof':function(){
 		var _id = Session.get('selectedPicture');
 		var img = Images.findOne({_id:_id});
@@ -145,7 +142,16 @@ Template.selectedPicture.events({
 				}
 			} 
 		}
-	}
+	},
+	'click #sel-del':function(){
+ 		if(Meteor.userId() === this.metadata.userId || Meteor.user().profile.type === 'admin'){
+	 		var del = confirm("Are you sure you want to delete this picture?");
+	 		if(del){
+	 			Images.remove({_id:this._id});
+	 			history.go(-1);
+	 		}
+ 		}
+ 	}
 });
 
 
