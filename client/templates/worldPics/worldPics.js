@@ -39,11 +39,11 @@ var addGrid = function() {
 }
 
 function checkPictureFormatSetting(){
-		if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
-			addGrid();
-		}else{
-			addBars();
-		}
+	if(Session.get('currentDisplaySettingWorldPics') === "grid" ){
+		addGrid();
+	}else{
+		addBars();
+	}
 }
 
 // id generator

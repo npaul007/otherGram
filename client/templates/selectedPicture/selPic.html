@@ -2,7 +2,7 @@
 	<div class="container">
 		{{#each selectedPic}}
 			<div id="controls">
-				<button class="btn btn-default" id="sel-del">Delete Picture</button>
+				<button class="btn btn-default {{#if showOrHideBlock this this.metadata.userId}}{{else}}hidden{{/if}}" id="sel-del">Delete Picture</button>
 				<button class="btn btn-default" id="sel-ban">Ban User</button>
 				<button class="btn btn-default" id="sel-prof">User Profile</button>
 				<button class="btn btn-default" id="sel-comm">View Comments</button>
@@ -19,6 +19,7 @@
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
 			       	<h4>Comments</h4>
 			       	<p>Picture was posted <strong>{{timeSincePosted this.metadata.date }}</strong></p>
+			       	<p>by <strong>{{this.metadata.username}}</strong></p>
 
 					<br/>
 
