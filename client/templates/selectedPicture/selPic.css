@@ -24,6 +24,7 @@
 	background: white;
 	height: 320px;
 	overflow-y:auto;
+	word-wrap:break-word;
 }
 
 .modal-footer{
