@@ -31,21 +31,21 @@
 
 					<input type="text" class="form-control inline pComment" id="commentInput" placeholder="speak your mind">
 			      </div>
+
 			      <div class="modal-body">
-						
+					<br/>
+					{{reverseComments this.metadata.comments}}
+					{{#each this.metadata.comments}}
+						<p class="pPost"><strong>{{this.username}}</strong> {{this.comment}}</p>
 						<br/>
-						{{reverseComments this.metadata.comments}}
-						{{#each this.metadata.comments}}
-							<p class="pPost"><strong>{{this.username}}</strong> {{this.comment}}</p>
-							<br/>
-							<i class="fa fa-pencil-square-o {{#if showOrHideBlock this ../metadata.userId}}{{else}}hidden{{/if}}" currentComment="{{this.comment}}" currentId="{{../_id}}" commentId="{{this._id}}" currentIndex="{{@index}}" userId="{{this.userId}}" username="{{this.username}}" ownersUserId="{{../metadata.userId}}"></i>
-						{{/each}}
+						<i class="fa fa-pencil-square-o {{#if showOrHideBlock this ../metadata.userId}}{{else}}hidden{{/if}}" currentComment="{{this.comment}}" currentId="{{../_id}}" commentId="{{this._id}}" currentIndex="{{@index}}" userId="{{this.userId}}" username="{{this.username}}" ownersUserId="{{../metadata.userId}}"></i>
+					{{/each}}
 			      </div>
+
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			      </div>
 			    </div>
-
 			  </div>
 			</div>
 		{{/each}}
