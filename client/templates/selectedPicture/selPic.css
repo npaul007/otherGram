@@ -22,7 +22,7 @@
 
 .modal-body{
 	background: white;
-	height: 320px;
+	height: 250px;
 	overflow-y:auto;
 	word-wrap:break-word;
 }
