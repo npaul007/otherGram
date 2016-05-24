@@ -33,6 +33,8 @@ Template.selectedPicture.events({
 
 		console.log(img.metadata.username);
 
+		Session.set('personSelected',img.metadata.username);
+
 		Router.go(/people/+img.metadata.username);
 	},
 	'click #sel-comm':function(e){

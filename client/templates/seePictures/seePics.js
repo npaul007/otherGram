@@ -16,7 +16,8 @@ Template.seePics.rendered = function(){
 
 	var pos = Session.get('seePicsVerticalPosition');
 
-	if(typeof  pos === 'undefined' || Session.get('personSelected') != Session.get('previousPerson')){
+	if(typeof  pos === 'undefined' || 
+		Template.currentData() != Session.get('previousPerson') ){
 		$(document).scrollTop(0);
 	}else{
 		//console.log('height is'+Session.get('seePicsVerticalPosition'));
