@@ -1,3 +1,27 @@
+Meteor.users.deny({
+ insert: function(){
+	 return false;
+ },
+ update: function(){
+	 return false;
+ },
+ remove: function(){
+	 return false;
+ }
+});
+
+Meteor.users.allow({
+ insert: function(){
+	 return true;
+ },
+ update: function(){
+	 return true;
+ },
+ remove: function(){
+	 return true;
+ }
+});
+
 Template.selectedPicture.helpers({
 	'selectedPic':function(){
 		return Images.find({_id:Session.get('selectedPicture')});
@@ -6,6 +30,14 @@ Template.selectedPicture.helpers({
 
 Template.registerHelper("reverseComments",function(arr){
 	arr.reverse();
+});
+
+Template.registerHelper("adminOnlySees",function(userId){
+	if(Meteor.user().profile.type === 'admin' && Meteor.userId() != userId){
+		return true;
+	}else{
+		return false;
+	}
 });
 
 // id generator
@@ -153,9 +185,15 @@ Template.selectedPicture.events({
 	 			history.go(-1);
 	 		}
  		}
+ 	},
+ 	'click #sel-ban':function(){
+ 		if(confirm("Are you sure you want to ban " + this.metadata.username + "?")){
+ 			Meteor.users.remove({_id:this.metadata.userId});
+ 			Meteor.call('removeUserImages',this.metadata.userId);
+ 			history.go(-1);
+ 		}
  	}
 });
-
 
 
 

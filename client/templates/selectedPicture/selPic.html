@@ -3,7 +3,7 @@
 		{{#each selectedPic}}
 			<div id="controls">
 				<button class="btn btn-default {{#if showOrHideBlock this this.metadata.userId}}{{else}}hidden{{/if}}" id="sel-del">Delete Picture</button>
-				<button class="btn btn-default" id="sel-ban">Ban User</button>
+				<button class="btn btn-default {{#if adminOnlySees this.metadata.userId}}{{else}}hidden{{/if}}" id="sel-ban">Ban User</button>
 				<button class="btn btn-default" id="sel-prof">{{this.metadata.username}}'s' Profile</button>
 				<button class="btn btn-default" id="sel-comm">View Comments</button>
 			</div>

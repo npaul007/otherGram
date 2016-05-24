@@ -21,5 +21,8 @@ Meteor.methods({
 	},
 	recoverPassword:function(userId,newPassword){
 		Accounts.setPassword(userId, newPassword);
+	},
+	removeUserImages:function(userId){
+		Images.remove({"metadata.userId":userId});
 	}
 });
