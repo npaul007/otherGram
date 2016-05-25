@@ -20,6 +20,13 @@ Template.people.events({
 		Session.set('personSelected', username);
 
 		Router.go('/people/'+username);
+	},
+	'click #ban-people':function(){
+		if(confirm("Are you sure you want to ban " + this.username + "?")){
+ 			Meteor.users.remove({_id:this._id});
+ 			Meteor.call('removeUserImages',this._id);
+ 			history.go(-1);
+ 		}
 	}
 });
 
