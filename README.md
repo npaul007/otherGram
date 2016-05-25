@@ -3,8 +3,6 @@ Meteor Project made to mimic the notorious Instagram app, and to also help mysel
 
 <br/>
 Check it Out!! 
-
-<br/>
 http://othergram.herokuapp.com/
 
 
