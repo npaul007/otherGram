@@ -1,6 +1,6 @@
 Template.login.events({
 	'click #registerButton':function(){
-		Router.go('/register');
+		Router.go('/reg');
 	},
 	'submit .loginForm':function(event,template){
 		event.preventDefault();
