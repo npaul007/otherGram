@@ -13,11 +13,11 @@ Images.allow({
 	insert:function(){
 		return true;
 	},
-	update:function(){
-		return true;
-	},
 	remove:function(){
-		return true;
+		return false;
+	},
+	update:function(){
+		return false;
 	}
 });
 
@@ -25,11 +25,11 @@ Images.deny({
 	insert:function(){
 		return false;
 	},
-	update:function(){
-		return false;
-	},
 	remove:function(){
-		return false;
+		return true;
+	},
+	update:function(){
+		return true;
 	}
 });
 

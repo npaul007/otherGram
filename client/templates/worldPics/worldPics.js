@@ -247,7 +247,7 @@ Template.worldPics.events({
  		if(Meteor.userId() === this.metadata.userId || Meteor.user().profile.type === 'admin'){
 	 		var del = confirm("Are you sure you want to delete this picture?");
 	 		if(del){
-	 			Images.remove({_id:this._id});
+	 			Meteor.call('removeImage',this._id, this.metadata.userId);
 	 		}
  		}
  	},

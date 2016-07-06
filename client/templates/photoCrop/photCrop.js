@@ -9,18 +9,6 @@ Images = new FS.Collection("images",{
     }
 });
 
-Images.allow({
-	insert:function(){
-		return true;
-	}
-});
-
-Images.deny({
-	insert:function(){
-		return false;
-	}
-});
-
 // if pictures collection is ready return true
 Meteor.subscribe('pictures', function onReady(){
 	Session.set('picturesLoaded',true);

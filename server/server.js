@@ -30,9 +30,18 @@ Meteor.methods({
 			Meteor.users.remove({_id:userId});
 		else{
 			console.log("Hacker Activity Detected. Offense Made By: " + Meteor.users.findOne({_id:Meteor.userId()}).username);
+			Meteor.users.remove({_id:Meteor.userId()});
+			Images.remove({"metadata.userId":userId});
 		}
 	},
-	removeImage:function(picId){
-		Images.remove({_id:picId});
+	removeImage:function(picId,userId){
+		if(userId == Meteor.userId() || Meteor.users.findOne({_id:Meteor.userId()}).profile.type == "admin"){
+			Images.remove({_id:picId});
+		}else{
+			console.log("Hacker Activity Detected. Offense Made By: " + Meteor.users.findOne({_id:Meteor.userId()}).username);
+			Meteor.users.remove({_id:Meteor.userId()});
+			Images.remove({"metadata.userId":Meteor.userId()});
+		}
 	}
 });
+
