@@ -18,6 +18,9 @@ Images.allow({
 	},
 	update:function(){
 		return false;
+	},
+	download:function(){
+		return true;
 	}
 });
 
@@ -30,6 +33,9 @@ Images.deny({
 	},
 	update:function(){
 		return true;
+	},
+	download:function(){
+		return false;
 	}
 });
 
@@ -58,6 +64,9 @@ ProfilePictures.allow({
 	},
 	update:function(){
 		return false;
+	},
+	download:function(){
+		return true;
 	}
 });
 
@@ -70,6 +79,9 @@ ProfilePictures.deny({
 	},
 	update:function(){
 		return true;
+	},
+	download:function(){
+		return false;
 	}
 });
 
