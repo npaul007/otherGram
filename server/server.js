@@ -19,6 +19,24 @@ Meteor.methods({
 			}
 		);
 	},
+	insertComment:function(imageId,generatedId,comment){
+ 		Images.update(
+			{
+				_id:imageId
+			} , 
+			{
+				$push:{
+					"metadata.comments":
+					{
+						"_id":generatedId,
+						"userId":Meteor.userId(),
+						"username":Meteor.user().username,
+						"comment":comment
+					}
+				}
+			}
+		);
+	},
 	recoverPassword:function(userId,newPassword){
 		Accounts.setPassword(userId, newPassword);
 	},

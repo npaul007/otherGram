@@ -270,22 +270,7 @@ Template.worldPics.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update(
-	 				{
-	 					_id:this._id
-	 				} , 
-	 				{
-	 					$push:{
-	 						"metadata.comments":
-	 						{
-	 							"_id":guidGenerator(),
-	 							"userId":Meteor.userId(),
-	 							"username":Meteor.user().username ,
-	 							"comment":comment
-	 						}
-	 					}
-	 				}
-	 			);
+ 				Meteor.call('insertComment',this._id,guidGenerator(),comment);
 				event.target.value = "";
  			}
  		}
