@@ -49,6 +49,30 @@ ProfilePictures = new FS.Collection("profilePictures",{
     }
 });
 
+ProfilePictures.allow({
+	insert:function(){
+		return true;
+	},
+	remove:function(){
+		return false;
+	},
+	update:function(){
+		return false;
+	}
+});
+
+ProfilePictures.deny({
+	insert:function(){
+		return false;
+	},
+	remove:function(){
+		return true;
+	},
+	update:function(){
+		return true;
+	}
+});
+
 Meteor.publish('profilePictures',function(){
 	return ProfilePictures.find();
 });
