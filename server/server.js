@@ -3,6 +3,30 @@ function isAdmin(userId){
 }
 
 Meteor.methods({
+	likePicture:function(imageId){
+		if(Images.find(
+			{
+				$and: [
+					{
+						_id:this._id
+					}, 
+					{
+						"metadata.likes":
+						{
+							$elemMatch:
+							{
+								"userId":Meteor.userId()
+							}
+						}
+					}
+				]
+			}
+			).count() > 0){
+			Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
+		}else{
+			Images.update({_id:this._id}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
+		}
+	},
 	editComment:function(id,userId,username,comment,commentId,edit){
 		if(userId == Meteor.userId()){
 			Images.update(
