@@ -4,24 +4,26 @@ function isAdmin(userId){
 
 Meteor.methods({
 	editComment:function(id,userId,username,comment,commentId,edit){
-		Images.update(
-			{
-				_id:id,
-				"metadata.comments._id":commentId
-			},
-			{
-				$set:
+		if(userId == Meteor.userId()){
+			Images.update(
 				{
-					"metadata.comments.$":
+					_id:id,
+					"metadata.comments._id":commentId
+				},
+				{
+					$set:
 					{
-						"_id":commentId,
-						"userId":userId,
-						"username":username,
-						"comment":edit
+						"metadata.comments.$":
+						{
+							"_id":commentId,
+							"userId":userId,
+							"username":username,
+							"comment":edit
+						}
 					}
 				}
-			}
-		);
+			);
+		}
 	},
 	insertComment:function(imageId,generatedId,comment){
  		Images.update(
@@ -40,6 +42,27 @@ Meteor.methods({
 				}
 			}
 		);
+	},
+	removeComment:function(imageId,commentId,userId,username,comment){
+		if(isAdmin(Meteor.userId()) || Meteor.userId() == userId){
+			Images.update(
+				{
+					_id:imageId
+				} , 
+				{
+					$pull:
+					{
+						"metadata.comments":
+						{
+							"_id":commentId,
+							"userId":userId,
+							"username":username, 
+							"comment":comment
+						}
+					}
+				}
+			);
+		}
 	},
 	recoverPassword:function(userId,newPassword){
 		Accounts.setPassword(userId, newPassword);

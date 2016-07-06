@@ -167,23 +167,7 @@ Template.worldPics.events({
 
 		if(Meteor.userId() === userId || Meteor.userId() === ownersUserId || Meteor.user().profile.type === 'admin'){
 			if(confirm("Would you like to delete this comment?")){
-				Images.update(
-					{
-						_id:imageId
-					} , 
-					{
-						$pull:
-						{
-							"metadata.comments":
-							{
-								"_id":commentId,
-								"userId":userId,
-								"username":username, 
-								"comment":comment
-							}
-						}
-					}
-				);
+				Meteor.call('removeComment',imageId,commentId,userId,username,comment);
 			}else{
 				if(Meteor.userId() == userId){
 					if(confirm("Would you like to edit this comment?")){
@@ -239,9 +223,7 @@ Template.worldPics.events({
 	}
 	,
  	'dblclick .picDiv':function(){
- 		if(Meteor.user().profile.type === 'admin'){
- 			Images.remove({_id:this._id});
- 		}
+ 		Meteor.call('removeImage',this._id, this.metadata.userId);
  	},
  	'click #deletePostButton':function(){
  		if(Meteor.userId() === this.metadata.userId || Meteor.user().profile.type === 'admin'){
