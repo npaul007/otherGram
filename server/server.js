@@ -26,10 +26,11 @@ Meteor.methods({
 		Images.remove({"metadata.userId":userId});
 	},
 	removeUser:function(userId){
-		if(Meteor.users.find({_id:Meteor.userId}).profile.type == "admin")
+		if(Meteor.users.findOne({_id:Meteor.userId()}).profile.type == "admin")
 			Meteor.users.remove({_id:userId});
-		else
-			console.log("Access Denied Hacker Activity Detected");
+		else{
+			console.log("Hacker Activity Detected. Offense Made By: " + Meteor.users.findOne({_id:Meteor.userId()}).username);
+		}
 	},
 	removeImage:function(picId){
 		Images.remove({_id:picId});
