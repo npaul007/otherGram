@@ -9,6 +9,30 @@ Images = new FS.Collection("images",{
     }
 });
 
+Images.allow({
+	insert:function(){
+		return true;
+	},
+	update:function(){
+		return true;
+	},
+	remove:function(){
+		return true;
+	}
+});
+
+Images.deny({
+	insert:function(){
+		return false;
+	},
+	update:function(){
+		return false;
+	},
+	remove:function(){
+		return false;
+	}
+});
+
 Meteor.publish('pictures',function(){
 	return Images.find();
 });

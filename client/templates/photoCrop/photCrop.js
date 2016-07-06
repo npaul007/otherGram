@@ -9,6 +9,18 @@ Images = new FS.Collection("images",{
     }
 });
 
+Images.allow({
+	insert:function(){
+		return true;
+	}
+});
+
+Images.deny({
+	insert:function(){
+		return false;
+	}
+});
+
 // if pictures collection is ready return true
 Meteor.subscribe('pictures', function onReady(){
 	Session.set('picturesLoaded',true);
@@ -77,7 +89,7 @@ Template.photoCrop.events({
 		if ($('#uploaded').get(0).files.length === 0) {
 		    alert("No files selected.");
 		}else{
-			// if there is an uploaded picture insert the file into our collection
+
 			Images.insert(fsFile,function(error,fileObject){
 				if(error){
 					alert('Upload failed... please try again.');

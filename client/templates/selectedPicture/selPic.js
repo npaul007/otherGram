@@ -1,27 +1,3 @@
-Meteor.users.deny({
- insert: function(){
-	 return false;
- },
- update: function(){
-	 return false;
- },
- remove: function(){
-	 return false;
- }
-});
-
-Meteor.users.allow({
- insert: function(){
-	 return true;
- },
- update: function(){
-	 return true;
- },
- remove: function(){
-	 return true;
- }
-});
-
 Template.selectedPicture.helpers({
 	'selectedPic':function(){
 		return Images.find({_id:Session.get('selectedPicture')});
@@ -63,8 +39,6 @@ Template.selectedPicture.events({
 		var _id = Session.get('selectedPicture');
 		var img = Images.findOne({_id:_id});
 
-		console.log(img.metadata.username);
-
 		Session.set('personSelected',img.metadata.username);
 
 		Router.go(/people/+img.metadata.username);
@@ -80,7 +54,6 @@ Template.selectedPicture.events({
  			event.preventDefault();
 
  			var comment = event.target.value;
- 			console.log(comment);
 
  			if(comment.length == 0){
  				return;
