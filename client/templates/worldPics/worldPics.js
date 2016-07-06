@@ -182,6 +182,7 @@ Template.worldPics.events({
 	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
 		Meteor.call('likePicture',this._id);
+		console.log(this._id);
 	},
 	'click .pPic':function(){
 		// create sessions variable of selected photo to be displayed in selectedPicture template

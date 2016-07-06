@@ -8,7 +8,7 @@ Meteor.methods({
 			{
 				$and: [
 					{
-						_id:this._id
+						_id:imageId
 					}, 
 					{
 						"metadata.likes":
@@ -22,9 +22,9 @@ Meteor.methods({
 				]
 			}
 			).count() > 0){
-			Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
+			Images.update({_id:imageId}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
 		}else{
-			Images.update({_id:this._id}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
+			Images.update({_id:imageId}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
 		}
 	},
 	editComment:function(id,userId,username,comment,commentId,edit){
