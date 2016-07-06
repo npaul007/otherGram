@@ -188,7 +188,7 @@ Template.selectedPicture.events({
  	},
  	'click #sel-ban':function(){
  		if(confirm("Are you sure you want to ban " + this.metadata.username + "?")){
- 			Meteor.users.remove({_id:this.metadata.userId});
+ 			Meteor.call('removeUser',this.metadata.userId);
  			Meteor.call('removeUserImages',this.metadata.userId);
  			history.go(-1);
  		}

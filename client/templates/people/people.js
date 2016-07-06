@@ -23,7 +23,7 @@ Template.people.events({
 	},
 	'click #ban-people':function(){
 		if(confirm("Are you sure you want to ban " + this.username + "?")){
- 			Meteor.users.remove({_id:this._id});
+ 			Meteor.call('removeUser',this._id);
  			Meteor.call('removeUserImages',this._id);
  		}
 	}

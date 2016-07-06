@@ -24,5 +24,8 @@ Meteor.methods({
 	},
 	removeUserImages:function(userId){
 		Images.remove({"metadata.userId":userId});
+	},
+	removeUser:function(userId){
+		Meteor.users.remove({_id:userId});
 	}
 });
