@@ -3,6 +3,9 @@ function isAdmin(userId){
 }
 
 Meteor.methods({
+	insertRecoveryQuestion:function(question,answer){
+		RecoveryQuestions.insert({"userId":Meteor.userId(),"question":question,"answer":answer});
+	},
 	likePicture:function(imageId){
 		if(Images.find(
 			{
@@ -94,28 +97,25 @@ Meteor.methods({
 	removeUserImages:function(userId){
 		if(isAdmin(Meteor.userId())){
 			Images.remove({"metadata.userId":userId});
-		}else{
-			console.log("Hacker Activity Detected. Offense Made By: " + Meteor.users.findOne({_id:Meteor.userId()}).username);
-			Meteor.users.remove({_id:Meteor.userId()});
-			Images.remove({"metadata.userId":Meteor.userId()});
 		}
 	},
 	removeUser:function(userId){
 		if(isAdmin(Meteor.userId())){
 			Meteor.users.remove({_id:userId});
-		}else{
-			console.log("Hacker Activity Detected. Offense Made By: " + Meteor.users.findOne({_id:Meteor.userId()}).username);
-			Meteor.users.remove({_id:Meteor.userId()});
-			Images.remove({"metadata.userId":Meteor.userId()});
+			RecoveryQuestions.remove({"userId":userId});
 		}
 	},
 	removeImage:function(picId,userId){
 		if(userId == Meteor.userId() || isAdmin(Meteor.userId())){
 			Images.remove({_id:picId});
-		}else{
-			console.log("Hacker Activity Detected. Offense Made By: " + Meteor.users.findOne({_id:Meteor.userId()}).username);
-			Meteor.users.remove({_id:Meteor.userId()});
-			Images.remove({"metadata.userId":Meteor.userId()});
+		}
+	},
+	wipe:function(){
+		if(isAdmin(Meteor.userId())){
+			Images.remove({});
+			ProfilePictures.remove({});
+			Meteor.users.remove({"profile.type":"normal"});
+			RecoveryQuestions.remove({});
 		}
 	}
 });

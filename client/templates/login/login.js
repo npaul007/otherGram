@@ -37,7 +37,6 @@ Template.login.events({
 	'click #forgotPassword':function(){
 		var username = prompt('Please enter your username');
 
-		var recoveryQuestion = Meteor.users.findOne({username:username}).profile.forgotPassword.recoveryQuestion;
 		var _id = Meteor.users.findOne({username:username})._id;
 
 		if(recoveryQuestion != null){

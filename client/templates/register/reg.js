@@ -23,13 +23,11 @@ Template.register.events({
 				username:username,
 				password:password,
 				profile:{
-					type:'normal',
-					forgotPassword:{
-						recoveryQuestion:recoveryQuestion,
-						recoveryAnswer:recoveryAnswer
-					}
+					type:'normal'
 				}
 			});
+
+			Meteor.call('insertRecoveryQuestion',recoveryQuestion,recoveryAnswer);
 
 			alert("You've successfully registered!");
 

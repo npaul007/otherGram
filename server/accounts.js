@@ -2,6 +2,18 @@ Meteor.publish('accounts',function(){
 	return Meteor.users.find();
 });
 
+Meteor.users.allow({
+ insert: function(){
+	 return false;
+ },
+ update: function(){
+	 return false;
+ },
+ remove: function(){
+	 return false;
+ }
+});
+
 Meteor.users.deny({
  insert: function(){
 	 return true;
@@ -14,9 +26,11 @@ Meteor.users.deny({
  }
 });
 
-Meteor.users.allow({
+RecoveryQuestions = new Mongo.Collection("recoveryquestions");
+
+RecoveryQuestions.allow({
  insert: function(){
-	 return false;
+	 return true;
  },
  update: function(){
 	 return false;
@@ -24,4 +38,16 @@ Meteor.users.allow({
  remove: function(){
 	 return false;
  }
-})
+});
+
+RecoveryQuestions.deny({
+ insert: function(){
+	 return false;
+ },
+ update: function(){
+	 return true;
+ },
+ remove: function(){
+	 return true;
+ }
+});
