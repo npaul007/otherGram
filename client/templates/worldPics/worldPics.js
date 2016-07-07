@@ -143,7 +143,6 @@ Template.worldPics.rendered = function(){
 	$(window).scroll(function(){
 		if(Router.current().route.getName() === 'worldPics'){
 			Session.set('worldPicsVerticalPosition', $(document).scrollTop());
-			//console.log(Session.get('worldPicsVerticalPosition'));
 		}
 	});
 
