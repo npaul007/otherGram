@@ -4,7 +4,9 @@ function isAdmin(userId){
 
 Meteor.methods({
 	insertRecoveryQuestion:function(question,answer){
-		RecoveryQuestions.insert({"userId":Meteor.userId(),"question":question,"answer":answer});
+		if(RecoveryQuestions.find({"userId":Meteor.userId()}).count() < 0){
+			RecoveryQuestions.insert({"userId":Meteor.userId(),"question":question,"answer":answer});
+		}
 	},
 	recoverPassword:function(userId,newPassword){
 		Accounts.setPassword(userId, newPassword);
