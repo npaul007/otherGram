@@ -1,5 +1,5 @@
 Meteor.publish('accounts',function(){
-	return Meteor.users.find();
+	return Meteor.users.find({"profile.type":"normal"});
 });
 
 Meteor.users.allow({

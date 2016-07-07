@@ -6,6 +6,9 @@ Meteor.methods({
 	insertRecoveryQuestion:function(question,answer){
 		RecoveryQuestions.insert({"userId":Meteor.userId(),"question":question,"answer":answer});
 	},
+	recoverPassword:function(userId,newPassword){
+		Accounts.setPassword(userId, newPassword);
+	},
 	likePicture:function(imageId){
 		if(Images.find(
 			{
@@ -90,9 +93,6 @@ Meteor.methods({
 				}
 			);
 		}
-	},
-	recoverPassword:function(userId,newPassword){
-		Accounts.setPassword(userId, newPassword);
 	},
 	removeUserImages:function(userId){
 		if(isAdmin(Meteor.userId())){
