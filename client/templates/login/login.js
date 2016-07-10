@@ -34,40 +34,52 @@ Template.login.events({
 	'blur input':function(){
 		$('.footer').show();
 	},
-	'click #forgotPassword':function(){
+	'click #forgotPassword':function(event,template){
+		event.preventDefault();
+
 		var username = prompt('Please enter your username');
 
-		var _id = Meteor.users.findOne({username:username})._id;
+		if(Meteor.users.findOne({"username":username})){
+			var _id = Meteor.users.findOne({"username":username})._id; 
 
-		if(recoveryQuestion != null){
-			var recoveryAnswer = prompt("Answer the following recovery question:\n" + recoveryQuestion);
-			if(recoveryAnswer === Meteor.users.findOne({username:username}).profile.forgotPassword.recoveryAnswer){
-				alert('Access Granted.');
-				var newPassword = prompt('Please enter your new password:');
-				var confirmNewPassword = prompt('Please confirm your new password:');
-				var placeHolder = 'new Password';
-
-				while(newPassword != confirmNewPassword){
-					alert('Passwords do not match.');
-					newPassword = prompt("Please enter your new password:");		
-					confirmNewPassword = prompt("Please confirm your new password:");
-				}
-
-				if((newPassword != null && confirmNewPassword != null) && 
-					(newPassword != '' && confirmNewPassword != '')){
-					Meteor.call('recoverPassword', _id, newPassword);
-					alert('Your new password is: ' + newPassword);
+			Meteor.call('getRecoveryQuestion', _id, function(err,res){
+				if(err){
+					console.log(err);
 				}else{
-					alert('invalid passwords.');
-				}
+					console.log(res);
+					Session.set('question',res);
+					var recoveryAnswer = prompt("Answer the following recovery question:\n" + Session.get('question'));
+					console.log(recoveryAnswer);
+					/*if(Session.set('correct')){
+					alert('Access Granted.');
+					var newPassword = prompt('Please enter your new password:');
+					var confirmNewPassword = prompt('Please confirm your new password:');
+					var placeHolder = 'new Password';
 
-			}else{
-				alert('Access Denied.');
-			}
+					while(newPassword != confirmNewPassword){
+						alert('Passwords do not match.');
+						newPassword = prompt("Please enter your new password:");		
+						confirmNewPassword = prompt("Please confirm your new password:");
+					}
+
+					if((newPassword != null && confirmNewPassword != null) && 
+						(newPassword != '' && confirmNewPassword != '')){
+						Meteor.call('recoverPassword', _id, newPassword);
+						alert('Your new password is: ' + newPassword);
+					}else{
+						alert('invalid passwords.');
+					} 
+
+				}else{
+					alert('Access Denied.');
+				} */
+			 }
+		  });
+
 		}else{
 			alert('This user does not exist.');
-		}
-	}
+		}  
+	} 
 });
 
 Template.login.rendered=function(){
@@ -75,4 +87,5 @@ Template.login.rendered=function(){
 	if(Meteor.userId()){
 		Router.go('/world');
 	}
+
 }

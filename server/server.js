@@ -4,12 +4,16 @@ function isAdmin(userId){
 
 Meteor.methods({
 	insertRecoveryQuestion:function(question,answer){
-		if(RecoveryQuestions.find({"userId":Meteor.userId()}).count() < 0){
+		if(RecoveryQuestions.find({"userId":Meteor.userId()}).count() < 1){
 			RecoveryQuestions.insert({"userId":Meteor.userId(),"question":question,"answer":answer});
 		}
 	},
-	recoverPassword:function(userId,newPassword){
-		Accounts.setPassword(userId, newPassword);
+	getRecoveryQuestion:function(userId){
+		var self = RecoveryQuestions.findOne({"userId":userId});
+		return self.question;
+	},
+	checkAnswer:function(){
+		
 	},
 	likePicture:function(imageId){
 		if(Images.find(

@@ -28,9 +28,10 @@ jquery
 
 
 momentjs:moment
-matb33:collection-hooks
 random
 lepozepo:streams
 check
 accounts-base
 service-configuration
+simple:reactive-method
+meteorhacks:async

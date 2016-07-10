@@ -30,7 +30,7 @@ RecoveryQuestions = new Mongo.Collection("recoveryquestions");
 
 RecoveryQuestions.allow({
  insert: function(){
-	 return true;
+	 return false;
  },
  update: function(){
 	 return false;
@@ -42,7 +42,7 @@ RecoveryQuestions.allow({
 
 RecoveryQuestions.deny({
  insert: function(){
-	 return false;
+	 return true;
  },
  update: function(){
 	 return true;
