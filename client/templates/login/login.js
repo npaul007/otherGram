@@ -46,35 +46,35 @@ Template.login.events({
 				if(err){
 					console.log(err);
 				}else{
-					console.log(res);
-					Session.set('question',res);
-					var recoveryAnswer = prompt("Answer the following recovery question:\n" + Session.get('question'));
-					console.log(recoveryAnswer);
-					/*if(Session.set('correct')){
-					alert('Access Granted.');
-					var newPassword = prompt('Please enter your new password:');
-					var confirmNewPassword = prompt('Please confirm your new password:');
-					var placeHolder = 'new Password';
+					var recoveryQuestion = res;
+					var inputAnswer = prompt("Answer the following recovery question:\n" + recoveryQuestion);
 
-					while(newPassword != confirmNewPassword){
-						alert('Passwords do not match.');
-						newPassword = prompt("Please enter your new password:");		
-						confirmNewPassword = prompt("Please confirm your new password:");
-					}
+					Meteor.call('checkAnswer',_id,inputAnswer,function(err,res){
+						if(res){
+							alert('Access Granted.');
+							var newPassword = prompt('Please enter your new password:');
+							var confirmNewPassword = prompt('Please confirm your new password:');
 
-					if((newPassword != null && confirmNewPassword != null) && 
-						(newPassword != '' && confirmNewPassword != '')){
-						Meteor.call('recoverPassword', _id, newPassword);
-						alert('Your new password is: ' + newPassword);
-					}else{
-						alert('invalid passwords.');
-					} 
+							while(newPassword != confirmNewPassword){
+								alert('Passwords do not match.');
+								newPassword = prompt("Please enter your new password:");		
+								confirmNewPassword = prompt("Please confirm your new password:");
+							}
 
-				}else{
-					alert('Access Denied.');
-				} */
-			 }
-		  });
+							if((newPassword != null && confirmNewPassword != null) && 
+								(newPassword != '' && confirmNewPassword != '')){
+								Meteor.call('setNewPassword',_id,inputAnswer,newPassword);
+								alert('Your new password is: ' + newPassword);
+							}else{
+								alert('invalid passwords.');
+							} 
+
+						}else{
+							alert('Access Denied.');
+						} 
+					});
+			 	}
+		  	});
 
 		}else{
 			alert('This user does not exist.');

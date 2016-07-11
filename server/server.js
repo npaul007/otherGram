@@ -12,8 +12,17 @@ Meteor.methods({
 		var self = RecoveryQuestions.findOne({"userId":userId});
 		return self.question;
 	},
-	checkAnswer:function(){
-		
+	checkAnswer:function(userId,answer){
+		var self = RecoveryQuestions.findOne({"userId":userId});
+		if(answer == self.answer)
+			return true;
+		else
+			return false;
+	},
+	setNewPassword:function(userId,inputAnswer,newPassword){
+		var self = RecoveryQuestions.findOne({"userId":userId});
+		if(inputAnswer == self.answer)
+			Accounts.setPassword(userId,newPassword);
 	},
 	likePicture:function(imageId){
 		if(Images.find(
