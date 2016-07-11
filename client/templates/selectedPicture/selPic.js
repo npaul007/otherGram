@@ -58,58 +58,14 @@ Template.selectedPicture.events({
  			if(comment.length == 0){
  				return;
  			}else{
-	 			Images.update(
-	 				{
-	 					_id:this._id
-	 				} , 
-	 				{
-	 					$push:{
-	 						"metadata.comments":
-	 						{
-	 							"_id":guidGenerator(),
-	 							"userId":Meteor.userId(),
-	 							"username":Meteor.user().username ,
-	 							"comment":comment
-	 						}
-	 					}
-	 				}
-	 			);
+				Meteor.call('insertComment',this._id,guidGenerator(),comment);
 				event.target.value = "";
  			}
  		}
  	},
  	'click .fa-thumbs-o-up':function(event){
 		event.preventDefault();
-		
-		// if the user has already likes this photo
-		if(Images.find(
-			{
-				$and: [
-					{
-						_id:this._id
-					}, 
-					{
-						"metadata.likes":
-						{
-							$elemMatch:
-							{
-								"userId":Meteor.userId()
-							}
-						}
-					}
-				]
-			}
-			).count() > 0){
-			// offer the option to unlike it
-			if(confirm("You have already liked this photo, would you like to unlike this photo?")){
-				Images.update({_id:this._id}, {$pull:{"metadata.likes":{"userId":Meteor.userId()}}});
-			}else{
-				return false; // if they say no do nothing
-			}
-		}else{
-			// if they havent liked the photo, like it
-			Images.update({_id:this._id}, {$push:{"metadata.likes":{"userId":Meteor.userId()}}});
-		}
+		Meteor.call('likePicture',this._id);
 	},
 	'click .fa-pencil-square-o':function(event,template){
 		event.preventDefault();
@@ -123,23 +79,7 @@ Template.selectedPicture.events({
 
 		if(Meteor.userId() === userId || Meteor.userId() === ownersUserId || Meteor.user().profile.type === 'admin'){
 			if(confirm("Would you like to delete this comment?")){
-				Images.update(
-					{
-						_id:imageId
-					} , 
-					{
-						$pull:
-						{
-							"metadata.comments":
-							{
-								"_id":commentId,
-								"userId":userId,
-								"username":username, 
-								"comment":comment
-							}
-						}
-					}
-				);
+				Meteor.call('removeComment',imageId,commentId,userId,username,comment);
 			}else{
 				if(Meteor.userId() == userId){
 					if(confirm("Would you like to edit this comment?")){
